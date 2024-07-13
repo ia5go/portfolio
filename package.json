@@ -1,31 +1,17 @@
 {
-  "name": "project",
+  "name": "portfolio",
   "version": "0.1.0",
-  "description": "Portfolio",
-  "main": "public/index.html",
-  "author": "Benvindo",
+  "description": "Iago Benvindo's frontend developer Portfolio.",
+  "source": "src/index.html",
+  "author": "Iago Benvindo",
   "scripts": {
-    "build:sass": "sass  --no-source-map src/sass:public/css",
-    "copy:assets": "copyfiles -u 1 ./src/assets/**/* public",
-    "copy:html": "copyfiles -u 1 ./src/*.html public",
-    "copy": "npm-run-all --parallel copy:*",
-    "watch:assets": "onchange \"src/assets/**/*\" -- npm run copy:assets",
-    "watch:html": "onchange \"src/*.html\" -- npm run copy:html",
-    "watch:sass": "sass  --no-source-map --watch src/sass:public/css",
-    "watch": "npm-run-all --parallel watch:*",
-    "serve": "browser-sync start --server public --files public",
-    "start": "npm-run-all copy --parallel watch serve",
-    "build": "npm-run-all copy:html build:*",
-    "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
+    "dev": "parcel",
+    "watch": "parcel watch",
+    "build": "parcel build"
   },
-  "dependencies": {
-    "autoprefixer": "^10.4.2",
-    "browser-sync": "^2.27.7",
-    "copyfiles": "^2.4.1",
-    "cssnano": "^5.0.17",
-    "npm-run-all": "^4.1.5",
-    "onchange": "^7.1.0",
-    "postcss-cli": "^9.1.0",
-    "sass": "^1.49.8"
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.12.0",
+    "parcel": "^2.12.0",
+    "sass": "^1.77.8"
   }
 }
