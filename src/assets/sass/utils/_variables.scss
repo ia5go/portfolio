@@ -1,0 +1,109 @@
+@use "typography";
+@use "mixins" as *;
+
+$color-black: #000427;
+$color-white: #ffedfe;
+$color-purple-accent: #ba5db0;
+
+%theme {
+  &__h {
+    font: 500 1rem "Roboto", sans-serif;
+    line-height: 120%;
+    color: $color-black;
+
+    &1 {
+      @extend %theme__h;
+      font-size: 4rem;
+      font-weight: 600;
+
+      @include medium-device-down {
+        font-size: 2.5rem;
+        font-weight: 500;
+      }
+    }
+    &2 {
+      @extend %theme__h;
+      font-size: 3.5rem;
+      font-weight: 600;
+
+      @include medium-device-down {
+        font-size: 2.25rem;
+        font-weight: 500;
+      }
+    }
+    &3 {
+      @extend %theme__h;
+      font-size: 2.25rem;
+
+      @include medium-device-down {
+        font-size: 1.5rem;
+        font-weight: 400;
+      }
+    }
+    &4 {
+      @extend %theme__h;
+      font-size: 1.75rem;
+
+      @include medium-device-down {
+        font-size: 1.375rem;
+        font-weight: 400;
+      }
+    }
+    &5 {
+      @extend %theme__h;
+      font-size: 1.25rem;
+
+      @include medium-device-down {
+        font-size: 1.125rem;
+      }
+    }
+    &6 {
+      @extend %theme__h;
+    }
+  }
+
+  &__p {
+    &1 {
+      font: 500 1rem "Roboto", sans-serif;
+      text-align: left;
+      color: $color-black;
+      line-height: 140%;
+    }
+
+    &2 {
+      font: 500 0.875rem "Roboto", sans-serif;
+      text-align: left;
+      color: rgba($color-black, 0.8);
+      line-height: 120%;
+    }
+  }
+
+  &__cta {
+    @include disFlex(row, center, center);
+    font: 500 1rem "Roboto", sans-serif;
+    line-height: 120%;
+    color: $color-black;
+    text-align: center;
+
+    border: solid 1px $color-black;
+    background-color: $color-white;
+    width: fit-content;
+    padding: 1.125rem 2.5rem;
+
+    transition: background-color ease 0.3s, color ease-out 0.3s;
+
+    &:hover {
+      background-color: $color-black;
+      color: $color-purple-accent;
+    }
+
+    @include medium-device-down {
+      font-size: 0.875rem;
+    }
+
+    &-link {
+      @extend %theme__cta;
+      text-transform: capitalize;
+    }
+  }
+}

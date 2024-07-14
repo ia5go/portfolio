@@ -1,3 +1,30 @@
+@import url("../../../node_modules/@splidejs/splide/dist/css/splide.min.css");
+
+$bg: #12aaff;
+
+* {
+  width: 100%;
+}
+
 body {
-  background-color: orange;
+  background-color: $bg;
+}
+
+.splide {
+  width: 100%;
+  &__slide {
+    min-width: 5rem;
+    height: 13rem;
+    background-color: #780000;
+
+    &:nth-of-type(2) {
+      background-color: #c1121f;
+    }
+    &:nth-of-type(3) {
+      background-color: #fdf0d5;
+    }
+    &:nth-of-type(4) {
+      background-color: #003049;
+    }
+  }
 }

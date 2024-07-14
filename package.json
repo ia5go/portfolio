@@ -2,16 +2,15 @@
   "name": "portfolio",
   "version": "0.1.0",
   "description": "Iago Benvindo's frontend developer Portfolio.",
-  "source": "src/index.html",
   "author": "Iago Benvindo",
   "scripts": {
-    "dev": "parcel",
-    "watch": "parcel watch",
-    "build": "parcel build"
+    "start": "parcel src/index.html"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.12.0",
-    "parcel": "^2.12.0",
-    "sass": "^1.77.8"
+    "parcel": "^2.12.0"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4"
   }
 }
