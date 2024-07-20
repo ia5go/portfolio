@@ -9,6 +9,7 @@ body {
   width: 100%;
   border: $border;
   background-color: $color-white;
+  position: relative;
 }
 
 .header {
@@ -18,14 +19,18 @@ body {
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
-  position: relative;
 
   overflow: hidden;
 
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
   width: 100%;
-  border: $border;
+  border-bottom: $border;
   border-right: none;
   border-left: none;
+  background-color: $color-white;
 
   &__nav {
     transition: translate ease 0.3s, opacity ease 0.3s;
@@ -94,10 +99,14 @@ body {
 
 .hero {
   @include disFlex;
+  flex-wrap: wrap;
   width: 100%;
-  height: calc(100dvh - 156px);
-  // height: calc(100dvh - 56px);
+  height: calc(100dvh - 59px);
   border-bottom: $border;
+
+  @include large-device-down {
+    height: auto;
+  }
 
   &__information {
     @extend %theme__padding;
@@ -105,6 +114,12 @@ body {
     width: 50%;
     border-right: $border;
     gap: 1rem;
+
+    @include large-device-down {
+      width: 100%;
+      border-bottom: $border;
+      border-right: none;
+    }
 
     &__title {
       @include disFlex(column);
@@ -126,6 +141,85 @@ body {
 
       a {
         text-decoration: underline;
+      }
+    }
+  }
+
+  &__action {
+    width: 50%;
+    height: 100%;
+
+    @include disFlex();
+    flex-wrap: wrap;
+
+    @include large-device-down {
+      width: 100%;
+    }
+
+    &__item {
+      @extend %theme__padding;
+      @include disFlex(column, center, center);
+      width: 50%;
+      height: 50%;
+      position: relative;
+
+      @include large-device-down {
+        height: 25dvh;
+      }
+
+      &:nth-of-type(1) {
+        border-right: $border;
+        border-bottom: $border;
+      }
+      &:nth-of-type(2) {
+        border-bottom: $border;
+      }
+      &:nth-of-type(3) {
+        border-right: $border;
+      }
+
+      &__title {
+        @extend %theme__h3;
+      }
+
+      &__link {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        translate: -50% 0;
+
+        width: 100%;
+
+        @include disFlex(row, center, center);
+        font: 500 1rem $jost;
+        line-height: 120%;
+        color: $color-black;
+        text-align: center;
+        overflow: hidden;
+
+        padding: 0.5rem;
+        isolation: isolate;
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          translate: 0 100%;
+          transition: translate ease 0.3s;
+          background-color: $color-black;
+          z-index: -1;
+        }
+
+        &:is(:hover, :active) {
+          color: $color-purple-accent;
+
+          &::before {
+            translate: 0 0;
+          }
+        }
       }
     }
   }
