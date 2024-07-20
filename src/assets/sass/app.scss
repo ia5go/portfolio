@@ -1,30 +1,132 @@
-@import url("../../../node_modules/@splidejs/splide/dist/css/splide.min.css");
-
-$bg: #12aaff;
-
-* {
-  width: 100%;
-}
+@use "utils/plugins";
+@use "utils/reset";
+@use "utils/base";
+@use "utils/typography" as *;
+@use "utils/variables" as *;
+@use "utils/mixins" as *;
 
 body {
-  background-color: $bg;
+  width: 100%;
+  border: $border;
+  background-color: $color-white;
 }
 
-.splide {
-  width: 100%;
-  &__slide {
-    min-width: 5rem;
-    height: 13rem;
-    background-color: #780000;
+.header {
+  @include disFlex(row, space-between, center);
 
-    &:nth-of-type(2) {
-      background-color: #c1121f;
+  @extend %theme__padding;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  position: relative;
+
+  overflow: hidden;
+
+  width: 100%;
+  border: $border;
+  border-right: none;
+  border-left: none;
+
+  &__nav {
+    transition: translate ease 0.3s, opacity ease 0.3s;
+
+    @include large-device-down {
+      position: fixed;
+      width: 360px;
+      height: calc(100dvh - 56px);
+      z-index: 15;
+      padding: 1rem;
+      border: $border;
+      top: 56px;
+      right: 0;
+      translate: 100% 0;
+      opacity: 0;
     }
-    &:nth-of-type(3) {
-      background-color: #fdf0d5;
+
+    @include small-device-down {
+      width: 100%;
     }
-    &:nth-of-type(4) {
-      background-color: #003049;
+
+    &.open {
+      @include large-device-down {
+        translate: 0 0;
+        opacity: 1;
+      }
+    }
+
+    &__ul {
+      @include disFlex;
+
+      @include large-device-down {
+        align-items: stretch;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      &__item {
+        @include large-device-down {
+          width: 100%;
+        }
+
+        &__link {
+          @extend %theme__cta;
+          margin: $btc $btc $btc 0;
+
+          @include large-device-down {
+            width: 100%;
+            margin: 0 0 $btc 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__menu-mobile {
+    @extend %theme__cta;
+    padding: 1.125rem;
+    margin: $btc $btc $btc 0;
+
+    @include large-device-up {
+      display: none;
+    }
+  }
+}
+
+.hero {
+  @include disFlex;
+  width: 100%;
+  height: calc(100dvh - 156px);
+  // height: calc(100dvh - 56px);
+  border-bottom: $border;
+
+  &__information {
+    @extend %theme__padding;
+    @include disFlex(column, center, start);
+    width: 50%;
+    border-right: $border;
+    gap: 1rem;
+
+    &__title {
+      @include disFlex(column);
+      @extend %theme__h1;
+    }
+
+    &__subtitle {
+      @include disFlex(column);
+      @extend %theme__h4;
+      color: $color-gray;
+    }
+
+    &__paragraph {
+      border-top: $border;
+      padding-top: 1rem;
+      width: 100%;
+      @extend %theme__p1;
+      color: $color-lightgray;
+
+      a {
+        text-decoration: underline;
+      }
     }
   }
 }

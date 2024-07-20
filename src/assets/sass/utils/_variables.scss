@@ -1,13 +1,29 @@
 @use "typography";
 @use "mixins" as *;
 
-$color-black: #000427;
-$color-white: #ffedfe;
+// palet https://coolors.co/f9f1f9-ba5db0-d2cfd6-6a5e69-151415
+$color-black: #151415;
+$color-white: #f9f1f9;
+$color-lightgray: #9e97a0;
+$color-gray: #6a5e69;
 $color-purple-accent: #ba5db0;
 
+$jost: "Jost", sans-serif;
+
+$bt: 2px; //short for border-thickness
+$btc: -2px; //short for border-thickness compensation
+$border: solid $bt $color-black;
+
 %theme {
+  &__padding {
+    padding-top: 2rem;
+    padding-right: 2.5vw;
+    padding-bottom: 2rem;
+    padding-left: 2.5vw;
+  }
+
   &__h {
-    font: 500 1rem "Roboto", sans-serif;
+    font: 500 1rem $jost;
     line-height: 120%;
     color: $color-black;
 
@@ -64,14 +80,14 @@ $color-purple-accent: #ba5db0;
 
   &__p {
     &1 {
-      font: 500 1rem "Roboto", sans-serif;
+      font: 500 1rem $jost;
       text-align: left;
       color: $color-black;
       line-height: 140%;
     }
 
     &2 {
-      font: 500 0.875rem "Roboto", sans-serif;
+      font: 500 0.875rem $jost;
       text-align: left;
       color: rgba($color-black, 0.8);
       line-height: 120%;
@@ -80,25 +96,25 @@ $color-purple-accent: #ba5db0;
 
   &__cta {
     @include disFlex(row, center, center);
-    font: 500 1rem "Roboto", sans-serif;
+    font: 500 1rem $jost;
     line-height: 120%;
     color: $color-black;
     text-align: center;
 
-    border: solid 1px $color-black;
+    border: $border;
     background-color: $color-white;
     width: fit-content;
     padding: 1.125rem 2.5rem;
 
     transition: background-color ease 0.3s, color ease-out 0.3s;
 
-    &:hover {
+    &:is(:hover, :active) {
       background-color: $color-black;
       color: $color-purple-accent;
-    }
 
-    @include medium-device-down {
-      font-size: 0.875rem;
+      line {
+        stroke: $color-purple-accent;
+      }
     }
 
     &-link {

@@ -13,6 +13,11 @@ html {
   scroll-margin-top: 1rem;
 }
 
+body {
+  width: 100dvw;
+  overflow-x: hidden;
+}
+
 a,
 button {
   cursor: pointer;
@@ -26,6 +31,13 @@ input,
 select,
 textarea {
   outline: 0;
+}
+
+p {
+  font: inherit;
+  color: inherit;
+  line-height: inherit;
+  text-align: inh;
 }
 
 .link-full {

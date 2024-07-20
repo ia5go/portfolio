@@ -1,8 +1,17 @@
-// import "../../../node_modules/@splidejs/splide/dist/css/themes/splide.min.css";
-import Splide from "@splidejs/splide";
+const headerNav = document.querySelector(".header__nav");
+const headerMenuBtn = document.querySelector(".header__menu-mobile");
 
-new Splide(".splide", {
-  perPage: 3,
-  pagination: false,
-  arrows: false,
-}).mount();
+headerMenuBtn.addEventListener("click", () => {
+  headerNav.classList.toggle("open");
+});
+
+// Close the navigation menu if the click is outside
+window.addEventListener("click", (event) => {
+  if (
+    headerNav.classList.contains("open") &&
+    !headerNav.contains(event.target) &&
+    !headerMenuBtn.contains(event.target)
+  ) {
+    headerNav.classList.remove("open");
+  }
+});

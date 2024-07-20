@@ -3,34 +3,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>iagoBenvindo - Programador</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32'><rect width='100%' height='100%' fill='white' stroke='black' stroke-width='1'/><text x='8' y='24' font-family='Jost, sans-serif' font-size='1.5rem' letter-spacing='-2px' fill='black'>iB</text></svg>" type="image/svg+xml">
     <link rel="stylesheet" href="/index.55ae97a8.css">
     <script src="/index.d03ee93a.js" defer=""></script>
   </head>
   <body>
     <header class="header" id="header">
-      <a href="/index.html" class="brand">iagoBenvindo</a>
+      <svg class="header__brand" width="164" height="36" xmlns="http://www.w3.org/2000/svg">
+        <text x="0" y="28" font-family="Jost, sans-serif" font-size="2rem" letter-spacing="-2px">iagoBenvindo</text>
+      </svg>
+
       <nav class="header__nav">
         <ul class="header__nav__ul">
-          <li class="header__nav__ul__item"><a href="#">Stack</a></li>
-          <li class="header__nav__ul__item"><a href="#">Destaques</a></li>
-          <li class="header__nav__ul__item"><a href="#">Pessoais</a></li>
-          <li class="header__nav__ul__item"><a href="#">Contato</a></li>
-          <li class="header__nav__ul__item"><a href="#">Atualmente</a></li>
+          <li class="header__nav__ul__item"><a class="header__nav__ul__item__link" href="#">Stack</a></li>
+          <li class="header__nav__ul__item"><a class="header__nav__ul__item__link" href="#">Destaques</a></li>
+          <li class="header__nav__ul__item"><a class="header__nav__ul__item__link" href="#">Pessoais</a></li>
+          <li class="header__nav__ul__item"><a class="header__nav__ul__item__link" href="#">Contato</a></li>
+          <li class="header__nav__ul__item"><a class="header__nav__ul__item__link" href="#">Atualmente</a></li>
         </ul>
       </nav>
+      <button class="header__menu-mobile" title="Menu mobile">
+        <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg">
+          <!-- First line -->
+          <line x1="0" y1="3" x2="16" y2="3" stroke="black" stroke-width="2"></line>
+          <!-- Second line with gap starting at 20% -->
+          <line x1="0" y1="8" x2="3.2" y2="8" stroke="black" stroke-width="2"></line>
+          <line x1="5.2" y1="8" x2="16" y2="8" stroke="black" stroke-width="2"></line>
+          <!-- Third line with gap starting at 60% -->
+          <line x1="0" y1="13" x2="9.6" y2="13" stroke="black" stroke-width="2"></line>
+          <line x1="11.6" y1="13" x2="16" y2="13" stroke="black" stroke-width="2"></line>
+        </svg>
+      </button>
     </header>
 
     <main class="main">
-      <h1>teste</h1>
-
-      <section class="splide">
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide">teste 1</li>
-            <li class="splide__slide">teste 2</li>
-            <li class="splide__slide">teste 3</li>
-            <li class="splide__slide">teste 4</li>
-          </ul>
+      <section class="hero">
+        <div class="hero__information">
+          <h1 class="hero__information__title">Iago Benvindo</h1>
+          <h2 class="hero__information__subtitle">
+            <span>Programador</span>
+            <span>Desenvolvedor Web</span>
+          </h2>
+          <div class="hero__information__paragraph">
+            <p>
+              Programador há mais de 5 anos. Mais de 3 anos de experiência em desenvolvimento web, destaque em projetos
+              como
+              <i><a href="https://www.irmadulce.org.br/home" target="_blank" aria-label="Portal Santa Irmã Dulce">Portal Santa Irmã Dulce</a></i>, <i><a href="https://www.dnagenetica.com.br/" target="_blank" aria-label="DNA Genética">DNA</a></i>, e
+              <i><a href="https://www.platinumsalvador.com.br/" target="_blank" aria-label="Platinum Salvador">Platinum</a></i>.
+            </p>
+          </div>
         </div>
       </section>
     </main>

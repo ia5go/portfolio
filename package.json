@@ -3,8 +3,11 @@
   "version": "0.1.0",
   "description": "Iago Benvindo's frontend developer Portfolio.",
   "author": "Iago Benvindo",
+  "source": "src/index.html",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "scripts": {
-    "start": "parcel src/index.html"
+    "start": "parcel src/index.html",
+    "build": "parcel build"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.12.0",
