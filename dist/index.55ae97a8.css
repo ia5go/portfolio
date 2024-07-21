@@ -615,6 +615,7 @@ body {
 }
 
 .header__nav__ul__item__link {
+  min-width: 12.625dvw;
   margin: -2px -2px -2px 0;
 }
 

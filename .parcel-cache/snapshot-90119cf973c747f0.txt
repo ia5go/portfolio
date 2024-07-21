@@ -1,9 +1,4 @@
 6448
-51D:\GitHub\portfolio\node_modules\lmdb\src\windows.c133653910578228813 0
-69D:\GitHub\portfolio\node_modules\@swc\helpers\_\_extends\package.json133653910594958032 0
-49D:\GitHub\portfolio\node_modules\cosmiconfig\dist133653910574159937 1
-35D:\GitHub\portfolio\dist\index.html133659878113140617 0
-76D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\css-selection.js133653910593867559 0
 40D:\GitHub\portfolio\node_modules\timsort133653910532295408 1
 91D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\justify-content-space-evenly.js133653910624169523 0
 75D:\GitHub\portfolio\node_modules\node-gyp-build-optional-packages\README.md133653910530526484 0
@@ -34,7 +29,7 @@
 93D:\GitHub\portfolio\node_modules\@swc\helpers\cjs\_class_static_private_field_destructure.cjs133653910560841567 0
 49D:\GitHub\portfolio\node_modules\readdirp\LICENSE133653911559700385 0
 50D:\GitHub\portfolio\node_modules\@msgpackr-extract133653925476692229 1
-24D:\GitHub\portfolio\dist133659878114056794 1
+24D:\GitHub\portfolio\dist133659892416748447 1
 96D:\GitHub\portfolio\node_modules\@parcel\optimizer-svgo\node_modules\svgo\plugins\mergeStyles.js133653910561554436 0
 64D:\GitHub\portfolio\node_modules\source-map\lib\binary-search.js133653910532734857 0
 57D:\GitHub\portfolio\node_modules\weak-lru-cache\README.md133653910532719704 0
@@ -72,7 +67,7 @@
 47D:\GitHub\portfolio\node_modules\.bin\json5.cmd133653910644436055 0
 89D:\GitHub\portfolio\node_modules\@splidejs\splide\src\js\utils\dom\parseHtml\parseHtml.ts133653925474294162 0
 73D:\GitHub\portfolio\node_modules\lmdb\dependencies\v8\v8-fast-api-calls.h133653910584083277 0
-37D:\GitHub\portfolio\dist\assets\files133659878113155718 1
+37D:\GitHub\portfolio\dist\assets\files133659892407371866 1
 44D:\GitHub\portfolio\node_modules\ansi-styles133653910527517534 1
 93D:\GitHub\portfolio\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\syntax\node133653910584929165 1
 80D:\GitHub\portfolio\node_modules\lmdb\dependencies\lz4\lib\dll\example\README.md133653910586806495 0
@@ -142,7 +137,7 @@
 75D:\GitHub\portfolio\node_modules\@parcel\core\src\serializerCore.browser.js133653910586608161 0
 44D:\GitHub\portfolio\src\assets\script\app.js133659780842671558 0
 50D:\GitHub\portfolio\node_modules\anymatch\index.js133653911559741019 0
-44D:\GitHub\portfolio\src\assets\sass\app.scss133659878110558518 0
+44D:\GitHub\portfolio\src\assets\sass\app.scss133659892374559252 0
 41D:\GitHub\portfolio\src\assets\sass\utils133659632488931327 1
 76D:\GitHub\portfolio\node_modules\@parcel\packager-wasm\lib\wasm-sourcemap.js133653910522937959 0
 81D:\GitHub\portfolio\node_modules\@splidejs\splide\src\js\utils\arrayLike\index.ts133653925473092099 0
@@ -188,6 +183,15 @@
 58D:\GitHub\portfolio\src\assets\sass\utils\_typography.scss133659653008055369 0
 64D:\GitHub\portfolio\node_modules\cosmiconfig\dist\loaders.js.map133653910563511496 0
 83D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\js-regexp-lookbehind.js133653910624139582 0
+108D:\GitHub\portfolio\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\definition-syntax\index.js133653910575851113 0
+58D:\GitHub\portfolio\node_modules\@parcel\reporter-cli\test133653910541958031 1
+92D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\lib\syntax\node\AtrulePrelude.js133653910584502776 0
+90D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\lib\syntax\node\Declaration.js133653910587741703 0
+56D:\GitHub\portfolio\node_modules\sass\types\compile.d.ts133653911560462278 0
+60D:\GitHub\portfolio\node_modules\@parcel\transformer-raw\src133653910522418697 1
+85D:\GitHub\portfolio\node_modules\msgpackr-extract\node_modules\detect-libc\index.d.ts133653910531276982 0
+53D:\GitHub\portfolio\node_modules\import-fresh\license133653910518271411 0
+41D:\GitHub\portfolio\node_modules\entities133653910551685169 1
 111D:\GitHub\portfolio\node_modules\@parcel\core\test\fixtures\plugins\node_modules\parcel-transformer-bad-engines133653910592984391 1
 41D:\GitHub\portfolio\node_modules\chokidar133653911560069284 1
 65D:\GitHub\portfolio\node_modules\cosmiconfig\dist\cacheWrapper.js133653910520306499 0
@@ -387,15 +391,6 @@
 73D:\GitHub\portfolio\node_modules\css-select\node_modules\domutils\LICENSE133653910519108814 0
 42D:\GitHub\portfolio\node_modules\env-paths133653910527439734 1
 55D:\GitHub\portfolio\node_modules\mdn-data\css\readme.md133653910560609510 0
-108D:\GitHub\portfolio\node_modules\@parcel\optimizer-svgo\node_modules\css-tree\lib\definition-syntax\index.js133653910575851113 0
-58D:\GitHub\portfolio\node_modules\@parcel\reporter-cli\test133653910541958031 1
-92D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\lib\syntax\node\AtrulePrelude.js133653910584502776 0
-90D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\lib\syntax\node\Declaration.js133653910587741703 0
-56D:\GitHub\portfolio\node_modules\sass\types\compile.d.ts133653911560462278 0
-60D:\GitHub\portfolio\node_modules\@parcel\transformer-raw\src133653910522418697 1
-85D:\GitHub\portfolio\node_modules\msgpackr-extract\node_modules\detect-libc\index.d.ts133653910531276982 0
-53D:\GitHub\portfolio\node_modules\import-fresh\license133653910518271411 0
-41D:\GitHub\portfolio\node_modules\entities133653910551685169 1
 78D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\lib\lexer\error.js133653910588040069 0
 41D:\GitHub\portfolio\node_modules\error-ex133653910523319553 1
 42D:\GitHub\portfolio\node_modules\immutable133653911560401893 1
@@ -839,6 +834,9 @@
 67D:\GitHub\portfolio\node_modules\@swc\helpers\_\_throw\package.json133653910599235515 0
 73D:\GitHub\portfolio\node_modules\utility-types\dist\functional-helpers.js133653910522243411 0
 61D:\GitHub\portfolio\node_modules\source-map\lib\quick-sort.js133653910543238882 0
+71D:\GitHub\portfolio\node_modules\@parcel\core\test\fixtures\module-b.js133653910580772893 0
+63D:\GitHub\portfolio\node_modules\escape-string-regexp\readme.md133653910523704703 0
+53D:\GitHub\portfolio\node_modules\json5\lib\unicode.js133653910544427481 0
 53D:\GitHub\portfolio\node_modules\htmlnano\LICENSE.txt133653910582297885 0
 77D:\GitHub\portfolio\node_modules\utility-types\dist\functional-helpers.js.map133653910533050618 0
 102D:\GitHub\portfolio\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\parser\create.js133653910553550720 0
@@ -2313,6 +2311,9 @@
 80D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\css-cascade-scope.js133653910586225102 0
 50D:\GitHub\portfolio\node_modules\lmdb\src\misc.cpp133653910580410984 0
 49D:\GitHub\portfolio\node_modules\lmdb\src\txn.cpp133653910580702694 0
+51D:\GitHub\portfolio\node_modules\lmdb\src\windows.c133653910578228813 0
+69D:\GitHub\portfolio\node_modules\@swc\helpers\_\_extends\package.json133653910594958032 0
+49D:\GitHub\portfolio\node_modules\cosmiconfig\dist133653910574159937 1
 52D:\GitHub\portfolio\node_modules\lmdb\src\writer.cpp133653910581491731 0
 81D:\GitHub\portfolio\node_modules\css-tree\lib\syntax\node\index-parse-selector.js133653910590222043 0
 65D:\GitHub\portfolio\node_modules\lmdb\node_modules\node-addon-api133653910551722879 1
@@ -2454,9 +2455,6 @@
 69D:\GitHub\portfolio\node_modules\@parcel\transformer-svg\package.json133653910538406324 0
 81D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\cjs\syntax\create.cjs133653910553818273 0
 51D:\GitHub\portfolio\node_modules\json5\lib\index.js133653910524124710 0
-71D:\GitHub\portfolio\node_modules\@parcel\core\test\fixtures\module-b.js133653910580772893 0
-63D:\GitHub\portfolio\node_modules\escape-string-regexp\readme.md133653910523704703 0
-53D:\GitHub\portfolio\node_modules\json5\lib\unicode.js133653910544427481 0
 81D:\GitHub\portfolio\node_modules\@swc\helpers\cjs\_apply_decorated_descriptor.cjs133653910520347144 0
 52D:\GitHub\portfolio\node_modules\json5\lib\util.d.ts133653910552239043 0
 80D:\GitHub\portfolio\node_modules\css-select\node_modules\domutils\lib\index.d.ts133653910574281013 0
@@ -3223,11 +3221,11 @@
 54D:\GitHub\portfolio\node_modules\css-what\package.json133653910544765782 0
 98D:\GitHub\portfolio\node_modules\@parcel\optimizer-htmlnano\node_modules\csso\lib\replace\index.js133653910564805557 0
 80D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\cjs\walker\index.cjs133653910576269699 0
+79D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\cjs\utils\names.cjs133653910578046439 0
+54D:\GitHub\portfolio\node_modules\css-tree\dist\data.js133653910588047581 0
 78D:\GitHub\portfolio\node_modules\@parcel\core\test\ParcelConfigRequest.test.js133653910583605645 0
 103D:\GitHub\portfolio\node_modules\@parcel\optimizer-htmlnano\node_modules\css-select\lib\attributes.d.ts133653910555669906 0
 77D:\GitHub\portfolio\node_modules\csso\cjs\restructure\prepare\specificity.cjs133653910564289045 0
-54D:\GitHub\portfolio\node_modules\css-tree\dist\data.js133653910588047581 0
-79D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\cjs\utils\names.cjs133653910578046439 0
 64D:\GitHub\portfolio\node_modules\caniuse-lite\data\regions\CH.js133653910580993080 0
 80D:\GitHub\portfolio\node_modules\csso\node_modules\css-tree\cjs\utils\string.cjs133653910582248068 0
 94D:\GitHub\portfolio\node_modules\@msgpackr-extract\msgpackr-extract-win32-x64\node.abi115.node133653910528908755 0
@@ -4421,6 +4419,8 @@
 71D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\css-sel2.js133653910593797258 0
 68D:\GitHub\portfolio\node_modules\@swc\helpers\_\_update\package.json133653910599773847 0
 71D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\css-sel3.js133653910593837538 0
+35D:\GitHub\portfolio\dist\index.html133659892416743407 0
+76D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\css-selection.js133653910593867559 0
 74D:\GitHub\portfolio\node_modules\@parcel\packager-html\lib\HTMLPackager.js133653910520497707 0
 67D:\GitHub\portfolio\node_modules\@parcel\reporter-cli\src\render.js133653910546885993 0
 77D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\css-snappoints.js133653910593967798 0
@@ -4588,7 +4588,7 @@
 71D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\promises.js133653910636549339 0
 76D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\queryselector.js133653910636747847 0
 78D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\referrer-policy.js133653910636800992 0
-46D:\GitHub\portfolio\dist\index.d03ee93a.js.map133659878113204587 0
+46D:\GitHub\portfolio\dist\index.d03ee93a.js.map133659892407812507 0
 77D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\rel-noreferrer.js133653910636848467 0
 72D:\GitHub\portfolio\node_modules\@parcel\runtime-browser-hmr\lib\loaders133653910520477805 1
 66D:\GitHub\portfolio\node_modules\caniuse-lite\data\features\rem.js133653910636878418 0
@@ -4823,7 +4823,7 @@
 77D:\GitHub\portfolio\node_modules\@swc\helpers\_\_read_only_error\package.json133653910598460462 0
 113D:\GitHub\portfolio\node_modules\@parcel\optimizer-svgo\node_modules\css-select\lib\pseudo-selectors\aliases.d.ts133653910555219631 0
 89D:\GitHub\portfolio\node_modules\@swc\helpers\_\_possible_constructor_return\package.json133653910598401057 0
-43D:\GitHub\portfolio\dist\index.55ae97a8.css133659878114026446 0
+43D:\GitHub\portfolio\dist\index.55ae97a8.css133659892416299148 0
 81D:\GitHub\portfolio\node_modules\@swc\helpers\_\_object_spread_props\package.json133653910597606608 0
 88D:\GitHub\portfolio\node_modules\@swc\helpers\_\_object_destructuring_empty\package.json133653910597501387 0
 79D:\GitHub\portfolio\node_modules\@swc\helpers\_\_non_iterable_rest\package.json133653910596955405 0
@@ -5704,7 +5704,7 @@
 109D:\GitHub\portfolio\node_modules\@parcel\optimizer-htmlnano\node_modules\svgo\plugins\removeElementsByAttr.js133653910572108202 0
 66D:\GitHub\portfolio\node_modules\@parcel\reporter-cli\src\utils.js133653910547338392 0
 72D:\GitHub\portfolio\node_modules\@parcel\reporter-cli\lib\CLIReporter.js133653910532456773 0
-44D:\GitHub\portfolio\dist\assets\files\CV.pdf133659878113140617 0
+44D:\GitHub\portfolio\dist\assets\files\CV.pdf133659892407350878 0
 61D:\GitHub\portfolio\node_modules\@parcel\profiler\build-ts.js133653910520051360 0
 113D:\GitHub\portfolio\node_modules\@parcel\optimizer-htmlnano\node_modules\css-tree\lib\syntax\pseudo\common\nth.js133653910580204644 0
 62D:\GitHub\portfolio\node_modules\@parcel\profiler\package.json133653910546895951 0
@@ -5762,7 +5762,7 @@
 94D:\GitHub\portfolio\node_modules\@parcel\package-manager\test\getCurrentPackageManager.test.js133653910523024165 0
 88D:\GitHub\portfolio\node_modules\@parcel\package-manager\test\NodePackageManager.test.js133653910553580612 0
 94D:\GitHub\portfolio\node_modules\@parcel\package-manager\test\validateModuleSpecifiers.test.js133653910561097053 0
-47D:\GitHub\portfolio\dist\index.55ae97a8.css.map133659878114046687 0
+47D:\GitHub\portfolio\dist\index.55ae97a8.css.map133659892416587241 0
 76D:\GitHub\portfolio\node_modules\@parcel\package-manager\test\fixtures\empty133653910564379369 1
 79D:\GitHub\portfolio\node_modules\@parcel\package-manager\test\fixtures\packages133653910551001678 1
 85D:\GitHub\portfolio\node_modules\@parcel\package-manager\test\fixtures\packages\peers133653910570319645 1
@@ -6446,4 +6446,4 @@
 46D:\GitHub\portfolio\node_modules\.bin\sass.ps1133653911561057836 0
 44D:\GitHub\portfolio\node_modules\.bin\semver133653910645051441 0
 64D:\GitHub\portfolio\node_modules\.bin\update-browserslist-db.ps1133653910644533163 0
-42D:\GitHub\portfolio\dist\index.d03ee93a.js133659878113140617 0
+42D:\GitHub\portfolio\dist\index.d03ee93a.js133659892407747726 0
