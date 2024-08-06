@@ -34,6 +34,7 @@ body {
 
   &__nav {
     transition: translate ease 0.3s, opacity ease 0.3s;
+    background-color: $color-white;
 
     @include large-device-down {
       position: fixed;
@@ -76,7 +77,7 @@ body {
         &__link {
           @extend %theme__cta;
           margin: $btc $btc $btc 0;
-          min-width: 12.625dvw;
+          width: calc(12.5dvw + ($btc * -1));
 
           @include large-device-down {
             width: 100%;
@@ -104,6 +105,8 @@ body {
   width: 100%;
   height: calc(100dvh - 59px);
   border-bottom: $border;
+
+  scroll-snap-align: center;
 
   @include large-device-down {
     height: auto;
@@ -223,5 +226,19 @@ body {
         }
       }
     }
+  }
+}
+
+.highlights {
+  width: 100%;
+  min-height: calc(100dvh - 59px);
+  border-bottom: $border;
+
+  &__left {
+    width: 50%;
+  }
+
+  &__right {
+    width: 50%;
   }
 }
