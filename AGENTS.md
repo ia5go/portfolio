@@ -1,3 +1,13 @@
+## Bilingual content
+
+Every user-facing text added to the site ships in both Portuguese and English, as a **Localized Field** `{ en, pt }` (see `CONTEXT.md`). Portuguese is the default locale at `/`; English lives at `/en`. Write both sides in the same change; never leave one as a placeholder or a copy of the other.
+
+Client-owned material (screenshots, client names, URLs) stays single-source, unless that client really has more than one language version.
+
+## Design
+
+Mobile first. Design and build for a phone-sized screen, then add desktop-only enhancements on top (custom cursor, heavy animation, extra interactions); the mobile version must be complete and fast on its own. Nothing from the draft is dropped: on mobile, heavy effects are hidden or disabled, while desktop keeps the full experience. Follow current mobile best practices: touch targets of at least 44px, readable text without zoom, no horizontal scroll, light assets, and `prefers-reduced-motion` respected. Keep the vaporwave style from `reference/portfolio-html/portfolio-iago.html`, elegant rather than loud.
+
 ## Agent skills
 
 ### Issue tracker
