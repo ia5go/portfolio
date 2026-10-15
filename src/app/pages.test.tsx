@@ -77,6 +77,31 @@ describe("Home Page", () => {
   });
 });
 
+describe("Home Page complete section order", () => {
+  const expected = [
+    "hero",
+    "featured-projects",
+    "contact-strip",
+    "about",
+    "skills",
+    "experience",
+    "consulting",
+    "formation",
+    "contact",
+  ];
+
+  it.each([
+    ["pt", HomePt],
+    ["en", HomeEn],
+  ])("renders all nine sections in spec order (%s)", (_locale, Page) => {
+    const { container } = render(<Page />);
+    const ids = Array.from(container.querySelectorAll("main > section")).map(
+      (s) => s.id,
+    );
+    expect(ids).toEqual(expected);
+  });
+});
+
 describe("Projects Page", () => {
   it("renders in both locales with a switch to the equivalent page", () => {
     const pt = render(<ProjectsPt />);

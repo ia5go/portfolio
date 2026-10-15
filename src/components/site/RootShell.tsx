@@ -1,7 +1,7 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Viewport } from "next";
 import { Rajdhani, Space_Mono, VT323 } from "next/font/google";
-import { siteDescription, siteName } from "@/content/site";
-import { t, type Locale } from "@/content/localized";
+import { localeMetadata } from "@/content/metadata";
+import type { Locale } from "@/content/localized";
 import { Effects } from "./Effects";
 import "../../app/globals.css";
 
@@ -25,12 +25,8 @@ const vt323 = VT323({
   display: "swap",
 });
 
-export function localeMetadata(locale: Locale): Metadata {
-  return {
-    title: t(siteName, locale),
-    description: t(siteDescription, locale),
-  };
-}
+
+export { localeMetadata };
 
 export const viewport: Viewport = {
   width: "device-width",
