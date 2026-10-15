@@ -1,0 +1,73 @@
+.timeline {
+  display: grid;
+  gap: 1rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.exp {
+  --exp-color: var(--purple);
+  padding: 1rem 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--exp-color) 45%, transparent);
+  border-left: 4px solid var(--exp-color);
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--exp-color) 8%, var(--bg2));
+}
+
+/* Gradient hierarchy: strongest on the newest, fading down the top three. */
+.exp--rank-1 {
+  --exp-color: var(--pink);
+  box-shadow: var(--glow-pink);
+}
+.exp--rank-2 {
+  --exp-color: var(--purple);
+  box-shadow: var(--glow-purple);
+}
+.exp--rank-3 {
+  --exp-color: var(--cyan);
+}
+.exp--compact {
+  --exp-color: var(--grid-color);
+  opacity: 0.8;
+  padding: 0.75rem 1.1rem;
+}
+
+.exp__dates {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--exp-color);
+}
+.exp--compact .exp__dates {
+  color: var(--text);
+}
+
+.exp__role {
+  margin: 0.25rem 0 0;
+  font-size: 1.25rem;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.exp__company {
+  margin: 0.15rem 0 0;
+  font-size: 1rem;
+  color: var(--yellow);
+}
+
+.exp__bullets {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.exp__bullets li + li {
+  margin-top: 0.4rem;
+}
+
+@media (min-width: 48rem) {
+  .exp {
+    padding: 1.25rem 1.5rem;
+  }
+}
