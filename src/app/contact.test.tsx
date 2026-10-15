@@ -8,7 +8,9 @@ const number = "5524992463369";
 function waLinks() {
   return screen
     .getAllByRole("link")
-    .filter((a) => a.getAttribute("href")?.startsWith("https://wa.me/"));
+    .filter((a) => a.getAttribute("href")?.startsWith("https://wa.me/"))
+    // the Consulting section has its own automation-specific button
+    .filter((a) => !/automa/i.test(a.getAttribute("href")!));
 }
 
 describe("Contact (pt)", () => {
