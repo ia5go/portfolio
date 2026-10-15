@@ -13,7 +13,9 @@ const excluded = [
 describe("Home vs Projects Page", () => {
   it("Home shows six projects while the Projects Page shows the full list", () => {
     const home = render(<HomePage locale="pt" />);
-    const homeCount = screen.getAllByRole("article").length;
+    const homeCount = within(
+      document.getElementById("featured-projects") as HTMLElement,
+    ).getAllByRole("article").length;
     home.unmount();
     render(<ProjectsPage locale="pt" />);
     expect(homeCount).toBe(6);
