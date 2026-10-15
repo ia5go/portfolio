@@ -35,7 +35,7 @@ export function Contact({ locale }: { locale: Locale }) {
             <span className="contact-list__label">
               {t(contactCopy.linkedinLabel, locale)}
             </span>
-            linkedin.com/in/iago-benvindo
+            {contact.linkedinDisplay}
           </a>
         </li>
         <li>

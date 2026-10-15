@@ -12,7 +12,8 @@
 .formation__list { list-style: none; display: grid; gap: 0.4rem; }
 .formation__list li { padding-left: 1rem; border-left: 2px solid var(--pink); overflow-wrap: anywhere; }
 .formation__list a {
-  display: inline-flex; align-items: center; color: var(--cyan);
+  display: inline-flex; align-items: center; min-height: var(--tap-min);
+  padding-block: 0.5rem; color: var(--cyan);
   text-decoration: underline; text-underline-offset: 3px;
 }
 @media (min-width: 768px) {
