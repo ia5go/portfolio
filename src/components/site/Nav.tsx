@@ -61,12 +61,6 @@ export function Nav({ locale, page }: { locale: Locale; page: PageId }) {
         >
           {t(navCopy.home, locale)}
         </a>
-        {page === "home" &&
-          navAnchors.map((a) => (
-            <a key={a.id} href={`#${a.id}`} onClick={close}>
-              {t(a.label, locale)}
-            </a>
-          ))}
         <a
           href={pagePath("projects", locale)}
           aria-current={page === "projects" ? "page" : undefined}
@@ -74,6 +68,12 @@ export function Nav({ locale, page }: { locale: Locale; page: PageId }) {
         >
           {t(navCopy.projects, locale)}
         </a>
+        {page === "home" &&
+          navAnchors.map((a) => (
+            <a key={a.id} href={`#${a.id}`} onClick={close}>
+              {t(a.label, locale)}
+            </a>
+          ))}
       </nav>
     </header>
   );

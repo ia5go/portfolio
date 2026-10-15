@@ -6,6 +6,7 @@ export const contact = {
   whatsappDisplay: "(24) 99246-3369",
   email: "benvindoiago@outlook.com",
   linkedin: "https://www.linkedin.com/in/iago-benvindo-6b3b031b4/",
+  linkedinDisplay: "linkedin.com/in/iago-benvindo-6b3b031b4",
   github: "https://github.com/ia5go",
 } as const;
 
