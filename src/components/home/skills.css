@@ -1,0 +1,93 @@
+.skills__groups {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.skill-group {
+  padding: 1.25rem var(--gutter);
+  border: 1px solid var(--tier-color);
+  border-radius: 0.5rem;
+  background: var(--bg2);
+}
+
+.skill-group__label {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--tier-color);
+  line-height: 1.1;
+}
+
+.skill-group__note {
+  margin-top: 0.25rem;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+.skill-group__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.skill-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  padding: 0 0.875rem;
+  border: 1px solid var(--tier-color);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.9375rem;
+}
+
+/* Delivered: solid, bright, glowing. */
+.skill-group--delivered {
+  --tier-color: var(--pink);
+  box-shadow: var(--glow-pink);
+}
+.skill-group--delivered .skill-chip {
+  background: rgba(255, 113, 206, 0.14);
+}
+
+/* Lab: dashed, no glow. */
+.skill-group--lab {
+  --tier-color: var(--cyan);
+  border-style: dashed;
+}
+.skill-group--lab .skill-chip {
+  border-style: dashed;
+  background: transparent;
+}
+
+/* Tools: purple, square chips. */
+.skill-group--tools {
+  --tier-color: var(--purple);
+}
+.skill-group--tools .skill-chip {
+  border-radius: 0.25rem;
+  background: rgba(185, 103, 255, 0.12);
+}
+
+@media (min-width: 900px) {
+  .skills__groups {
+    grid-template-columns: 2fr 1fr;
+  }
+  .skill-group--delivered {
+    grid-row: span 2;
+  }
+  .skill-group--delivered .skill-chip {
+    transition: box-shadow 0.2s;
+  }
+  .skill-group--delivered .skill-chip:hover {
+    box-shadow: var(--glow-pink);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-chip {
+    transition: none !important;
+  }
+}
