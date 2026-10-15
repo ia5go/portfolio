@@ -45,6 +45,13 @@ describe("Skills section", () => {
 
   it("does not list Claude subagents", () => {
     render(<HomeEn />);
-    expect(screen.queryByText(/subagent/i)).not.toBeInTheDocument();
+    const lists = [
+      /Delivered in production/,
+      /^Lab$/,
+      /Automation and tools/,
+    ].map((name) => group(name));
+    for (const el of lists) {
+      expect(within(el).queryByText(/subagent/i)).not.toBeInTheDocument();
+    }
   });
 });
