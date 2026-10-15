@@ -1,0 +1,73 @@
+/* Mobile first: one column, full-width card. */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--grid-color);
+  border-radius: 0.75rem;
+  background: var(--bg2);
+}
+
+.project-card__image {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+
+.project-card__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding: 1rem;
+}
+
+.project-card__name {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--pink);
+  text-shadow: var(--glow-pink);
+}
+
+.project-card__segment {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--cyan);
+}
+
+.project-card__role,
+.project-card__description {
+  font-size: 1rem;
+}
+
+.project-card__link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: auto;
+  min-height: var(--tap-min);
+  padding: 0 1rem;
+  border: 1px solid var(--purple);
+  border-radius: 0.5rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.project-card__link:hover,
+.project-card__link:focus-visible {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+/* Desktop-only enhancement, off for reduced motion. */
+@media (min-width: 48rem) and (prefers-reduced-motion: no-preference) {
+  .project-card {
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--glow-purple);
+  }
+}

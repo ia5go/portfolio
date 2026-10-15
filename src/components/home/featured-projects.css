@@ -1,0 +1,27 @@
+.featured-projects__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.featured-projects__all {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  margin-top: 1.5rem;
+  color: var(--pink);
+  font-family: var(--font-mono);
+}
+
+@media (min-width: 48rem) {
+  .featured-projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .featured-projects__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
