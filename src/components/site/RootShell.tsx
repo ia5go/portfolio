@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Rajdhani, Space_Mono, VT323 } from "next/font/google";
 import { siteDescription, siteName } from "@/content/site";
 import { t, type Locale } from "@/content/localized";
+import { Effects } from "./Effects";
 import "../../app/globals.css";
 
 const rajdhani = Rajdhani({
@@ -52,6 +53,7 @@ export function RootShell({
     >
       <body>
         <div className="grid-floor" aria-hidden="true" />
+        <Effects />
         {children}
       </body>
     </html>
