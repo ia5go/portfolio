@@ -1,0 +1,22 @@
+.formation {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border: 1px solid rgba(185, 103, 255, 0.35);
+  border-radius: 12px;
+  background: linear-gradient(160deg, rgba(185, 103, 255, 0.08), rgba(1, 205, 254, 0.04));
+}
+.formation__degree-title { font-size: 1.25rem; color: var(--cyan); line-height: 1.25; }
+.formation__meta { color: var(--pink); font-family: var(--font-mono); font-size: 0.9rem; }
+.formation__group-label { font-size: 1rem; color: var(--purple); letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 0.5rem; }
+.formation__list { list-style: none; display: grid; gap: 0.4rem; }
+.formation__list li { padding-left: 1rem; border-left: 2px solid var(--pink); overflow-wrap: anywhere; }
+.formation__list a {
+  display: inline-flex; align-items: center; color: var(--cyan);
+  text-decoration: underline; text-underline-offset: 3px;
+}
+@media (min-width: 768px) {
+  .formation { grid-template-columns: 1fr 1fr; padding: 2rem; gap: 2rem; }
+  .formation__degree { grid-column: 1 / -1; }
+  .formation__list a:hover { text-shadow: var(--glow-cyan); }
+}
