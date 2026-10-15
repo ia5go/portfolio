@@ -1,0 +1,45 @@
+/* Mobile first: brand + language + menu button on one row; links drop down. */
+.site-nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  background: transparent;
+  border: 1px solid var(--purple);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.site-nav__links {
+  display: none;
+  flex-basis: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  order: 5;
+  padding-bottom: 0.5rem;
+}
+
+.site-nav__links[data-open="true"] {
+  display: flex;
+}
+
+.site-nav__links a {
+  justify-content: flex-start;
+}
+
+@media (min-width: 900px) {
+  .site-nav__toggle {
+    display: none;
+  }
+  .site-nav__links,
+  .site-nav__links[data-open="true"] {
+    display: flex;
+    flex-basis: auto;
+    flex-direction: row;
+    order: 0;
+    padding-bottom: 0;
+  }
+}
