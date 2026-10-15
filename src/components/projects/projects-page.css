@@ -1,0 +1,26 @@
+.projects-page__back {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap-min);
+  color: var(--pink);
+  font-family: var(--font-mono);
+}
+
+.projects-page__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 48rem) {
+  .projects-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 64rem) {
+  .projects-page__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
