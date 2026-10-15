@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Rajdhani, Space_Mono, VT323 } from "next/font/google";
-import { defaultLocale } from "@/content/localized";
-import "./globals.css";
+import { siteDescription, siteName } from "@/content/site";
+import { t, type Locale } from "@/content/localized";
+import "../../app/globals.css";
 
 const rajdhani = Rajdhani({
   weight: ["300", "400", "600", "700"],
@@ -23,10 +24,12 @@ const vt323 = VT323({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Iago Benvindo",
-  description: "Full-Stack Developer",
-};
+export function localeMetadata(locale: Locale): Metadata {
+  return {
+    title: t(siteName, locale),
+    description: t(siteDescription, locale),
+  };
+}
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -34,11 +37,17 @@ export const viewport: Viewport = {
   themeColor: "#0d0015",
 };
 
-// Ticket #4 turns this into the [locale] layout and sets <html lang> per locale.
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+/** The <html> shell. Each locale has its own root layout so `lang` is correct. */
+export function RootShell({
+  locale,
+  children,
+}: {
+  locale: Locale;
+  children: React.ReactNode;
+}) {
   return (
     <html
-      lang={defaultLocale}
+      lang={locale}
       className={`${rajdhani.variable} ${spaceMono.variable} ${vt323.variable}`}
     >
       <body>
