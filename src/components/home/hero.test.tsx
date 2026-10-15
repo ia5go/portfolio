@@ -27,7 +27,7 @@ describe("Hero", () => {
 
   it("renders the English copy and CTAs", () => {
     render(<HomeEn />);
-    expect(screen.getByText(/Innovation Manager/)).toBeInTheDocument();
+    expect(screen.getByText(/Full-Stack Developer · Innovation Manager/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "View projects" })).toHaveAttribute(
       "href",
       "#featured-projects",
