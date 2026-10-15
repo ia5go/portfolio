@@ -42,3 +42,17 @@ Desenvolvedor Full-Stack com 5+ anos de experiência em desenvolvimento web e ed
 **Especialidades:** HTML5 | CSS3 | SCSS | JS | JQuery | PHP | GIT | SQLite | MySQL | Docker | Wordpress | TypeScript
 
 **Soft-skills:** Comunicação Eficaz | Trabalho em Equipe | Resolução de Problemas | Adaptabilidade | Pensamento Crítico | Atenção a Detalhes
+
+---
+
+## Rodando localmente / Running locally
+
+```bash
+npm install && npm run dev      # http://localhost:3000
+```
+
+- `/` abre a versão em português; `/en` abre a versão em inglês (`/projects` e `/en/projects` para a página de projetos).
+- `/` serves Portuguese and `/en` serves English (plus `/projects` and `/en/projects`).
+- Build de produção / production build: `npm run build && npm start`.
+- Testes e tipos / tests and types: `npm test` e `npm run typecheck`.
+- A URL base dos metadados é um placeholder em `src/content/site.ts` (`siteUrl`); troque quando o domínio existir.
