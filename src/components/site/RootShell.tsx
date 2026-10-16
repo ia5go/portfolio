@@ -3,6 +3,7 @@ import { Rajdhani, Space_Mono, VT323 } from "next/font/google";
 import { localeMetadata } from "@/content/metadata";
 import type { Locale } from "@/content/localized";
 import { Effects } from "./Effects";
+import { PageTransition } from "./PageTransition";
 import "../../app/globals.css";
 
 const rajdhani = Rajdhani({
@@ -50,7 +51,7 @@ export function RootShell({
       <body suppressHydrationWarning>
         <div className="grid-floor" aria-hidden="true" />
         <Effects />
-        {children}
+        <PageTransition>{children}</PageTransition>
       </body>
     </html>
   );
