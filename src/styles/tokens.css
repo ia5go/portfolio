@@ -1,16 +1,21 @@
-/* Vaporwave tokens, taken from reference/portfolio-html/portfolio-iago.html */
+/* Sakura Fade palette. Layout and fonts still follow
+   reference/portfolio-html/portfolio-iago.html. */
 :root {
-  --pink: #ff71ce;
-  --cyan: #01cdfe;
-  --purple: #b967ff;
-  --yellow: #fffb96;
-  --bg: #0d0015;
-  --bg2: #120020;
-  --text: #e0d0ff;
-  --grid-color: rgba(185, 103, 255, 0.12);
-  --glow-pink: 0 0 20px rgba(255, 113, 206, 0.5), 0 0 40px rgba(255, 113, 206, 0.2);
-  --glow-cyan: 0 0 20px rgba(1, 205, 254, 0.5), 0 0 40px rgba(1, 205, 254, 0.2);
-  --glow-purple: 0 0 20px rgba(185, 103, 255, 0.5), 0 0 40px rgba(185, 103, 255, 0.2);
+  --petal: #fff0f5; /* Sakura Petal: text and highlights on dark backgrounds */
+  --blush: #ffb7c5; /* Anime Blush: main brand accent */
+  --nostalgia: #e0a6aa; /* Nostalgia Pink: borders, secondary elements */
+  --lavender: #b388eb; /* Twilight Lavender: titles, active links */
+  --dream: #8093f1; /* Dreamy Blue: primary CTA, soft neon shadows */
+  --bg: #2d1e2f; /* Tokyo Eclipse */
+  --bg2: #24182a;
+  --text: var(--petal);
+  --grid-color: rgba(179, 136, 235, 0.14);
+
+  --glow-neon: 0 0 10px rgba(255, 183, 197, 0.6), 0 0 20px rgba(128, 147, 241, 0.4);
+  --glow-blush: 0 0 16px rgba(255, 183, 197, 0.45), 0 0 32px rgba(255, 183, 197, 0.18);
+  --glow-lavender: 0 0 16px rgba(179, 136, 235, 0.45), 0 0 32px rgba(179, 136, 235, 0.18);
+  --glow-dream: 0 0 16px rgba(128, 147, 241, 0.45), 0 0 32px rgba(128, 147, 241, 0.18);
+  --sky: linear-gradient(180deg, #2d1e2f 0%, #b388eb 50%, #ffb7c5 100%);
 
   --font-body: var(--font-rajdhani), sans-serif;
   --font-mono: var(--font-space-mono), monospace;

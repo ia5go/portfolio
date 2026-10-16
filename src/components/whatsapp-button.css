@@ -4,20 +4,21 @@
   justify-content: center;
   min-height: var(--tap-min);
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--pink);
-  color: var(--pink);
+  border: 1px solid var(--dream);
+  border-radius: 4px;
   font-family: var(--font-mono);
   font-size: 1rem;
   text-decoration: none;
   text-align: center;
-  background: transparent;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  background: var(--dream);
+  color: var(--bg);
+  transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .whatsapp-button:hover,
 .whatsapp-button:focus-visible {
-  background: var(--pink);
-  color: var(--bg);
-  box-shadow: var(--glow-pink);
+  background: var(--blush);
+  border-color: var(--blush);
+  box-shadow: var(--glow-blush);
 }
 @media (max-width: 599px) {
   .whatsapp-button {

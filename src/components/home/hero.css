@@ -20,22 +20,39 @@
   text-transform: uppercase;
   text-decoration: none;
   border: 1px solid;
+  border-radius: 4px;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
+/* Primary CTA: Dreamy Blue with Tokyo Eclipse text, eases into Anime Blush. */
 .btn--primary {
-  background: var(--pink);
-  border-color: var(--pink);
+  background: var(--dream);
+  border-color: var(--dream);
   color: var(--bg);
+}
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: var(--blush);
+  border-color: var(--blush);
 }
 
 .btn--secondary {
   background: transparent;
-  border-color: var(--cyan);
-  color: var(--cyan);
+  border-color: var(--lavender);
+  color: var(--lavender);
+}
+.btn--secondary:hover,
+.btn--secondary:focus-visible {
+  border-color: var(--blush);
+  color: var(--blush);
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--yellow);
+  outline: 2px solid var(--petal);
   outline-offset: 2px;
 }
 
@@ -49,10 +66,10 @@
   }
 
   .btn--primary:hover {
-    box-shadow: var(--glow-pink);
+    box-shadow: var(--glow-blush);
   }
   .btn--secondary:hover {
-    box-shadow: var(--glow-cyan);
+    box-shadow: var(--glow-blush);
   }
 
   .hero__name {
@@ -66,15 +83,15 @@
     inset: 0;
   }
   .hero__name::before {
-    color: var(--pink);
+    color: var(--blush);
     clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-    text-shadow: 2px 0 var(--pink);
+    text-shadow: 2px 0 var(--blush);
     animation: hero-glitch1 4s infinite;
   }
   .hero__name::after {
-    color: var(--cyan);
+    color: var(--dream);
     clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
-    text-shadow: -2px 0 var(--cyan);
+    text-shadow: -2px 0 var(--dream);
     animation: hero-glitch2 4s infinite;
   }
 }

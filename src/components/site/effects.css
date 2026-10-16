@@ -1,4 +1,5 @@
-/* Desktop-only decorative layers. Everything is hidden by default (mobile first). */
+/* Desktop-only decorative layers. Everything is hidden by default (mobile first).
+   The starfield lives in PixelStars, which also runs (lighter) on phones. */
 .fx {
   display: none;
 }
@@ -36,60 +37,6 @@
     animation: fx-grain 0.5s steps(2) infinite;
   }
 
-  .fx-stars {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .fx-star {
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-    opacity: var(--min-op);
-    animation: fx-twinkle var(--d) ease-in-out infinite;
-  }
-
-  .fx-circles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .fx-circle {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid;
-    animation: fx-float 8s ease-in-out infinite;
-  }
-  .fx-circle:nth-child(1) {
-    width: 300px;
-    height: 300px;
-    top: 15%;
-    right: 10%;
-    border-color: rgba(185, 103, 255, 0.2);
-  }
-  .fx-circle:nth-child(2) {
-    width: 180px;
-    height: 180px;
-    top: 25%;
-    right: 18%;
-    border-color: rgba(255, 113, 206, 0.25);
-    animation-delay: -3s;
-  }
-  .fx-circle:nth-child(3) {
-    width: 80px;
-    height: 80px;
-    top: 40%;
-    right: 25%;
-    border-color: rgba(1, 205, 254, 0.3);
-    animation-delay: -6s;
-  }
-
   .has-custom-cursor,
   .has-custom-cursor body,
   .has-custom-cursor a,
@@ -107,15 +54,15 @@
   .fx-cursor {
     width: 12px;
     height: 12px;
-    background: var(--cyan);
+    background: var(--dream);
     z-index: 9999;
-    box-shadow: var(--glow-cyan);
+    box-shadow: var(--glow-dream);
     mix-blend-mode: screen;
   }
   .fx-cursor-ring {
     width: 36px;
     height: 36px;
-    border: 1px solid var(--pink);
+    border: 1px solid var(--blush);
     z-index: 9998;
     opacity: 0.6;
   }
@@ -128,12 +75,4 @@
   50% { transform: translate(-1%, 2%); }
   70% { transform: translate(2%, 1%); }
   90% { transform: translate(-3%, 2%); }
-}
-@keyframes fx-twinkle {
-  0%, 100% { opacity: var(--min-op); transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.5); }
-}
-@keyframes fx-float {
-  0%, 100% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-20px) rotate(5deg); }
 }

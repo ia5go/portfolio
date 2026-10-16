@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import { DESKTOP_QUERY, matches } from "./effectsEnv";
 import "./page-transition.css";
 
-const LEAVE_MS = 320;
+// Keep in sync with .page--leaving in page-transition.css.
+const LEAVE_MS = 480;
 
 /** Desktop always animates; phones and touch devices respect reduced motion. */
 function canAnimate(): boolean {

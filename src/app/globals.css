@@ -45,8 +45,8 @@ button {
   inset: auto 0 0 0;
   height: 40vh;
   background:
-    linear-gradient(rgba(185, 103, 255, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(185, 103, 255, 0.15) 1px, transparent 1px);
+    linear-gradient(rgba(179, 136, 235, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(179, 136, 235, 0.15) 1px, transparent 1px);
   background-size: 40px 40px;
   transform: perspective(400px) rotateX(60deg);
   transform-origin: bottom center;
@@ -61,6 +61,8 @@ button {
 }
 
 .hero {
+  position: relative;
+  isolation: isolate;
   display: flex;
   min-height: 100dvh;
   flex-direction: column;
@@ -69,6 +71,19 @@ button {
   gap: 1rem;
   padding: 5rem var(--gutter);
   text-align: center;
+}
+
+/* Fading Sky: soft anime-horizon gradient behind the hero, melting back into the
+   Tokyo Eclipse background at the bottom so the next section has no seam. */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--sky);
+  opacity: 0.32;
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 100%);
+  pointer-events: none;
 }
 
 .section {
@@ -81,8 +96,8 @@ button {
   font-family: var(--font-display);
   font-size: clamp(2rem, 8vw, 3rem);
   font-weight: 400;
-  color: var(--cyan);
-  text-shadow: var(--glow-cyan);
+  color: var(--lavender);
+  text-shadow: 0 0 12px rgba(179, 136, 235, 0.45);
 }
 
 /* Persistent navigation: wraps on narrow screens, 44px targets */
@@ -96,7 +111,7 @@ button {
   justify-content: space-between;
   gap: 0 1rem;
   padding: 0 var(--gutter);
-  background: rgba(13, 0, 21, 0.85);
+  background: rgba(45, 30, 47, 0.85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--grid-color);
 }
@@ -115,13 +130,13 @@ button {
 }
 
 .site-nav a[aria-current] {
-  color: var(--pink);
+  color: var(--blush);
 }
 
 .site-nav .site-nav__brand {
   font-family: var(--font-display);
   font-size: 1.375rem;
-  color: var(--pink);
+  color: var(--blush);
 }
 
 .site-nav__links,
@@ -131,7 +146,7 @@ button {
 }
 
 .site-nav__lang a + a {
-  border-left: 1px solid var(--purple);
+  border-left: 1px solid var(--nostalgia);
 }
 
 .eyebrow {
@@ -139,7 +154,7 @@ button {
   font-size: 0.8125rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--cyan);
+  color: var(--lavender);
 }
 
 .glitch-title {
@@ -147,8 +162,8 @@ button {
   font-size: clamp(3rem, 16vw, 6rem);
   font-weight: 400;
   line-height: 1;
-  color: var(--pink);
-  text-shadow: var(--glow-pink);
+  color: var(--petal);
+  text-shadow: var(--glow-neon);
   overflow-wrap: anywhere;
 }
 

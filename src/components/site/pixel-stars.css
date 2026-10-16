@@ -1,0 +1,10 @@
+/* Persistent pixel starfield. Sits on the background layer, under the grid floor
+   and the page content, and never takes pointer events. */
+.pixel-stars {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}

@@ -45,16 +45,16 @@
 
 /* Delivered: solid, bright, glowing. */
 .skill-group--delivered {
-  --tier-color: var(--pink);
-  box-shadow: var(--glow-pink);
+  --tier-color: var(--blush);
+  box-shadow: var(--glow-blush);
 }
 .skill-group--delivered .skill-chip {
-  background: rgba(255, 113, 206, 0.14);
+  background: rgba(255, 183, 197, 0.14);
 }
 
 /* Lab: dashed, no glow. */
 .skill-group--lab {
-  --tier-color: var(--cyan);
+  --tier-color: var(--lavender);
   border-style: dashed;
 }
 .skill-group--lab .skill-chip {
@@ -64,11 +64,11 @@
 
 /* Tools: purple, square chips. */
 .skill-group--tools {
-  --tier-color: var(--purple);
+  --tier-color: var(--nostalgia);
 }
 .skill-group--tools .skill-chip {
   border-radius: 0.25rem;
-  background: rgba(185, 103, 255, 0.12);
+  background: rgba(179, 136, 235, 0.12);
 }
 
 @media (min-width: 900px) {
@@ -82,6 +82,6 @@
     transition: box-shadow 0.2s;
   }
   .skill-group--delivered .skill-chip:hover {
-    box-shadow: var(--glow-pink);
+    box-shadow: var(--glow-blush);
   }
 }

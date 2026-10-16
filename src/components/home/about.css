@@ -32,8 +32,8 @@
   font-family: var(--font-display);
   font-size: 2.5rem;
   line-height: 1;
-  color: var(--pink);
-  text-shadow: var(--glow-pink);
+  color: var(--blush);
+  text-shadow: var(--glow-blush);
 }
 
 .about__stat-label {
@@ -56,7 +56,7 @@
   }
 
   .about__stat:hover {
-    border-color: var(--purple);
-    box-shadow: var(--glow-purple);
+    border-color: var(--lavender);
+    box-shadow: var(--glow-lavender);
   }
 }

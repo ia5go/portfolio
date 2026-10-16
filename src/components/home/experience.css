@@ -7,7 +7,7 @@
 }
 
 .exp {
-  --exp-color: var(--purple);
+  --exp-color: var(--nostalgia);
   padding: 1rem 1.1rem;
   border: 1px solid color-mix(in srgb, var(--exp-color) 45%, transparent);
   border-left: 4px solid var(--exp-color);
@@ -17,15 +17,15 @@
 
 /* Gradient hierarchy: strongest on the newest, fading down the top three. */
 .exp--rank-1 {
-  --exp-color: var(--pink);
-  box-shadow: var(--glow-pink);
+  --exp-color: var(--blush);
+  box-shadow: var(--glow-blush);
 }
 .exp--rank-2 {
-  --exp-color: var(--purple);
-  box-shadow: var(--glow-purple);
+  --exp-color: var(--lavender);
+  box-shadow: var(--glow-lavender);
 }
 .exp--rank-3 {
-  --exp-color: var(--cyan);
+  --exp-color: var(--dream);
 }
 .exp--compact {
   --exp-color: var(--grid-color);
@@ -53,7 +53,7 @@
 .exp__company {
   margin: 0.15rem 0 0;
   font-size: 1rem;
-  color: var(--yellow);
+  color: var(--nostalgia);
 }
 
 .exp__bullets {

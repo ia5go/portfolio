@@ -6,7 +6,7 @@
   min-width: var(--tap-min);
   min-height: var(--tap-min);
   background: transparent;
-  border: 1px solid var(--purple);
+  border: 1px solid var(--nostalgia);
   color: var(--text);
   font-family: var(--font-mono);
   font-size: 0.875rem;

@@ -24,7 +24,7 @@
 }
 .consulting__case {
   padding-left: 1rem;
-  border-left: 2px solid var(--pink);
+  border-left: 2px solid var(--blush);
 }
 @media (min-width: 768px) {
   .consulting__list {

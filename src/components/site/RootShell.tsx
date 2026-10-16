@@ -4,6 +4,7 @@ import { localeMetadata } from "@/content/metadata";
 import type { Locale } from "@/content/localized";
 import { Effects } from "./Effects";
 import { PageTransition } from "./PageTransition";
+import { PixelStars } from "./PixelStars";
 import "../../app/globals.css";
 
 const rajdhani = Rajdhani({
@@ -32,7 +33,7 @@ export { localeMetadata };
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#0d0015",
+  themeColor: "#2d1e2f",
 };
 
 /** The <html> shell. Each locale has its own root layout so `lang` is correct. */
@@ -49,6 +50,7 @@ export function RootShell({
       className={`${rajdhani.variable} ${spaceMono.variable} ${vt323.variable}`}
     >
       <body suppressHydrationWarning>
+        <PixelStars />
         <div className="grid-floor" aria-hidden="true" />
         <Effects />
         <PageTransition>{children}</PageTransition>

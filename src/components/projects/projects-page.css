@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   min-height: var(--tap-min);
-  color: var(--pink);
+  color: var(--blush);
   font-family: var(--font-mono);
 }
 

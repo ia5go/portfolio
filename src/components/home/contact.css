@@ -32,12 +32,12 @@
 }
 .contact-list__link:hover,
 .contact-list__link:focus-visible {
-  border-color: var(--cyan);
-  box-shadow: var(--glow-cyan);
+  border-color: var(--lavender);
+  box-shadow: var(--glow-lavender);
 }
 .contact-list__label {
   font-family: var(--font-mono);
-  color: var(--cyan);
+  color: var(--lavender);
   min-width: 6rem;
 }
 @media (min-width: 768px) {
