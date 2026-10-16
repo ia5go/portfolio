@@ -1,7 +1,7 @@
 "use client";
 
 import { memo, useEffect, useRef } from "react";
-import { DESKTOP_QUERY, matches } from "./effectsEnv";
+import { DESKTOP_QUERY, canAnimate, matches } from "./effectsEnv";
 import "./pixel-stars.css";
 
 /*
@@ -23,6 +23,9 @@ const STAR_COLORS = [
 ] as const;
 
 const starDensity = 0.00004;
+// Phones get a lighter sky: fewer stars and rarer shooting stars.
+const mobileDensityFactor = 0.7;
+const mobileShootingStarDelayFactor = 2;
 const twinkleProbability = 0.7;
 const minTwinkleSpeed = 2;
 const maxTwinkleSpeed = 4;
@@ -98,11 +101,6 @@ const createShootingStar = (width: number): ShootingStar => ({
   y: 0,
 });
 
-/** Desktop always animates; phones and touch devices respect reduced motion. */
-function shouldAnimate(): boolean {
-  return matches(DESKTOP_QUERY) || !matches("(prefers-reduced-motion: reduce)");
-}
-
 function PixelStarsCanvas() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -111,15 +109,28 @@ function PixelStarsCanvas() {
     const ctx = canvas?.getContext("2d");
     if (!canvas || !ctx) return;
 
-    const animate = shouldAnimate();
+    const animate = canAnimate();
+    const desktop = matches(DESKTOP_QUERY);
+    const density = desktop ? starDensity : starDensity * mobileDensityFactor;
+    const spawnDelayFactor = desktop ? 1 : mobileShootingStarDelayFactor;
     let backgroundStars: BackgroundStar[] = [];
     let shootingStars: ShootingStar[] = [];
 
     const initBackgroundStars = (): void => {
-      const numStars = Math.floor(canvas.width * canvas.height * starDensity);
+      const numStars = Math.floor(canvas.width * canvas.height * density);
       backgroundStars = Array.from({ length: numStars }, () =>
         createBackgroundStar(canvas.width, canvas.height),
       );
+    };
+
+    // Fill only the strip a taller viewport uncovers, keeping the existing sky in place.
+    const extendBackgroundStars = (fromY: number): void => {
+      const stripHeight = canvas.height - fromY;
+      const numStars = Math.floor(canvas.width * stripHeight * density);
+      for (let i = 0; i < numStars; i += 1) {
+        const star = createBackgroundStar(canvas.width, stripHeight);
+        backgroundStars.push({ ...star, y: star.y + fromY });
+      }
     };
 
     // Swap out a slice of the field so the sky slowly reshuffles.
@@ -234,16 +245,16 @@ function PixelStarsCanvas() {
       }
     };
 
-    // Mobile browsers fire resize when the URL bar slides in and out; only rebuild the
-    // field when the size really changes, so scrolling does not reshuffle the sky.
+    // Mobile browsers fire resize when the URL bar slides in and out. Rebuild the field
+    // only when the width changes; a taller viewport just gets its new strip filled, so
+    // scrolling never reshuffles the sky.
     const resizeCanvas = (): void => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      const reshuffle =
-        width !== canvas.width || Math.abs(height - canvas.height) > canvas.height * 0.25;
-      canvas.width = width;
-      canvas.height = height;
-      if (reshuffle || backgroundStars.length === 0) initBackgroundStars();
+      const previousHeight = canvas.height;
+      const widthChanged = window.innerWidth !== canvas.width;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+      if (widthChanged || backgroundStars.length === 0) initBackgroundStars();
+      else if (canvas.height > previousHeight) extendBackgroundStars(previousHeight);
       if (!animate) drawFrame(false);
     };
 
@@ -266,10 +277,13 @@ function PixelStarsCanvas() {
       drawFrame(true);
     };
 
-    // Spawn shooting stars on a random 2-6 second cadence.
+    // Spawn shooting stars on a random 2-6 second cadence (twice as sparse on phones).
     const spawnShootingStar = (): void => {
       shootingStars = [...shootingStars, createShootingStar(canvas.width)];
-      shootingStarTimer = setTimeout(spawnShootingStar, Math.random() * 4000 + 2000);
+      shootingStarTimer = setTimeout(
+        spawnShootingStar,
+        (Math.random() * 4000 + 2000) * spawnDelayFactor,
+      );
     };
 
     const start = (): void => {

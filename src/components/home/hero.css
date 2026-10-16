@@ -34,7 +34,6 @@
   border-color: var(--dream);
   color: var(--bg);
 }
-.btn--primary:hover,
 .btn--primary:focus-visible {
   background: var(--blush);
   border-color: var(--blush);
@@ -43,9 +42,8 @@
 .btn--secondary {
   background: transparent;
   border-color: var(--lavender);
-  color: var(--lavender);
+  color: var(--petal);
 }
-.btn--secondary:hover,
 .btn--secondary:focus-visible {
   border-color: var(--blush);
   color: var(--blush);
@@ -54,6 +52,22 @@
 .btn:focus-visible {
   outline: 2px solid var(--petal);
   outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .btn--primary:hover {
+    background: var(--blush);
+    border-color: var(--blush);
+  }
+  .btn--secondary:hover {
+    border-color: var(--blush);
+    color: var(--blush);
+  }
+}
+
+/* Lavender drops below 4.5:1 over the brightest band of the Fading Sky. */
+.hero .eyebrow {
+  color: var(--blush);
 }
 
 /* Desktop-only enhancements */

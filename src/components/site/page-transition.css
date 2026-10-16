@@ -4,7 +4,7 @@
 }
 
 /* Soft fade: the new page eases in with a slight upward drift, the old one eases out.
-   Durations are 50% longer than the first version (450/320ms). */
+   The leave duration must match LEAVE_MS in PageTransition.tsx. */
 .page--entering {
   animation: page-in 675ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }

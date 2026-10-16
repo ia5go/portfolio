@@ -2,16 +2,11 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { DESKTOP_QUERY, matches } from "./effectsEnv";
+import { canAnimate } from "./effectsEnv";
 import "./page-transition.css";
 
 // Keep in sync with .page--leaving in page-transition.css.
 const LEAVE_MS = 480;
-
-/** Desktop always animates; phones and touch devices respect reduced motion. */
-function canAnimate(): boolean {
-  return matches(DESKTOP_QUERY) || !matches("(prefers-reduced-motion: reduce)");
-}
 
 /** Internal route change that should fade out first, or null for anything else. */
 function internalTarget(e: MouseEvent): string | null {
