@@ -137,14 +137,3 @@
   0%, 100% { transform: translateY(0) rotate(0deg); }
   50% { transform: translateY(-20px) rotate(5deg); }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .fx-grain,
-  .fx-star,
-  .fx-circle {
-    animation: none;
-  }
-  .fx-star {
-    opacity: 0.5;
-  }
-}

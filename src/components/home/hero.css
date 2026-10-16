@@ -93,10 +93,3 @@
   91% { transform: translateX(2px); opacity: 1; }
   93% { transform: translateX(0); opacity: 0; }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .hero__name::before,
-  .hero__name::after {
-    display: none;
-  }
-}

@@ -85,9 +85,3 @@
     box-shadow: var(--glow-pink);
   }
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .skill-chip {
-    transition: none !important;
-  }
-}

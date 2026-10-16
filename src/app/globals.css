@@ -163,7 +163,9 @@ button {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
+/* Reduced motion is respected on phones and touch devices. On desktop the owner
+   chose to keep the vaporwave animations running regardless (see AGENTS.md). */
+@media (prefers-reduced-motion: reduce) and (not ((hover: hover) and (pointer: fine) and (min-width: 900px))) {
   html {
     scroll-behavior: auto;
   }

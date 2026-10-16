@@ -34,9 +34,9 @@ describe("Effects", () => {
     expect(document.documentElement).not.toHaveClass("has-custom-cursor");
   });
 
-  it("does not mount the cursor under reduced motion", () => {
+  it("mounts the cursor on desktop even when reduced motion is requested", () => {
     mockMedia(() => true);
     render(<Effects />);
-    expect(screen.queryByTestId("fx-cursor")).toBeNull();
+    expect(screen.getByTestId("fx-cursor")).toBeTruthy();
   });
 });

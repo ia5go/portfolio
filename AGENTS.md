@@ -6,7 +6,7 @@ Client-owned material (screenshots, client names, URLs) stays single-source, unl
 
 ## Design
 
-Mobile first. Design and build for a phone-sized screen, then add desktop-only enhancements on top (custom cursor, heavy animation, extra interactions); the mobile version must be complete and fast on its own. Nothing from the draft is dropped: on mobile, heavy effects are hidden or disabled, while desktop keeps the full experience. Follow current mobile best practices: touch targets of at least 44px, readable text without zoom, no horizontal scroll, light assets, and `prefers-reduced-motion` respected. Keep the vaporwave style from `reference/portfolio-html/portfolio-iago.html`, elegant rather than loud.
+Mobile first. Design and build for a phone-sized screen, then add desktop-only enhancements on top (custom cursor, heavy animation, extra interactions); the mobile version must be complete and fast on its own. Nothing from the draft is dropped: on mobile, heavy effects are hidden or disabled, while desktop keeps the full experience. Follow current mobile best practices: touch targets of at least 44px, readable text without zoom, no horizontal scroll, light assets, and `prefers-reduced-motion` respected on phones and touch devices. Exception, decided by the owner: on desktop (hover-capable fine pointer, 900px and wider) the vaporwave animations (stars, circles, grain, glitch, cursor) run regardless of `prefers-reduced-motion`; do not gate them on it. Keep the vaporwave style from `reference/portfolio-html/portfolio-iago.html`, elegant rather than loud.
 
 ## Agent skills
 
