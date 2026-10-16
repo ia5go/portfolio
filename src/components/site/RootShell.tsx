@@ -47,7 +47,7 @@ export function RootShell({
       lang={locale}
       className={`${rajdhani.variable} ${spaceMono.variable} ${vt323.variable}`}
     >
-      <body>
+      <body suppressHydrationWarning>
         <div className="grid-floor" aria-hidden="true" />
         <Effects />
         {children}
