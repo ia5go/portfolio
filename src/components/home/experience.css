@@ -7,25 +7,25 @@
 }
 
 .exp {
-  --exp-color: var(--nostalgia);
+  --exp-color: var(--violet);
   padding: 1rem 1.1rem;
   border: 1px solid color-mix(in srgb, var(--exp-color) 45%, transparent);
   border-left: 4px solid var(--exp-color);
-  border-radius: 6px;
+  border-radius: 2px;
   background: color-mix(in srgb, var(--exp-color) 8%, var(--bg2));
 }
 
 /* Gradient hierarchy: strongest on the newest, fading down the top three. */
 .exp--rank-1 {
-  --exp-color: var(--blush);
-  box-shadow: var(--glow-blush);
+  --exp-color: var(--magenta);
+  box-shadow: var(--glow-magenta);
 }
 .exp--rank-2 {
-  --exp-color: var(--lavender);
-  box-shadow: var(--glow-lavender);
+  --exp-color: var(--cyan);
+  box-shadow: var(--glow-cyan);
 }
 .exp--rank-3 {
-  --exp-color: var(--dream);
+  --exp-color: var(--violet);
 }
 .exp--compact {
   --exp-color: var(--grid-color);
@@ -45,7 +45,7 @@
 
 .exp__role {
   margin: 0.25rem 0 0;
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   line-height: 1.25;
   color: var(--text);
 }
@@ -53,7 +53,7 @@
 .exp__company {
   margin: 0.15rem 0 0;
   font-size: 1rem;
-  color: var(--nostalgia);
+  color: var(--violet);
 }
 
 .exp__bullets {

@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   min-height: var(--tap-min);
-  color: var(--blush);
+  color: var(--magenta);
   font-family: var(--font-mono);
 }
 

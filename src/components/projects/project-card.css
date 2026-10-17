@@ -4,7 +4,7 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--grid-color);
-  border-radius: 0.75rem;
+  border-radius: 2px;
   background: var(--bg2);
 }
 
@@ -25,16 +25,16 @@
 
 .project-card__name {
   font-family: var(--font-display);
-  font-size: 1.75rem;
-  font-weight: 400;
-  color: var(--blush);
-  text-shadow: var(--glow-blush);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--magenta);
+  text-shadow: var(--glow-magenta);
 }
 
 .project-card__segment {
   font-family: var(--font-mono);
   font-size: 0.875rem;
-  color: var(--lavender);
+  color: var(--cyan);
 }
 
 .project-card__role,
@@ -49,16 +49,25 @@
   margin-top: auto;
   min-height: var(--tap-min);
   padding: 0 1rem;
-  border: 1px solid var(--nostalgia);
-  border-radius: 0.5rem;
-  color: var(--text);
+  border: 1px solid var(--cyan);
+  border-radius: 2px;
+  color: var(--cyan);
+  font-size: 0.875rem;
   text-decoration: none;
 }
+.project-card__link::before {
+  content: "$ ";
+  color: var(--magenta);
+}
 
-.project-card__link:hover,
 .project-card__link:focus-visible {
-  border-color: var(--lavender);
-  color: var(--lavender);
+  background: rgba(0, 243, 255, 0.1);
+}
+@media (hover: hover) {
+  .project-card__link:hover {
+    background: rgba(0, 243, 255, 0.1);
+    animation: button-glitch 0.8s 1;
+  }
 }
 
 /* Desktop-only enhancement. */
@@ -68,6 +77,6 @@
   }
   .project-card:hover {
     transform: translateY(-4px);
-    box-shadow: var(--glow-dream);
+    box-shadow: var(--glow-purple);
   }
 }

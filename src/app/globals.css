@@ -18,11 +18,11 @@ html {
 
 body {
   min-height: 100dvh;
-  background: var(--bg);
+  background: var(--scanlines), var(--bg);
   color: var(--text);
   font-family: var(--font-body);
-  font-size: 1.125rem; /* 18px, readable without zoom */
-  line-height: 1.5;
+  font-size: 1rem; /* 16px monospace reads like 18px proportional; no zoom needed */
+  line-height: 1.6;
   overflow-x: clip; /* no horizontal scroll */
 }
 
@@ -45,8 +45,8 @@ button {
   inset: auto 0 0 0;
   height: 40vh;
   background:
-    linear-gradient(rgba(179, 136, 235, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(179, 136, 235, 0.15) 1px, transparent 1px);
+    linear-gradient(rgba(255, 0, 127, 0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.18) 1px, transparent 1px);
   background-size: 40px 40px;
   transform: perspective(400px) rotateX(60deg);
   transform-origin: bottom center;
@@ -60,87 +60,117 @@ button {
   z-index: 1;
 }
 
-/* The hero is a terminal window floating over the starfield: Deep Cyber Night
-   background, 1px Vice Cyan border with a soft glow, and a title bar. */
-.hero {
+/* Every block of the site is a terminal window floating over the starfield: Deep
+   Cyber Night panel, 1px Vice Cyan border with a soft glow, CRT scanlines and a
+   title bar that shows the section id as a path. */
+.hero,
+.section {
   position: relative;
   isolation: isolate;
-  display: flex;
-  min-height: min(44rem, calc(100dvh - 6rem));
   max-width: 60rem;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin: 1.5rem var(--gutter) 2rem;
-  padding: 4rem 1.25rem 3rem;
-  text-align: center;
-  background: rgba(26, 8, 38, 0.92);
-  border: 1px solid #00f3ff;
+  margin: 0 var(--gutter) 2rem;
+  background: rgba(26, 8, 38, 0.9);
+  border: 1px solid var(--cyan);
   border-radius: 6px;
-  box-shadow:
-    0 0 12px rgba(0, 243, 255, 0.35),
-    0 0 40px rgba(158, 0, 255, 0.3),
-    inset 0 0 40px rgba(158, 0, 255, 0.12);
+  box-shadow: var(--glow-cyan), inset 0 0 40px rgba(158, 0, 255, 0.1);
   overflow: hidden;
 }
 
-/* CRT scanlines plus an Overdrive Purple haze rising from the bottom. */
-.hero::before {
+.hero::before,
+.section::before {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
-  background:
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 243, 255, 0.035) 0,
-      rgba(0, 243, 255, 0.035) 1px,
-      transparent 1px,
-      transparent 3px
-    ),
-    radial-gradient(ellipse at 50% 120%, rgba(158, 0, 255, 0.35), transparent 60%);
+  background: var(--scanlines);
   pointer-events: none;
 }
 
-/* Terminal title bar: window dots and the session path. */
-.hero::after {
-  content: "● ● ●   ~/iago-benvindo — zsh";
+.hero::after,
+.section::after {
+  content: "● ● ●  ~/" attr(id);
   position: absolute;
   inset: 0 0 auto;
   padding: 0.5rem 0.875rem;
   font-family: var(--font-mono);
   font-size: 0.75rem;
+  line-height: 1.4;
   letter-spacing: 0.05em;
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgba(0, 243, 255, 0.75);
+  color: rgba(0, 243, 255, 0.8);
   border-bottom: 1px solid rgba(0, 243, 255, 0.35);
-  background: rgba(158, 0, 255, 0.12);
+  background: rgba(158, 0, 255, 0.14);
   pointer-events: none;
 }
 
-@media (min-width: 60rem) {
-  .hero {
-    margin-inline: auto;
-    padding-inline: 3rem;
-  }
+.hero {
+  display: flex;
+  min-height: min(44rem, calc(100dvh - 6rem));
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding: 4rem 1.25rem 3rem;
+  text-align: center;
+}
+/* Overdrive Purple haze rising from the bottom of the hero window. */
+.hero::before {
+  background:
+    var(--scanlines),
+    radial-gradient(ellipse at 50% 120%, rgba(158, 0, 255, 0.35), transparent 60%);
+}
+.hero::after {
+  content: "● ● ●  ~/iago-benvindo — zsh";
 }
 
 .section {
-  max-width: 60rem;
-  margin: 0 auto;
-  padding: 3rem var(--gutter);
+  padding: 3.5rem var(--gutter) 2rem;
+}
+.home > .section:first-child {
+  margin-top: 1.5rem;
 }
 
 .section__title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 8vw, 3rem);
-  font-weight: 400;
-  color: var(--lavender);
-  text-shadow: 0 0 12px rgba(179, 136, 235, 0.45);
+  font-size: clamp(1.5rem, 6.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--magenta);
+  text-shadow: var(--glow-neon);
+}
+/* Shell prompt before every section title. */
+.section__title::before {
+  content: "> ";
+  color: var(--cyan);
+  text-shadow: none;
+}
+
+@media (min-width: 62.5rem) {
+  .hero,
+  .section {
+    margin-inline: auto;
+  }
+  .hero {
+    padding-inline: 3rem;
+  }
+  .section {
+    padding: 4rem 2.5rem 2.5rem;
+  }
+}
+
+/* Desktop: section titles glitch between Magenta and Cyan, staggered per window. */
+@media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+  .section__title {
+    animation: title-glitch 6s infinite;
+  }
+  .section:nth-of-type(even) .section__title {
+    animation-delay: -3s;
+  }
 }
 
 /* Persistent navigation: wraps on narrow screens, 44px targets */
@@ -154,7 +184,7 @@ button {
   justify-content: space-between;
   gap: 0 1rem;
   padding: 0 var(--gutter);
-  background: rgba(45, 30, 47, 0.85);
+  background: rgba(26, 8, 38, 0.85);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--grid-color);
 }
@@ -173,13 +203,24 @@ button {
 }
 
 .site-nav a[aria-current] {
-  color: var(--blush);
+  color: var(--magenta);
 }
 
 .site-nav .site-nav__brand {
   font-family: var(--font-display);
-  font-size: 1.375rem;
-  color: var(--blush);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--magenta);
+}
+.site-nav .site-nav__brand::before {
+  content: "$ ";
+  color: var(--cyan);
+}
+
+@media (hover: hover) {
+  .site-nav a:hover {
+    color: var(--cyan);
+  }
 }
 
 .site-nav__links,
@@ -189,7 +230,7 @@ button {
 }
 
 .site-nav__lang a + a {
-  border-left: 1px solid var(--nostalgia);
+  border-left: 1px solid var(--violet);
 }
 
 .eyebrow {
@@ -197,15 +238,16 @@ button {
   font-size: 0.8125rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--lavender);
+  color: var(--cyan);
 }
 
 .glitch-title {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 16vw, 6rem);
-  font-weight: 400;
-  line-height: 1;
-  color: var(--petal);
+  font-size: clamp(2rem, 9vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--magenta);
   text-shadow: var(--glow-neon);
   overflow-wrap: anywhere;
 }
@@ -222,8 +264,23 @@ button {
   }
 }
 
+/* Glitch flicker shared by titles and buttons: a quick Magenta/Cyan split. */
+@keyframes title-glitch {
+  0%, 90%, 100% { text-shadow: var(--glow-neon); transform: translateX(0); }
+  91% { text-shadow: -3px 0 var(--cyan), 3px 0 var(--magenta); transform: translateX(-2px); }
+  93% { text-shadow: 3px 0 var(--cyan), -3px 0 var(--magenta); transform: translateX(2px); }
+  95% { text-shadow: -1px 0 var(--magenta), 1px 0 var(--cyan); transform: translateX(0); }
+}
+@keyframes button-glitch {
+  0%, 88%, 100% { text-shadow: none; transform: translateX(0); }
+  89% { text-shadow: -2px 0 var(--cyan), 2px 0 var(--magenta); transform: translateX(-2px); }
+  91% { text-shadow: 2px 0 var(--cyan), -2px 0 var(--magenta); transform: translateX(2px); }
+  93% { text-shadow: -1px 0 var(--magenta), 1px 0 var(--cyan); transform: translateX(0); }
+  95% { text-shadow: none; }
+}
+
 /* Reduced motion is respected on phones and touch devices. On desktop the owner
-   chose to keep the vaporwave animations running regardless (see AGENTS.md). */
+   chose to keep the decorative animations running regardless (see AGENTS.md). */
 @media (prefers-reduced-motion: reduce) and (not ((hover: hover) and (pointer: fine) and (min-width: 900px))) {
   html {
     scroll-behavior: auto;

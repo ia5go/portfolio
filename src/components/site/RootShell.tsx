@@ -1,5 +1,5 @@
 ﻿import type { Viewport } from "next";
-import { Rajdhani, Space_Mono, VT323 } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import { localeMetadata } from "@/content/metadata";
 import type { Locale } from "@/content/localized";
 import { Effects } from "./Effects";
@@ -7,33 +7,19 @@ import { PageTransition } from "./PageTransition";
 import { PixelStars } from "./PixelStars";
 import "../../app/globals.css";
 
-const rajdhani = Rajdhani({
-  weight: ["300", "400", "600", "700"],
+// One monospace family for the whole terminal look: titles, body and code alike.
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-rajdhani",
+  variable: "--font-jetbrains",
   display: "swap",
 });
-const spaceMono = Space_Mono({
-  weight: ["400", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  variable: "--font-space-mono",
-  display: "swap",
-});
-const vt323 = VT323({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-vt323",
-  display: "swap",
-});
-
 
 export { localeMetadata };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#2d1e2f",
+  themeColor: "#1a0826",
 };
 
 /** The <html> shell. Each locale has its own root layout so `lang` is correct. */
@@ -47,7 +33,7 @@ export function RootShell({
   return (
     <html
       lang={locale}
-      className={`${rajdhani.variable} ${spaceMono.variable} ${vt323.variable}`}
+      className={jetbrainsMono.variable}
     >
       <body suppressHydrationWarning>
         <PixelStars />

@@ -4,30 +4,37 @@
   justify-content: center;
   min-height: var(--tap-min);
   padding: 0.75rem 1.5rem;
-  border: 1px solid var(--dream);
-  border-radius: 4px;
+  border: 1px solid var(--magenta);
+  border-radius: 2px;
   font-family: var(--font-mono);
   font-size: 1rem;
   text-decoration: none;
   text-align: center;
-  background: var(--dream);
+  background: var(--magenta);
   color: var(--bg);
+  font-weight: 700;
+  letter-spacing: 0.04em;
   transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 .whatsapp-button:focus-visible {
-  background: var(--blush);
-  border-color: var(--blush);
-  box-shadow: var(--glow-blush);
+  background: var(--cyan);
+  border-color: var(--cyan);
+  box-shadow: var(--glow-cyan);
 }
 @media (hover: hover) {
   .whatsapp-button:hover {
-    background: var(--blush);
-    border-color: var(--blush);
-    box-shadow: var(--glow-blush);
+    background: var(--magenta);
+    border-color: var(--magenta);
+    box-shadow: var(--glow-magenta);
   }
 }
 @media (max-width: 599px) {
   .whatsapp-button {
     width: 100%;
+  }
+}
+@media (hover: hover) and (pointer: fine) and (min-width: 900px) {
+  .whatsapp-button {
+    animation: button-glitch 4s infinite -1s;
   }
 }

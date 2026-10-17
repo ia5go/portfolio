@@ -7,13 +7,14 @@
 .skill-group {
   padding: 1.25rem var(--gutter);
   border: 1px solid var(--tier-color);
-  border-radius: 0.5rem;
+  border-radius: 2px;
   background: var(--bg2);
 }
 
 .skill-group__label {
   font-family: var(--font-display);
-  font-size: 1.75rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--tier-color);
   line-height: 1.1;
 }
@@ -38,23 +39,23 @@
   min-height: var(--tap-min);
   padding: 0 0.875rem;
   border: 1px solid var(--tier-color);
-  border-radius: 999px;
+  border-radius: 2px;
   font-family: var(--font-mono);
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
 }
 
 /* Delivered: solid, bright, glowing. */
 .skill-group--delivered {
-  --tier-color: var(--blush);
-  box-shadow: var(--glow-blush);
+  --tier-color: var(--magenta);
+  box-shadow: var(--glow-magenta);
 }
 .skill-group--delivered .skill-chip {
-  background: rgba(255, 183, 197, 0.14);
+  background: rgba(255, 0, 127, 0.14);
 }
 
 /* Lab: dashed, no glow. */
 .skill-group--lab {
-  --tier-color: var(--lavender);
+  --tier-color: var(--cyan);
   border-style: dashed;
 }
 .skill-group--lab .skill-chip {
@@ -62,13 +63,13 @@
   background: transparent;
 }
 
-/* Tools: purple, square chips. */
+/* Tools: violet, dotted chips. */
 .skill-group--tools {
-  --tier-color: var(--nostalgia);
+  --tier-color: var(--violet);
 }
 .skill-group--tools .skill-chip {
-  border-radius: 0.25rem;
-  background: rgba(179, 136, 235, 0.12);
+  border-style: dotted;
+  background: rgba(158, 0, 255, 0.12);
 }
 
 @media (min-width: 900px) {
@@ -82,6 +83,6 @@
     transition: box-shadow 0.2s;
   }
   .skill-group--delivered .skill-chip:hover {
-    box-shadow: var(--glow-blush);
+    box-shadow: var(--glow-magenta);
   }
 }

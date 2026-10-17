@@ -1,45 +1,17 @@
-/* Terminal Lo-Fi / Synthwave Coder hero. The palette is scoped to the hero so the
-   rest of the site keeps its own theme. */
-.hero {
-  --hero-bg: #1a0826; /* Deep Cyber Night */
-  --hero-cyan: #00f3ff; /* Vice Cyan: borders, active elements, code lines */
-  --hero-magenta: #ff007f; /* Laser Magenta: titles, highlighted buttons */
-  --hero-purple: #9e00ff; /* Overdrive Purple: secondary gradients, shadows */
-  --hero-glow-cyan: 0 0 12px rgba(0, 243, 255, 0.35), 0 0 32px rgba(158, 0, 255, 0.25);
-}
-
-.hero .eyebrow {
-  font-family: var(--font-mono);
-  color: var(--hero-cyan);
-}
 /* Shell prompt in front of the role line. */
 .hero .eyebrow::before {
   content: "> ";
-  color: var(--hero-magenta);
-}
-
-.hero .glitch-title {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: clamp(2rem, 9vw, 4.5rem);
-  letter-spacing: -0.02em;
-  color: var(--hero-magenta);
-  text-shadow:
-    0 0 10px rgba(255, 0, 127, 0.55),
-    0 0 28px rgba(158, 0, 255, 0.45);
+  color: var(--magenta);
 }
 
 .hero .subtitle {
-  font-family: var(--font-mono);
-  font-size: 1rem;
-  line-height: 1.6;
   color: var(--text);
 }
 /* Blinking block cursor at the end of the "output". */
 .hero .subtitle::after {
   content: "▋";
   margin-left: 0.25em;
-  color: var(--hero-cyan);
+  color: var(--cyan);
   animation: hero-caret 1.1s steps(1) infinite;
 }
 
@@ -75,40 +47,40 @@
 
 /* Highlighted button: Laser Magenta, flips to Vice Cyan. */
 .btn--primary {
-  background: var(--hero-magenta);
-  border-color: var(--hero-magenta);
-  color: var(--hero-bg);
+  background: var(--magenta);
+  border-color: var(--magenta);
+  color: var(--bg);
   font-weight: 700;
 }
 .btn--primary:focus-visible {
-  background: var(--hero-cyan);
-  border-color: var(--hero-cyan);
+  background: var(--cyan);
+  border-color: var(--cyan);
 }
 
 /* Terminal-style ghost button. */
 .btn--secondary {
   background: transparent;
-  border-color: var(--hero-cyan);
-  color: var(--hero-cyan);
+  border-color: var(--cyan);
+  color: var(--cyan);
 }
 .btn--secondary::before {
   content: "$ ";
   white-space: pre;
-  color: var(--hero-magenta);
+  color: var(--magenta);
 }
 .btn--secondary:focus-visible {
   background: rgba(0, 243, 255, 0.1);
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--hero-cyan);
+  outline: 2px solid var(--cyan);
   outline-offset: 2px;
 }
 
 @media (hover: hover) {
   .btn--primary:hover {
-    background: var(--hero-cyan);
-    border-color: var(--hero-cyan);
+    background: var(--cyan);
+    border-color: var(--cyan);
   }
   .btn--secondary:hover {
     background: rgba(0, 243, 255, 0.1);
@@ -125,15 +97,15 @@
   }
 
   .btn:hover {
-    box-shadow: var(--hero-glow-cyan);
+    box-shadow: var(--glow-cyan);
   }
 
   /* Glitch on the buttons, flickering between Magenta and Cyan in step with the title. */
   .btn--primary {
-    animation: hero-btn-glitch 4s infinite;
+    animation: button-glitch 4s infinite;
   }
   .btn--secondary {
-    animation: hero-btn-glitch 4s infinite -2s;
+    animation: button-glitch 4s infinite -2s;
   }
 
   .hero__name {
@@ -147,15 +119,15 @@
     inset: 0;
   }
   .hero__name::before {
-    color: var(--hero-magenta);
+    color: var(--magenta);
     clip-path: polygon(0 30%, 100% 30%, 100% 50%, 0 50%);
-    text-shadow: 2px 0 var(--hero-magenta);
+    text-shadow: 2px 0 var(--magenta);
     animation: hero-glitch1 4s infinite;
   }
   .hero__name::after {
-    color: var(--hero-cyan);
+    color: var(--cyan);
     clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
-    text-shadow: -2px 0 var(--hero-cyan);
+    text-shadow: -2px 0 var(--cyan);
     animation: hero-glitch2 4s infinite;
   }
 }
@@ -173,13 +145,6 @@
   89% { transform: translateX(-4px); opacity: 1; }
   91% { transform: translateX(2px); opacity: 1; }
   93% { transform: translateX(0); opacity: 0; }
-}
-@keyframes hero-btn-glitch {
-  0%, 88%, 100% { text-shadow: none; transform: translateX(0); }
-  89% { text-shadow: -2px 0 var(--hero-cyan), 2px 0 var(--hero-magenta); transform: translateX(-2px); }
-  91% { text-shadow: 2px 0 var(--hero-cyan), -2px 0 var(--hero-magenta); transform: translateX(2px); }
-  93% { text-shadow: -1px 0 var(--hero-magenta), 1px 0 var(--hero-cyan); transform: translateX(0); }
-  95% { text-shadow: none; }
 }
 @keyframes hero-caret {
   50% { opacity: 0; }

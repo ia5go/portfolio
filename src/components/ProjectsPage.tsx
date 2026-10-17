@@ -17,7 +17,7 @@ export function ProjectsPage({ locale }: { locale: Locale }) {
     <>
       <Nav locale={locale} page="projects" />
       <main className="home">
-        <section className="section">
+        <section id="projects" className="section">
           <a className="projects-page__back" href={pagePath("home", locale)}>
             ← {t(backToHome, locale)}
           </a>

@@ -6,20 +6,20 @@ import "./pixel-stars.css";
 
 /*
  * Retro pixel starfield, ported from uicapsule's background-pixel-stars and recolored
- * to the Sakura Fade palette. Desktop runs the full animation regardless of reduced
+ * to the Synthwave palette. Desktop runs the full animation regardless of reduced
  * motion (owner decision, see AGENTS.md); phones run the same light 16 FPS canvas but
  * draw a single still frame when the user asks for reduced motion.
  */
 
-// Sakura Fade palette; Sakura Petal repeats so most stars stay soft white.
+// Synthwave palette; soft white repeats so the neon stars stay accents.
 const STAR_COLORS = [
-  "#FFF0F5",
-  "#FFF0F5",
-  "#FFF0F5",
-  "#FFB7C5",
-  "#E0A6AA",
-  "#B388EB",
-  "#8093F1",
+  "#F4ECFF",
+  "#F4ECFF",
+  "#F4ECFF",
+  "#00F3FF",
+  "#FF007F",
+  "#C77DFF",
+  "#9E00FF",
 ] as const;
 
 const starDensity = 0.00004;
@@ -33,16 +33,16 @@ const pixelSize = 5;
 const starRegenerationIntervalMs = 5000;
 const percentToRegenerate = 0.15;
 
-// Shooting stars: head in Sakura Petal, trail fading from Anime Blush to Twilight Lavender.
+// Shooting stars: soft white head, trail fading from Laser Magenta to Vice Cyan.
 const shootingStarPixelSize = 2;
 const targetFps = 16;
 const frameInterval = 1000 / targetFps;
 const shootingStarWidth = 4;
 const shootingStarHeight = 2;
 const shootingStarMargin = 30;
-const shootingStarHead = "#FFF0F5";
-const trailNear = "255, 183, 197";
-const trailFar = "179, 136, 235";
+const shootingStarHead = "#F4ECFF";
+const trailNear = "255, 0, 127";
+const trailFar = "0, 243, 255";
 
 interface BackgroundStar {
   x: number;

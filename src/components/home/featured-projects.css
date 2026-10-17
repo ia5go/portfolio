@@ -10,7 +10,7 @@
   align-items: center;
   min-height: var(--tap-min);
   margin-top: 1.5rem;
-  color: var(--blush);
+  color: var(--magenta);
   font-family: var(--font-mono);
 }
 
