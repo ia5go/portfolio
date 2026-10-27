@@ -28,7 +28,7 @@ describe("Skills section", () => {
       "Slack",
       "Zendesk",
       "Gmail",
-      "Tool integrations",
+      "Integrations",
       "Claude",
       "Anthropic API",
       "Vercel",
@@ -41,6 +41,7 @@ describe("Skills section", () => {
     expect(group(/Laboratório/)).toBeInTheDocument();
     const tools = group(/Automação e ferramentas/);
     expect(items(tools)).toContain("API da Anthropic");
+    expect(items(tools)).toContain("Integrações");
   });
 
   it("does not list Claude subagents", () => {

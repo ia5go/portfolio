@@ -67,7 +67,7 @@ export const skillGroups: SkillGroup[] = [
     },
     items: [
       ...names(["Monday", "Slack", "Zendesk", "Gmail"]),
-      { pt: "Integrações entre ferramentas", en: "Tool integrations" },
+      { pt: "Integrações", en: "Integrations" },
       properNoun("Claude"),
       { pt: "API da Anthropic", en: "Anthropic API" },
       properNoun("Vercel"),

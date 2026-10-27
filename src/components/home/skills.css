@@ -1,47 +1,74 @@
-.skills__groups {
-  display: grid;
-  gap: 1.25rem;
+/* Skills lays out against its own width, not the viewport, so it reads the same in
+   a full-width window or a narrow column beside another section. */
+.skills__body {
+  container: skills / inline-size;
   margin-top: 1.5rem;
 }
 
+/* Phone and narrow columns: the three groups stack, each only as tall as its chips. */
+.skills__groups {
+  display: grid;
+  gap: 1rem;
+}
+
 .skill-group {
-  padding: 1.25rem var(--gutter);
+  padding: 1rem;
   border: 1px solid var(--tier-color);
   border-radius: 2px;
   background: var(--bg2);
 }
 
+/* Label and note share a line when there is room, and stack when there is not. */
+.skill-group__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+}
+
 .skill-group__label {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--tier-color);
-  line-height: 1.1;
+  line-height: 1.2;
 }
 
 .skill-group__note {
-  margin-top: 0.25rem;
-  font-size: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.4;
   opacity: 0.8;
 }
 
+/* Chips justify across each row like a block of text; the trailing spacer soaks up
+   the last row so its chips keep their natural width. */
 .skill-group__list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0.875rem;
   list-style: none;
+}
+.skill-group__list::after {
+  content: "";
+  flex: 999 1 0;
 }
 
 .skill-chip {
   display: inline-flex;
+  flex: 1 0 auto;
   align-items: center;
+  justify-content: center;
   min-height: var(--tap-min);
-  padding: 0 0.875rem;
+  max-width: 100%;
+  padding: 0 0.75rem;
   border: 1px solid var(--tier-color);
   border-radius: 2px;
   font-family: var(--font-mono);
   font-size: 0.875rem;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 /* Delivered: solid, bright, glowing. */
@@ -72,13 +99,25 @@
   background: rgba(158, 0, 255, 0.12);
 }
 
-@media (min-width: 900px) {
+/* Medium and wide: Delivered, the largest group, spans the full width on top; Lab
+   and Tools share the row beneath it. Lab takes up to a third, about what its three
+   chips need, and shrinks to fit them once there is room for one row; Tools, with
+   the most chips after Delivered, takes the rest. The two boxes end up about as tall
+   as each other, so neither is left half empty. */
+@container skills (min-width: 34rem) {
   .skills__groups {
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: fit-content(33.333%) minmax(0, 1fr);
+    gap: 1.25rem;
+  }
+  .skill-group {
+    padding: 1.25rem;
   }
   .skill-group--delivered {
-    grid-row: span 2;
+    grid-column: 1 / -1;
   }
+}
+
+@media (hover: hover) and (pointer: fine) and (min-width: 900px) {
   .skill-group--delivered .skill-chip {
     transition: box-shadow 0.2s;
   }
