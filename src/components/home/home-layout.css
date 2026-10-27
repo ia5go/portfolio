@@ -14,7 +14,7 @@
 @media (min-width: 75rem) {
   .home-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) clamp(24rem, 30vw, 34rem);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) clamp(26.5rem, 30vw, 34rem);
     grid-template-areas:
       "hero       hero       projects"
       "strip      strip      projects"
@@ -120,8 +120,9 @@
   .home-layout .featured-projects__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
+  /* Text and stats side by side keeps About about as tall as Skills beside it. */
   .home-layout > #about .about__grid {
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
   }
   .home-layout > #experience .timeline {
     grid-template-columns: minmax(0, 1fr);
