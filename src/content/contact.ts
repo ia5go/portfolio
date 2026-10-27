@@ -3,10 +3,8 @@ import { properNoun, type Localized } from "./localized";
 /** Client-owned contact data stays single-source (not localized). */
 export const contact = {
   whatsappNumber: "5524992463369", // (24) 99246-3369, international format
-  whatsappDisplay: "(24) 99246-3369",
   email: "benvindoiago@outlook.com",
   linkedin: "https://www.linkedin.com/in/iago-benvindo-6b3b031b4/",
-  linkedinDisplay: "linkedin.com/in/iago-benvindo-6b3b031b4",
   github: "https://github.com/ia5go",
 } as const;
 
@@ -24,12 +22,14 @@ export const contactCopy = {
     pt: "Me chame no WhatsApp ou use o canal que preferir.",
     en: "Message me on WhatsApp or use whichever channel you prefer.",
   },
+  // Each button shows only its label; the accessible name starts with that label
+  // (WCAG 2.5.3) and adds what the link does.
   whatsappLabel: properNoun("WhatsApp"),
+  whatsappHint: { pt: "conversar comigo", en: "chat with me" },
   emailLabel: { pt: "E-mail", en: "Email" },
+  emailHint: { pt: "escrever para", en: "write to" },
   linkedinLabel: properNoun("LinkedIn"),
+  linkedinHint: { pt: "meu perfil profissional", en: "my professional profile" },
   githubLabel: properNoun("GitHub"),
-  githubHint: {
-    pt: "Veja meu código no GitHub",
-    en: "Take a look at my code on GitHub",
-  },
+  githubHint: { pt: "veja meu código", en: "see my code" },
 } satisfies Record<string, Localized>;

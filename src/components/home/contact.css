@@ -10,38 +10,115 @@
   max-width: 32rem;
   font-size: 1.125rem;
 }
-.contact-list {
+/* Contact buttons with a cycling highlight (ContactLinks.tsx). Four separate cyan
+   outlined buttons; a Magenta box, the PT|EN thumb's sibling, glides from one to the
+   next. Layers, bottom to top: each button's outline (::before), the box, the labels.
+   So the box hides the outline it covers, and the script tells each label which part
+   of it the box covers (--ink-x/y/w/h): the text is dark there and cyan elsewhere,
+   split exactly at the box's edge while it passes. */
+.contact-links {
+  position: relative;
+  isolation: isolate;
+  max-width: 46rem;
+  margin-top: 1.75rem;
+}
+.contact-links__box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  background: var(--magenta);
+  border-radius: 2px;
+  box-shadow: 0 0 14px rgba(255, 0, 127, 0.4), 0 0 32px rgba(255, 0, 127, 0.14);
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform;
+}
+.contact-links[data-ready] .contact-links__box {
+  opacity: 1;
+}
+.contact-links__list {
   list-style: none;
-  margin: 1.5rem 0 0;
+  margin: 0;
   padding: 0;
   display: grid;
-  gap: 0.75rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.875rem;
 }
-.contact-list__link {
+.contact-links__link {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  min-height: var(--tap-min);
+  justify-content: center;
+  min-height: 3rem;
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--grid-color);
   border-radius: 2px;
-  background: var(--bg2);
-  color: var(--text);
-  text-decoration: none;
-  overflow-wrap: anywhere;
-}
-.contact-list__link:hover,
-.contact-list__link:focus-visible {
-  border-color: var(--cyan);
-  box-shadow: var(--glow-cyan);
-}
-.contact-list__label {
   font-family: var(--font-mono);
+  font-size: 0.9375rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
   color: var(--cyan);
-  min-width: 6rem;
+  text-decoration: none;
+  white-space: nowrap;
 }
-@media (min-width: 768px) {
-  .contact-list {
-    grid-template-columns: repeat(2, 1fr);
+.contact-links__link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border: 1px solid var(--cyan);
+  border-radius: 2px;
+  transition: background-color 200ms ease;
+}
+.contact-links__label {
+  --ink-x: 0px;
+  --ink-y: 0px;
+  --ink-w: 0px;
+  --ink-h: 0px;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  color: transparent;
+  background-image: linear-gradient(var(--bg), var(--bg)), linear-gradient(var(--cyan), var(--cyan));
+  background-repeat: no-repeat;
+  background-size: var(--ink-w) var(--ink-h), 100% 100%;
+  background-position: var(--ink-x) var(--ink-y), 0 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+/* Before the script measures (and without it), the first button is drawn lit,
+   exactly where the box will appear. */
+.contact-links:not([data-ready]) .contact-links__item:first-child .contact-links__link::before {
+  border-color: var(--magenta);
+  background: var(--magenta);
+}
+.contact-links:not([data-ready]) .contact-links__item:first-child .contact-links__label {
+  --ink-w: 100%;
+  --ink-h: 100%;
+}
+.contact-links__link:focus-visible {
+  outline: 2px solid var(--bright);
+  outline-offset: 3px;
+}
+@media (hover: hover) {
+  .contact-links__link:hover::before {
+    background-color: rgba(0, 243, 255, 0.1);
+  }
+}
+@media (forced-colors: active) {
+  .contact-links__label {
+    color: LinkText;
+    background: none;
+  }
+  .contact-links__box {
+    display: none;
+  }
+}
+@media (min-width: 640px) {
+  .contact-links__list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.25rem;
   }
 }
