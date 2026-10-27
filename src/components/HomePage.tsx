@@ -12,6 +12,7 @@ import { Hero } from "./home/Hero";
 import { Skills } from "./home/Skills";
 import { useLocale } from "./site/LocaleProvider";
 import { Nav } from "./site/Nav";
+import "./home/home-layout.css";
 
 /**
  * Section order is fixed by the spec. Each section lives in its own slot file in ./home.
@@ -23,7 +24,7 @@ export function HomePage({ locale: served }: { locale: Locale }) {
   return (
     <>
       <Nav locale={locale} page="home" />
-      <main className="home">
+      <main className="home home-layout">
         <Hero locale={locale} />
         <FeaturedProjects locale={locale} />
         <ContactStrip locale={locale} />

@@ -1,0 +1,132 @@
+/*
+ * Home layout on wide screens (#21). Phones and laptops below 75rem keep the single
+ * centred column from globals.css, untouched. From 75rem up the terminal windows sit
+ * on a grid with named areas: the Hero leads, Featured Projects becomes a sidebar
+ * beside it, the contact strip sits right under the Hero, and the other windows share
+ * the width. Only the visual placement changes: the DOM, and so the screen-reader and
+ * keyboard order, stays Hero, Projects, Strip, About, Skills, Experience, ...
+ * `main` stays the content root that the language scramble measures.
+ *
+ * The pairings were picked by measuring each window's natural height at each width,
+ * so windows sharing a row end close together (they stretch to the row, never gap).
+ */
+
+@media (min-width: 75rem) {
+  .home-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) clamp(24rem, 30vw, 34rem);
+    grid-template-areas:
+      "hero       hero       projects"
+      "strip      strip      projects"
+      "about      about      projects"
+      "skills     skills     projects"
+      "experience experience experience"
+      "consulting formation  formation"
+      "contact    contact    contact";
+    gap: 1.5rem;
+    max-width: 200rem; /* 3200px: margins stay slim even on a 3440px ultra-wide */
+    margin-inline: auto;
+    padding: 1.5rem 2rem 2.5rem;
+  }
+
+  .home-layout > .hero,
+  .home-layout > .section {
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+  }
+
+  .home-layout > #hero { grid-area: hero; }
+  .home-layout > #featured-projects { grid-area: projects; }
+  .home-layout > #contact-strip { grid-area: strip; }
+  .home-layout > #about { grid-area: about; }
+  .home-layout > #skills { grid-area: skills; }
+  .home-layout > #experience { grid-area: experience; }
+  .home-layout > #consulting { grid-area: consulting; }
+  .home-layout > #formation { grid-area: formation; }
+  .home-layout > #contact { grid-area: contact; }
+
+  /* The projects sidebar: cards stack in one column, "see all" closes the window. */
+  .home-layout > #featured-projects {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 1.75rem;
+  }
+  .home-layout .featured-projects__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-layout .featured-projects__all {
+    align-self: flex-start;
+    margin-top: auto;
+    padding-top: 1.5rem;
+  }
+
+  /* Windows narrower than their own inner grids expect get a calmer arrangement. */
+  /* Two-column timeline: the newest role runs down the left, the next ones stack
+     beside it, so the columns end together. */
+  .home-layout > #experience .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+  .home-layout > #experience .exp--rank-1 {
+    grid-row: span 3;
+  }
+  .home-layout > #consulting .consulting__list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 1800px and up: uneven tracks (2.1 : 1 : 2) so each row pairs windows of about the
+   same height. The sidebar shows its cards two by two and ends beside the strip; About
+   and Skills share a row, Experience sits beside Consulting, Formation reads in three
+   columns. */
+@media (min-width: 112.5rem) {
+  .home-layout {
+    grid-template-columns: minmax(0, 2.1fr) minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-areas:
+      "hero       hero       projects"
+      "strip      strip      projects"
+      "about      skills     skills"
+      "experience experience consulting"
+      "formation  formation  formation"
+      "contact    contact    contact";
+    padding-inline: 2.5rem;
+  }
+  .home-layout .featured-projects__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-layout > #formation .formation {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .home-layout > #formation .formation__degree {
+    grid-column: auto;
+  }
+}
+
+/* 2400px and up (ultra-wide): four even tracks. Hero and projects split the top half
+   and half; below, four windows read side by side, Experience down its own column. */
+@media (min-width: 150rem) {
+  .home-layout {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-areas:
+      "hero       hero       projects   projects"
+      "strip      strip      projects   projects"
+      "about      skills     skills     experience"
+      "consulting formation  formation  experience"
+      "contact    contact    contact    contact";
+    gap: 2rem;
+    padding-inline: 3rem;
+  }
+  .home-layout .featured-projects__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .home-layout > #about .about__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-layout > #experience .timeline {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .home-layout > #experience .exp--rank-1 {
+    grid-row: auto;
+  }
+}
