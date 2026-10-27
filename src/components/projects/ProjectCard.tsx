@@ -7,7 +7,11 @@ const visitLabel: Localized = {
   en: "Visit site",
 };
 
-/** Reusable Project card: screenshot, name, segment, role line, link to the live site. */
+/**
+ * Reusable Project card (Home Page and Projects Page): screenshot, name, segment and a
+ * compact link to the live site. The role line and description stay in the data but
+ * are not rendered on the card.
+ */
 export function ProjectCard({ project, locale }: { project: Project; locale: Locale }) {
   return (
     <article className="project-card">
@@ -23,20 +27,18 @@ export function ProjectCard({ project, locale }: { project: Project; locale: Loc
       />
       <div className="project-card__body">
         <h3 className="project-card__name">{project.name}</h3>
-        <p className="project-card__segment">{t(project.segment, locale)}</p>
-        <p className="project-card__role">{t(project.roleLine, locale)}</p>
-        {project.description && (
-          <p className="project-card__description">{t(project.description, locale)}</p>
-        )}
-        <a
-          className="project-card__link"
-          href={project.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={`${t(visitLabel, locale)}: ${project.name}`}
-        >
-          {t(visitLabel, locale)}
-        </a>
+        <div className="project-card__meta">
+          <p className="project-card__segment">{t(project.segment, locale)}</p>
+          <a
+            className="project-card__link"
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${t(visitLabel, locale)}: ${project.name}`}
+          >
+            {t(visitLabel, locale)}
+          </a>
+        </div>
       </div>
     </article>
   );

@@ -15,57 +15,85 @@
   object-position: top;
 }
 
+/* Name on its own full-width line; segment and the compact Visit button share the
+   bottom row, pinned to the card's foot so buttons line up across a grid row. */
 .project-card__body {
   display: flex;
   flex: 1;
   flex-direction: column;
-  gap: 0.35rem;
-  padding: 1rem;
+  gap: 0.375rem;
+  padding: 0.875rem 1rem 1rem;
+  border-top: 1px solid var(--grid-color);
+}
+
+.project-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
 }
 
 .project-card__name {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 700;
+  line-height: 1.25;
   color: var(--magenta);
   text-shadow: var(--glow-magenta);
 }
 
 .project-card__segment {
+  min-width: 0;
   font-family: var(--font-mono);
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
+  line-height: 1.35;
   color: var(--cyan);
 }
 
-.project-card__role,
-.project-card__description {
-  font-size: 1rem;
-}
-
+/* Compact terminal button: small to the eye, 44px to the finger (see ::after). */
 .project-card__link {
+  position: relative;
   display: inline-flex;
+  flex: none;
   align-items: center;
-  align-self: flex-start;
-  margin-top: auto;
-  min-height: var(--tap-min);
-  padding: 0 1rem;
+  height: 2rem;
+  /* Overrides the global a { min-height: 44px }; the ::after hit area keeps the target. */
+  min-height: 0;
+  padding: 0 0.625rem;
   border: 1px solid var(--cyan);
   border-radius: 2px;
   color: var(--cyan);
-  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
   text-decoration: none;
+  transition:
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 .project-card__link::before {
-  content: "$ ";
+  content: "$ ";
+  white-space: pre;
   color: var(--magenta);
+}
+/* Invisible hit area that grows the tap target to at least 44px each way. */
+.project-card__link::after {
+  content: "";
+  position: absolute;
+  inset: calc((2rem - var(--tap-min)) / 2) -0.25rem;
 }
 
 .project-card__link:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
   background: rgba(0, 243, 255, 0.1);
 }
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .project-card__link:hover {
     background: rgba(0, 243, 255, 0.1);
+    box-shadow: var(--glow-cyan);
     animation: button-glitch 0.8s 1;
   }
 }

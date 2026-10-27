@@ -31,6 +31,15 @@ describe("Home vs Projects Page", () => {
     }
   });
 
+  it("uses the compact card: no role line or description on any card", () => {
+    render(<ProjectsPage locale="en" />);
+    expect(screen.queryByText("Website development")).toBeNull();
+    for (const card of screen.getAllByRole("article")) {
+      expect(card.querySelectorAll("p")).toHaveLength(1);
+      expect(within(card).getByRole("link").textContent).toBe("Visit site");
+    }
+  });
+
   it("links back to Home in each language", () => {
     const pt = render(<ProjectsPage locale="pt" />);
     expect(
@@ -39,6 +48,6 @@ describe("Home vs Projects Page", () => {
     pt.unmount();
     render(<ProjectsPage locale="en" />);
     expect(screen.getByRole("link", { name: /Back to Home/ }).getAttribute("href")).toBe("/en");
-    expect(screen.getAllByText("Website development").length).toBeGreaterThan(6);
+    expect(screen.getAllByRole("link", { name: /^Visit site: / }).length).toBeGreaterThan(6);
   });
 });
