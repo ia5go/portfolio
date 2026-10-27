@@ -2,14 +2,17 @@
 
 import { useState } from "react";
 import { menuToggle, navAnchors } from "@/content/hero";
-import { locales, t, type Locale } from "@/content/localized";
+import { t, type Locale } from "@/content/localized";
 import { pagePath, type PageId } from "@/content/routes";
 import { navCopy, siteName } from "@/content/site";
+import { BrandMark } from "./BrandMark";
+import { LanguageToggle } from "./LanguageToggle";
 import "./nav.css";
 
 /**
  * Persistent navigation. On phones the links collapse into a menu; on the Home Page
- * they include in-page anchors. The PT | EN switch links to the same page in the other language.
+ * they include in-page anchors. The PT | EN toggle closes the bar on the right and links
+ * to the same page in the other language.
  */
 export function Nav({ locale, page }: { locale: Locale; page: PageId }) {
   const [open, setOpen] = useState(false);
@@ -18,26 +21,7 @@ export function Nav({ locale, page }: { locale: Locale; page: PageId }) {
 
   return (
     <header className="site-nav">
-      <a className="site-nav__brand" href={home}>
-        {t(siteName, locale)}
-      </a>
-      <div
-        role="group"
-        aria-label={t(navCopy.languageLabel, locale)}
-        className="site-nav__lang"
-      >
-        {locales.map((target) => (
-          <a
-            key={target}
-            href={pagePath(page, target)}
-            lang={target}
-            hrefLang={target}
-            aria-current={target === locale ? "true" : undefined}
-          >
-            {target.toUpperCase()}
-          </a>
-        ))}
-      </div>
+      <BrandMark name={t(siteName, locale)} href={home} />
       <button
         type="button"
         className="site-nav__toggle"
@@ -75,6 +59,7 @@ export function Nav({ locale, page }: { locale: Locale; page: PageId }) {
             </a>
           ))}
       </nav>
+      <LanguageToggle locale={locale} page={page} />
     </header>
   );
 }

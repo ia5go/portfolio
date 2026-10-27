@@ -11,11 +11,16 @@ import { defaultLocale, t, type Locale } from "./localized";
 
 const ogLocale = { pt: "pt_BR", en: "en_US" } as const;
 
-export function localeMetadata(locale: Locale, page: PageId = "home"): Metadata {
-  const isProjects = page === "projects";
-  const title = isProjects
+/** Browser tab title; also set on the client when the language switches in place. */
+export function pageTitle(locale: Locale, page: PageId = "home"): string {
+  return page === "projects"
     ? `${t(projectsPageCopy.title, locale)} | ${t(siteName, locale)}`
     : `${t(siteName, locale)} | Full-Stack Developer`;
+}
+
+export function localeMetadata(locale: Locale, page: PageId = "home"): Metadata {
+  const isProjects = page === "projects";
+  const title = pageTitle(locale, page);
   const description = t(
     isProjects ? projectsPageDescription : siteDescription,
     locale,

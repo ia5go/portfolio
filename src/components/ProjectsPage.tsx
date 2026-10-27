@@ -1,8 +1,11 @@
+"use client";
+
 import { t, type Locale, type Localized } from "@/content/localized";
 import { projects } from "@/content/projects";
 import { pagePath } from "@/content/routes";
 import { projectsPageCopy } from "@/content/site";
 import { ProjectCard } from "./projects/ProjectCard";
+import { useLocale } from "./site/LocaleProvider";
 import { Nav } from "./site/Nav";
 import "./projects/projects-page.css";
 
@@ -12,7 +15,8 @@ const backToHome: Localized = {
 };
 
 /** Every online site that has a valid screenshot (the manifest), same card as the Home Page. */
-export function ProjectsPage({ locale }: { locale: Locale }) {
+export function ProjectsPage({ locale: served }: { locale: Locale }) {
+  const locale = useLocale(served);
   return (
     <>
       <Nav locale={locale} page="projects" />

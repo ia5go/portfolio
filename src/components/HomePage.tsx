@@ -1,3 +1,5 @@
+"use client";
+
 import type { Locale } from "@/content/localized";
 import { About } from "./home/About";
 import { Contact } from "./home/Contact";
@@ -8,10 +10,16 @@ import { FeaturedProjects } from "./home/FeaturedProjects";
 import { FormationCourses } from "./home/FormationCourses";
 import { Hero } from "./home/Hero";
 import { Skills } from "./home/Skills";
+import { useLocale } from "./site/LocaleProvider";
 import { Nav } from "./site/Nav";
 
-/** Section order is fixed by the spec. Each section lives in its own slot file in ./home. */
-export function HomePage({ locale }: { locale: Locale }) {
+/**
+ * Section order is fixed by the spec. Each section lives in its own slot file in ./home.
+ * A client component so every text follows an in-place language switch; `locale` is the
+ * language the route was served in.
+ */
+export function HomePage({ locale: served }: { locale: Locale }) {
+  const locale = useLocale(served);
   return (
     <>
       <Nav locale={locale} page="home" />

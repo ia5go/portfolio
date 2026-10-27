@@ -1,0 +1,102 @@
+/* PT | EN toggle. The two options touch, forming one control; the Magenta thumb
+   slides from one half to the other. Each option is a 44px tap target; its visible
+   chip (border, hover tint) is its ::before, inset so it sits inside the header bar.
+   The cyan border runs only along the outside of the pair: the shared edge has none.
+
+   Timeline of one switch (thumb slides 520ms, ease-in-out, so it crosses the middle
+   at about 260ms). Measured frame by frame, the colours are centred on that crossing:
+     leaving option   text dark -> cyan 160-380ms, cyan border fades in 200-460ms
+     arriving option  text cyan -> dark 220-440ms, cyan border fades out 300-500ms
+   Each label turns while the thumb is passing under it, so it stays readable. */
+
+.site-nav .lang-toggle {
+  --lang-gap: 0px;
+  --chip-inset: 6px;
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: var(--lang-gap);
+}
+
+.lang-toggle__thumb {
+  position: absolute;
+  top: var(--chip-inset);
+  bottom: var(--chip-inset);
+  left: 0;
+  z-index: 0;
+  width: calc((100% - var(--lang-gap) * (var(--lang-count) - 1)) / var(--lang-count));
+  background: var(--magenta);
+  border-radius: 2px;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.35);
+  transform: translateX(calc((100% + var(--lang-gap)) * var(--lang-index)));
+  transition: transform 520ms cubic-bezier(0.65, 0, 0.35, 1);
+  pointer-events: none;
+}
+
+/* Inactive option: transparent chip, Vice Cyan border (like "Pedir orçamento") and a
+   dimmed cyan label, so the selected language reads first. The dim cyan keeps 5.3:1
+   on the header background. */
+.site-nav .lang-toggle .lang-toggle__option {
+  --lang-dim: color-mix(in srgb, var(--cyan) 60%, var(--bg));
+  position: relative;
+  z-index: 1;
+  min-width: 3rem;
+  padding: 0 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--lang-dim);
+  transition: color 220ms ease 160ms;
+}
+.lang-toggle__option::before {
+  content: "";
+  position: absolute;
+  inset: var(--chip-inset) 0;
+  z-index: -1;
+  border: 1px solid var(--cyan);
+  transition:
+    border-color 260ms ease 200ms,
+    background-color 200ms ease;
+}
+/* Outer edges only: rounded outside corners, no line where the halves meet. */
+.lang-toggle__option:first-of-type::before {
+  border-right-color: transparent;
+  border-radius: 2px 0 0 2px;
+}
+.lang-toggle__option:last-of-type::before {
+  border-left-color: transparent;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Selected option: the thumb fills it (like "Ver projetos"): dark text, no cyan border. */
+.site-nav .lang-toggle .lang-toggle__option[data-active="true"] {
+  color: var(--bg);
+  transition: color 220ms ease 220ms;
+}
+.lang-toggle__option[data-active="true"]::before {
+  border-color: transparent;
+  transition:
+    border-color 200ms ease 300ms,
+    background-color 200ms ease;
+}
+
+.site-nav .lang-toggle .lang-toggle__option:focus-visible {
+  outline: none;
+}
+.lang-toggle__option:focus-visible::before {
+  outline: 2px solid var(--bright);
+  outline-offset: 2px;
+}
+
+@media (hover: hover) {
+  .lang-toggle__option[data-active="false"]:hover::before {
+    background-color: rgba(0, 243, 255, 0.1);
+  }
+  /* Pointing at the other language lights its label back up to full cyan. */
+  .site-nav .lang-toggle .lang-toggle__option[data-active="false"]:hover {
+    color: var(--cyan);
+    transition: color 200ms ease;
+  }
+}

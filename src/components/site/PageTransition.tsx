@@ -2,11 +2,12 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { parsePath } from "@/content/routes";
 import { canAnimate } from "./effectsEnv";
 import "./page-transition.css";
 
 // Keep in sync with .page--leaving in page-transition.css.
-const LEAVE_MS = 480;
+export const LEAVE_MS = 480;
 
 /** Internal route change that should fade out first, or null for anything else. */
 function internalTarget(e: MouseEvent): string | null {
@@ -21,8 +22,10 @@ function internalTarget(e: MouseEvent): string | null {
 }
 
 /**
- * Fades the page content out, navigates, then fades the new content in. The background
- * (grid floor and effects) lives outside this wrapper and keeps animating throughout.
+ * Fades the page content out, navigates, then fades the new content in, only when the
+ * page changes. Switching language is not a page change: it happens in place, with the
+ * texts scrambling (LocaleProvider). The background (grid floor and effects) lives
+ * outside this wrapper and keeps animating throughout.
  */
 export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -38,17 +41,27 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
         router.push(target);
         return;
       }
-      setLeavingFrom(window.location.pathname);
+      setLeavingFrom(parsePath(window.location.pathname).page);
       window.setTimeout(() => router.push(target), LEAVE_MS);
     };
+    // Back/forward cache restores the page as it was left: faded out. Show it again.
+    const onPageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) setLeavingFrom(null);
+    };
     document.addEventListener("click", onClick);
-    return () => document.removeEventListener("click", onClick);
+    window.addEventListener("pageshow", onPageShow);
+    return () => {
+      document.removeEventListener("click", onClick);
+      window.removeEventListener("pageshow", onPageShow);
+    };
   }, [router]);
 
-  const leaving = leavingFrom === pathname;
+  // Keyed by page, not by URL: switching language in place keeps the page mounted.
+  const page = parsePath(pathname).page;
+  const leaving = leavingFrom === page;
   return (
     <div
-      key={pathname}
+      key={page}
       className={leaving ? "page page--leaving" : "page page--entering"}
     >
       {children}

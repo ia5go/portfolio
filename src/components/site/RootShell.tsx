@@ -1,8 +1,9 @@
-﻿import type { Viewport } from "next";
+import type { Viewport } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import { localeMetadata } from "@/content/metadata";
 import type { Locale } from "@/content/localized";
 import { Effects } from "./Effects";
+import { LocaleProvider } from "./LocaleProvider";
 import { PageTransition } from "./PageTransition";
 import { PixelStars } from "./PixelStars";
 import "../../app/globals.css";
@@ -39,7 +40,9 @@ export function RootShell({
         <PixelStars />
         <div className="grid-floor" aria-hidden="true" />
         <Effects />
-        <PageTransition>{children}</PageTransition>
+        <LocaleProvider>
+          <PageTransition>{children}</PageTransition>
+        </LocaleProvider>
       </body>
     </html>
   );

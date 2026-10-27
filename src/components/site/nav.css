@@ -1,4 +1,13 @@
-/* Mobile first: brand + language + menu button on one row; links drop down. */
+/* Mobile first: brand on the left, language toggle + menu button on the right; the
+   links drop down below. Desktop: brand left, links then the toggle on the right. */
+.site-nav__lang {
+  order: 1;
+  margin-left: auto;
+}
+.site-nav__toggle {
+  order: 2;
+}
+
 .site-nav__toggle {
   display: inline-flex;
   align-items: center;
@@ -40,6 +49,10 @@
     flex-basis: auto;
     flex-direction: row;
     order: 0;
+    margin-left: auto;
     padding-bottom: 0;
+  }
+  .site-nav__lang {
+    margin-left: 0;
   }
 }

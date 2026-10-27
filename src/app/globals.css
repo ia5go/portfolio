@@ -212,11 +212,6 @@ button {
   font-weight: 700;
   color: var(--magenta);
 }
-.site-nav .site-nav__brand::before {
-  content: "$ ";
-  color: var(--cyan);
-}
-
 @media (hover: hover) {
   .site-nav a:hover {
     color: var(--cyan);
@@ -227,10 +222,6 @@ button {
 .site-nav__lang {
   display: flex;
   align-items: center;
-}
-
-.site-nav__lang a + a {
-  border-left: 1px solid var(--violet);
 }
 
 .eyebrow {

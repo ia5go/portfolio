@@ -1,8 +1,39 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { shouldRunCursor } from "./effectsEnv";
+import { DESKTOP_QUERY, matches, shouldRunCursor } from "./effectsEnv";
 import "./effects.css";
+
+// Film grain: fractal noise, extremely faint (it lifts pixels by 1-2 levels of 255).
+const GRAIN_SVG =
+  "<svg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'><filter id='noise'>" +
+  "<feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/>" +
+  "</filter><rect width='100%' height='100%' filter='url(#noise)' opacity='0.03'/></svg>";
+const GRAIN_TILE_PX = 512;
+
+/**
+ * Renders the grain's SVG noise into a PNG once and uses that as the background. As a
+ * live SVG background its filter re-runs whenever the page under it repaints, which
+ * stalled frames for 200ms+ while texts change (the language scramble).
+ */
+function useGrainTile(ref: React.RefObject<HTMLDivElement | null>) {
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !matches(DESKTOP_QUERY)) return;
+    const img = new Image();
+    img.onload = () => {
+      try {
+        const canvas = document.createElement("canvas");
+        canvas.width = canvas.height = GRAIN_TILE_PX;
+        canvas.getContext("2d")?.drawImage(img, 0, 0, GRAIN_TILE_PX, GRAIN_TILE_PX);
+        el.style.backgroundImage = `url(${canvas.toDataURL("image/png")})`;
+      } catch {
+        // Canvas unavailable: the page simply goes without grain.
+      }
+    };
+    img.src = `data:image/svg+xml,${encodeURIComponent(GRAIN_SVG)}`;
+  }, [ref]);
+}
 
 function Cursor() {
   const dot = useRef<HTMLDivElement>(null);
@@ -52,6 +83,8 @@ function Cursor() {
 /** Decorative desktop-only vaporwave layers. Hidden by CSS on touch/narrow screens. */
 export function Effects() {
   const [cursor, setCursor] = useState(false);
+  const grain = useRef<HTMLDivElement>(null);
+  useGrainTile(grain);
 
   useEffect(() => {
     setCursor(shouldRunCursor());
@@ -60,7 +93,7 @@ export function Effects() {
   return (
     <div className="fx" aria-hidden="true">
       <div className="fx-scanlines" />
-      <div className="fx-grain" />
+      <div ref={grain} className="fx-grain" />
       {cursor && <Cursor />}
     </div>
   );

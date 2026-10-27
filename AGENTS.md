@@ -8,6 +8,17 @@ Client-owned material (screenshots, client names, URLs) stays single-source, unl
 
 Mobile first. Design and build for a phone-sized screen, then add desktop-only enhancements on top (custom cursor, heavy animation, extra interactions); the mobile version must be complete and fast on its own. Nothing from the draft is dropped: on mobile, heavy effects are hidden or disabled, while desktop keeps the full experience. Follow current mobile best practices: touch targets of at least 44px, readable text without zoom, no horizontal scroll, light assets, and `prefers-reduced-motion` respected on phones and touch devices. Exception, decided by the owner: on desktop (hover-capable fine pointer, 900px and wider) the vaporwave animations (pixel stars, grain, glitch, cursor) run regardless of `prefers-reduced-motion`; do not gate them on it. Keep the vaporwave layout and type from `reference/portfolio-html/portfolio-iago.html`, in the owner's Terminal Lo-Fi / Synthwave Coder style (palette in `src/styles/tokens.css`, monospace type, every section a terminal window), elegant rather than loud. The pixel starfield (`PixelStars`) replaced the draft's CSS stars and floating circles by owner decision; it also runs lighter on phones.
 
+## Animation
+
+Owner's standing rule: animation work is slow and verified; a good result beats a fast one. Every motion is *fluid*: eased in and out, continuous from first frame to last, and natural. Every visible change is one the design intended. The designed glitch effects are the only glitches; any other flicker, jump, empty frame or stutter is a bug.
+
+An animation is done when you have watched it work, which is more than seeing it compile:
+
+1. Record it in a real browser (Playwright video, frames pulled with ffmpeg) and inspect the frames of every transition.
+2. Sample the animated values on each frame (`requestAnimationFrame`) and confirm each one moves in a single direction, without jumps.
+3. Interrupt it: reverse it midway, hover or scroll during the motion, change page, try narrow screens and `prefers-reduced-motion` on a phone.
+4. Fix what the frames show, then record again.
+
 ## Agent skills
 
 ### Issue tracker

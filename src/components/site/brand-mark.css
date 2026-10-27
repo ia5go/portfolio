@@ -1,0 +1,149 @@
+/* Header brand: initials that unfold into the full name.
+   Folded:   I B
+   Unfolded: Iago Benvindo  (the rest of each word slides out from behind its initial) */
+
+/* Two classes so this beats the generic `.site-nav a` inline-flex rule. */
+.site-nav .brand-mark {
+  display: inline-grid;
+  justify-content: start;
+  justify-items: start;
+  align-items: center;
+}
+
+/* Ghost and live mark share one grid cell; the ghost only reserves width. */
+.brand-mark__ghost,
+.brand-mark__live {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+.brand-mark__ghost {
+  display: none;
+  visibility: hidden;
+}
+
+.brand-mark__word {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.brand-mark__initial {
+  position: relative;
+  z-index: 1;
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/* The Magenta to Cyan gradient runs across the pair, like the old IB mark. */
+.brand-mark__word:first-child .brand-mark__initial {
+  background-image: linear-gradient(135deg, var(--magenta), #c13bff);
+}
+.brand-mark__word:last-child .brand-mark__initial {
+  background-image: linear-gradient(135deg, #a04cff, var(--cyan));
+}
+
+.brand-mark__rest {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+  color: var(--magenta);
+}
+
+/* The fold opens from zero width to the word's natural width. Its left edge is the
+   initial's right edge, so the clipped text appears to come out from behind it. */
+.brand-mark__fold {
+  display: inline-grid;
+  grid-template-columns: 0fr;
+}
+.brand-mark__clip {
+  min-width: 0;
+  overflow-x: clip;
+  overflow-y: visible;
+}
+
+.brand-mark__live .brand-mark__word + .brand-mark__word {
+  margin-left: 0.1em;
+}
+.brand-mark__live .brand-mark__rest {
+  opacity: 0;
+  transform: translateX(-0.9em);
+  filter: blur(3px);
+}
+
+/* Room to unfold: from small tablets up. Narrow phones keep the initials only. */
+@media (min-width: 600px) {
+  .brand-mark__ghost {
+    display: inline-flex;
+  }
+  .brand-mark__ghost .brand-mark__word + .brand-mark__word {
+    margin-left: 0.55em;
+  }
+
+  /* Folding back (scroll down): quicker, ease-in-out, second word goes first. The text
+     stays visible while it is pulled behind its initial and fades only at the end. */
+  .brand-mark__fold {
+    transition: grid-template-columns 700ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .brand-mark__live .brand-mark__word + .brand-mark__word {
+    transition: margin-left 700ms cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .brand-mark__live .brand-mark__rest {
+    transition:
+      opacity 380ms ease 260ms,
+      transform 700ms cubic-bezier(0.65, 0, 0.35, 1),
+      filter 380ms ease 260ms,
+      color 250ms ease;
+  }
+  .brand-mark__word:first-child .brand-mark__fold {
+    transition-delay: 90ms;
+  }
+  .brand-mark__word:first-child .brand-mark__rest {
+    transition-delay: 350ms, 90ms, 350ms, 0ms;
+  }
+
+  /* Unfolding (load, back to top): long ease-out, first word leads. The text shows up
+     as soon as the fold starts opening, so there is never an empty gap. */
+  .brand-mark[data-expanded="true"] .brand-mark__fold {
+    grid-template-columns: 1fr;
+    transition: grid-template-columns 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .brand-mark[data-expanded="true"] .brand-mark__live .brand-mark__word + .brand-mark__word {
+    margin-left: 0.55em;
+    transition: margin-left 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .brand-mark[data-expanded="true"] .brand-mark__live .brand-mark__rest {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition:
+      opacity 700ms ease 40ms,
+      transform 1200ms cubic-bezier(0.22, 1, 0.36, 1),
+      filter 900ms ease 40ms,
+      color 250ms ease;
+  }
+  .brand-mark[data-expanded="true"] .brand-mark__word:last-child .brand-mark__fold {
+    transition-delay: 160ms;
+  }
+  .brand-mark[data-expanded="true"] .brand-mark__word:last-child .brand-mark__rest {
+    transition-delay: 200ms, 160ms, 200ms, 0ms;
+  }
+
+  /* Hover and keyboard focus: the unfolded letters ease to Vice Cyan, like the other
+     header links. The initials keep their gradient. Color carries no delay above, so
+     it responds at once even mid-fold. */
+  .brand-mark:focus-visible .brand-mark__rest {
+    color: var(--cyan);
+  }
+}
+
+@media (min-width: 600px) and (hover: hover) {
+  .brand-mark:hover .brand-mark__rest {
+    color: var(--cyan);
+  }
+}
