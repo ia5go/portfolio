@@ -19,7 +19,7 @@ describe("Featured projects (Home Page)", () => {
     expect(cards.map((c) => within(c).getByRole("heading").textContent)).toEqual(names);
   });
 
-  it("each card shows screenshot, name, segment and a live Visit link, and nothing else", () => {
+  it("each card shows screenshot, name, segment tag and a live Visit link, and nothing else", () => {
     render(<FeaturedProjects locale="pt" />);
     for (const card of screen.getAllByRole("article")) {
       expect(within(card).getByRole("img").getAttribute("src")).toMatch(
@@ -28,8 +28,9 @@ describe("Featured projects (Home Page)", () => {
       const link = within(card).getByRole("link");
       expect(link.getAttribute("href")).toMatch(/^https:\/\//);
       expect(link.textContent).toBe("Visitar site");
-      // Heading (name) + segment only: no role line, no description.
+      // Heading (name) + segment tag only: no role line, no description.
       expect(card.querySelectorAll("p")).toHaveLength(1);
+      expect(card.querySelector("p")!.className).toBe("project-card__tag");
     }
     expect(screen.getByText("Arte e cultura")).toBeTruthy();
     expect(screen.queryByText("Desenvolvimento do site")).toBeNull();

@@ -8,9 +8,9 @@ const visitLabel: Localized = {
 };
 
 /**
- * Reusable Project card (Home Page and Projects Page): screenshot, name, segment and a
- * compact link to the live site. The role line and description stay in the data but
- * are not rendered on the card.
+ * Reusable Project card (Home Page and Projects Page): screenshot, name, the segment as
+ * a small tag, and a compact link to the live site on its own line. The role line and
+ * description stay in the data but are not rendered on the card.
  */
 export function ProjectCard({ project, locale }: { project: Project; locale: Locale }) {
   return (
@@ -28,7 +28,7 @@ export function ProjectCard({ project, locale }: { project: Project; locale: Loc
       <div className="project-card__body">
         <h3 className="project-card__name">{project.name}</h3>
         <div className="project-card__meta">
-          <p className="project-card__segment">{t(project.segment, locale)}</p>
+          <p className="project-card__tag">{t(project.segment, locale)}</p>
           <a
             className="project-card__link"
             href={project.url}
