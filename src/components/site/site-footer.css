@@ -1,0 +1,258 @@
+/*
+ * Site footer: a terminal status bar closing the page (SiteFooter.tsx). It is chrome,
+ * like the header, not another terminal window: full-bleed, edge to edge at every
+ * width, its content on the same gutter as the header.
+ *
+ * Two lines, as in vim:
+ *  - the statusline, a band tinted like the windows' title bars, split into segments
+ *    by hairlines: availability (the "mode" segment, with the LED), the window list,
+ *    the CV files;
+ *  - the command line under it, quieter: copyright, stack and version, `gg` to the top.
+ *
+ * Mobile first: on phones every statusline segment takes its own row (44px targets);
+ * from 40rem availability and the window list share a row; from 60rem it is one line.
+ */
+
+.site-footer {
+  --sf-line: rgba(0, 243, 255, 0.2);
+  /* Dimmed text, 5.8:1 on the footer background. */
+  --sf-dim: color-mix(in srgb, var(--text) 62%, var(--bg));
+  --sf-link-pad: 0.375rem; /* with no letter-spacing, the window list fits one row at 320px */
+  --sf-pad: calc(var(--gutter) - var(--sf-link-pad)); /* so link text sits on the gutter */
+  position: relative;
+  z-index: 1;
+  margin-top: 1rem;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--scanlines), rgba(26, 8, 38, 0.92);
+  border-top: 1px solid rgba(0, 243, 255, 0.35);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+/* ---- Statusline ---------------------------------------------------------------- */
+
+.site-footer__bar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas:
+    "status"
+    "windows"
+    "cv";
+  background: rgba(158, 0, 255, 0.14); /* the windows' title-bar tint */
+  border-bottom: 1px solid var(--sf-line);
+}
+.site-footer__status {
+  grid-area: status;
+}
+.site-footer__windows {
+  grid-area: windows;
+}
+.site-footer__cv {
+  grid-area: cv;
+}
+
+.site-footer__status,
+.site-footer__windows,
+.site-footer__cv {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  min-width: 0;
+  min-height: var(--tap-min);
+}
+.site-footer__windows,
+.site-footer__cv {
+  padding-inline: var(--sf-pad);
+  border-top: 1px solid var(--sf-line);
+}
+
+/* The "mode" segment: availability, a touch brighter than the rest of the band. */
+.site-footer__status {
+  flex-wrap: nowrap; /* a long label wraps beside the LED, never under it */
+  gap: 0.75rem;
+  padding-block: 0.5rem;
+  padding-inline: var(--gutter);
+  background: rgba(0, 243, 255, 0.06);
+  color: var(--cyan);
+}
+
+.site-footer__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5ch;
+  min-width: var(--tap-min);
+  min-height: var(--tap-min);
+  padding: 0 var(--sf-link-pad);
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+.site-footer__link[aria-current="page"] {
+  color: var(--magenta);
+}
+.site-footer__link:focus-visible {
+  outline: 2px solid var(--bright);
+  outline-offset: -4px;
+}
+@media (hover: hover) {
+  .site-footer__link:hover {
+    color: var(--cyan);
+    background-color: rgba(0, 243, 255, 0.08);
+  }
+}
+
+/* tmux window list: `1:início*`. The window number is dim; the flag cell is always
+   one character wide, so marking the current page moves nothing. */
+.site-footer__dim {
+  margin-right: -0.5ch; /* `1:` hugs the name, as tmux prints it */
+  color: var(--sf-dim);
+}
+.site-footer__flag {
+  display: inline-block;
+  width: 1ch;
+  margin-left: -0.5ch;
+}
+.site-footer__arrow {
+  color: var(--violet);
+}
+
+/* ---- LED -------------------------------------------------------------------------
+ * A soft breath, like a sleeping laptop's light: the core brightens while a halo
+ * swells around it, then both ease back. Both move together on the same sine-like
+ * ease, with zero speed at the turning points, so the loop has no seam. Only opacity
+ * and transform animate. The resting styles are the lit state: phones that ask for
+ * reduced motion (globals.css stops the animation) see a steady, glowing LED. */
+.site-footer__led {
+  position: relative;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cyan);
+  box-shadow: 0 0 6px rgba(0, 243, 255, 0.7);
+  animation: sf-led-core 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+.site-footer__led::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 243, 255, 0.55) 0%, rgba(0, 243, 255, 0) 68%);
+  opacity: 0.7;
+  transform: scale(0.85);
+  animation: sf-led-halo 3.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+@keyframes sf-led-core {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes sf-led-halo {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(0.5);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+/* ---- Command line ---------------------------------------------------------------- */
+
+.site-footer__cmd {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "copy top"
+    "meta meta";
+  align-items: center;
+  padding-inline: var(--gutter) var(--sf-pad);
+  font-size: 0.8125rem;
+  color: var(--sf-dim);
+}
+.site-footer__copy {
+  grid-area: copy;
+}
+.site-footer__meta {
+  grid-area: meta;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5ch;
+  padding-bottom: 0.875rem;
+}
+.site-footer__version {
+  color: var(--violet);
+}
+.site-footer__top {
+  grid-area: top;
+}
+/* `gg`: vim's "go to the first line", drawn as a small key. */
+.site-footer__key {
+  padding: 0 0.4ch;
+  border: 1px solid var(--sf-line);
+  border-radius: 2px;
+  color: var(--sf-dim);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* ---- Wider screens ---------------------------------------------------------------- */
+
+@media (min-width: 40rem) {
+  .site-footer {
+    --sf-link-pad: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+  .site-footer__bar {
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "status windows"
+      "cv     cv";
+  }
+  .site-footer__windows {
+    border-top: 0;
+    border-left: 1px solid var(--sf-line);
+  }
+  .site-footer__cmd {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "copy meta top";
+    gap: 0 2ch;
+    min-height: var(--tap-min);
+  }
+  .site-footer__meta {
+    justify-content: flex-end;
+    padding-bottom: 0;
+  }
+}
+
+@media (min-width: 60rem) {
+  .site-footer {
+    font-size: 0.8125rem;
+  }
+  .site-footer__bar {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "status windows cv";
+  }
+  .site-footer__cv {
+    border-top: 0;
+    border-left: 1px solid var(--sf-line);
+  }
+  .site-footer__cmd {
+    font-size: 0.75rem;
+  }
+}

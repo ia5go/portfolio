@@ -6,6 +6,7 @@ import { Effects } from "./Effects";
 import { LocaleProvider } from "./LocaleProvider";
 import { PageTransition } from "./PageTransition";
 import { PixelStars } from "./PixelStars";
+import { SiteFooter } from "./SiteFooter";
 import "../../app/globals.css";
 
 // One monospace family for the whole terminal look: titles, body and code alike.
@@ -42,6 +43,7 @@ export function RootShell({
         <Effects />
         <LocaleProvider>
           <PageTransition>{children}</PageTransition>
+          <SiteFooter locale={locale} />
         </LocaleProvider>
       </body>
     </html>
