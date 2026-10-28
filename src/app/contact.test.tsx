@@ -100,6 +100,24 @@ describe("Contact (en) labels", () => {
   });
 });
 
+describe("Contact compose window", () => {
+  it("reads as a new message to Iago, in each language, with a labelled button group", () => {
+    for (const [Page, title, to, subject, via] of [
+      [HomePt, "nova mensagem", "para:", "o seu próximo projeto", "enviar por"],
+      [HomeEn, "new message", "to:", "your next project", "send via"],
+    ] as const) {
+      const { unmount } = render(<Page />);
+      const section = document.getElementById("contact")!;
+      expect(section).toHaveAttribute("data-window", title);
+      expect(within(section).getByText(to)).toBeInTheDocument();
+      expect(within(section).getByText("Iago Benvindo")).toBeInTheDocument();
+      expect(within(section).getByText(subject)).toBeInTheDocument();
+      expect(within(section).getByRole("list", { name: via })).toBeInTheDocument();
+      unmount();
+    }
+  });
+});
+
 describe("ContactLinks motion maths", () => {
   it("rests about 2 s and moves in 400 to 500 ms", () => {
     expect(REST_MS).toBe(2000);

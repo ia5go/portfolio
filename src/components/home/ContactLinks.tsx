@@ -71,7 +71,14 @@ export function nextStep(from: number, dir: 1 | -1, count: number): { to: number
  * (desktop always animates, see effectsEnv). A move already under way always lands.
  * Without JavaScript the first button is drawn lit by CSS, where the box starts.
  */
-export function ContactLinks({ links }: { links: ContactLink[] }) {
+export function ContactLinks({
+  links,
+  labelledBy,
+}: {
+  links: ContactLink[];
+  /** Id of the visible text that names the group of buttons. */
+  labelledBy?: string;
+}) {
   const rootRef = useRef<HTMLDivElement>(null);
   const boxRef = useRef<HTMLSpanElement>(null);
   const count = links.length;
@@ -224,7 +231,7 @@ export function ContactLinks({ links }: { links: ContactLink[] }) {
   return (
     <div ref={rootRef} className="contact-links">
       <span ref={boxRef} className="contact-links__box" aria-hidden="true" />
-      <ul className="contact-links__list">
+      <ul className="contact-links__list" aria-labelledby={labelledBy}>
         {links.map((link) => (
           <li key={link.id} className="contact-links__item">
             <a

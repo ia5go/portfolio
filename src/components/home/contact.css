@@ -10,6 +10,112 @@
   max-width: 32rem;
   font-size: 1.125rem;
 }
+/* The closing window (Contact.tsx): a message being composed, in the manner of a
+   terminal mail client. Same window as the others, but the destination of the page
+   wears Laser Magenta where the others wear Vice Cyan: border, glow, title bar ("new
+   message"), a faint magenta dusk in the lower corner, and the draft's header lines.
+   Scoped to #contact so the shared window rules in globals.css stay untouched. */
+#contact {
+  border-color: rgba(255, 0, 127, 0.85);
+  box-shadow: var(--glow-magenta), inset 0 0 48px rgba(255, 0, 127, 0.06);
+}
+#contact::before {
+  background:
+    var(--scanlines),
+    radial-gradient(ellipse 60% 90% at 100% 120%, rgba(255, 0, 127, 0.14), transparent 70%),
+    radial-gradient(ellipse 55% 80% at 0% 125%, rgba(158, 0, 255, 0.16), transparent 70%);
+}
+#contact::after {
+  content: "● ● ●  ~/contact — " attr(data-window);
+  color: #ff6fae; /* Laser Magenta lifted for small text on the bar */
+  border-bottom-color: rgba(255, 0, 127, 0.45);
+  background: linear-gradient(90deg, rgba(255, 0, 127, 0.2), rgba(158, 0, 255, 0.12) 65%);
+}
+
+/* The draft's header lines: label in violet, value in bright, a dashed rule below. */
+.contact__headers {
+  margin-top: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(255, 0, 127, 0.4);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.contact__field {
+  display: flex;
+  gap: 1ch;
+}
+.contact__field dt {
+  flex: 0 0 8ch;
+  color: var(--violet);
+}
+.contact__field dd {
+  min-width: 0;
+  color: var(--bright);
+}
+/* The body of the draft ends at a Magenta caret, where the visitor would type. */
+.contact__intro {
+  margin-top: 0.875rem;
+}
+.contact__intro::after {
+  content: "▋";
+  margin-left: 0.25em;
+  color: var(--magenta);
+  animation: contact-caret 1.1s steps(1) infinite;
+}
+@keyframes contact-caret {
+  50% { opacity: 0; }
+}
+.contact__send {
+  margin-top: 1.75rem;
+}
+.contact__via {
+  margin-bottom: 0.75rem;
+  font-size: 0.8125rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+.contact__via::before {
+  content: "› ";
+  color: var(--magenta);
+}
+#contact .contact-links {
+  margin-top: 0;
+}
+@media (forced-colors: active) {
+  #contact::after {
+    background: none;
+  }
+}
+
+/* Wide: the draft and the send panel sit side by side, split like terminal panes. */
+@media (min-width: 56rem) {
+  .contact__body {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
+    gap: 2.5rem;
+  }
+  .contact__send {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0;
+    padding-left: 2.5rem;
+    border-left: 1px dashed rgba(255, 0, 127, 0.35);
+  }
+  #contact .contact-links__list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.875rem;
+  }
+}
+@media (min-width: 75rem) {
+  .contact__body {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 30rem);
+    max-width: 76rem;
+    margin-inline: auto;
+  }
+}
+
 /* Contact buttons with a cycling highlight (ContactLinks.tsx). Four separate cyan
    outlined buttons; a Magenta box, the PT|EN thumb's sibling, glides from one to the
    next. Layers, bottom to top: each button's outline (::before), the box, the labels.
