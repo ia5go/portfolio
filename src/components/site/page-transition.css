@@ -4,7 +4,10 @@
 }
 
 /* Soft fade: the new page eases in with a slight upward drift, the old one eases out.
-   The leave duration must match LEAVE_MS in PageTransition.tsx. */
+   The leave duration and easing must match LEAVE_MS and LEAVE_EASE in PageTransition.tsx.
+   --page-from is set only when Back/Forward cut a fade-out short: the next page then
+   fades in from the opacity the fade-out had reached, not from 0. --page-drift is 0 when
+   that page is the interrupted one itself, fading back in where it stands. */
 .page--entering {
   animation: page-in 675ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
@@ -15,7 +18,7 @@
 }
 
 @keyframes page-in {
-  from { opacity: 0; transform: translateY(6px); }
+  from { opacity: var(--page-from, 0); transform: translateY(var(--page-drift, 6px)); }
   to { opacity: 1; transform: none; }
 }
 @keyframes page-out {
