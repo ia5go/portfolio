@@ -62,13 +62,15 @@ button {
 
 /* Every block of the site is a terminal window floating over the starfield: Deep
    Cyber Night panel, 1px Vice Cyan border with a soft glow, CRT scanlines and a
-   title bar that shows the section id as a path. */
+   title bar that shows the section id as a path.
+   Width: phones keep the plain gutter; from about 800px the side margins grow with
+   the screen (2.5vw each), so a window always spans about 95% of the viewport, up to
+   the multi-column grid in home-layout.css, which keeps the same proportion. */
 .hero,
 .section {
   position: relative;
   isolation: isolate;
-  max-width: 60rem;
-  margin: 0 var(--gutter) 2rem;
+  margin: 0 max(var(--gutter), 2.5vw) 2rem;
   background: rgba(26, 8, 38, 0.9);
   border: 1px solid var(--cyan);
   border-radius: 6px;
@@ -143,18 +145,17 @@ button {
   color: var(--magenta);
   text-shadow: var(--glow-neon);
 }
-/* Shell prompt before every section title. */
+/* Shell prompt before every section title. No space character after the ">": with
+   nothing to break on, the prompt always shares a line with the first word, and the
+   margin sets a tighter gap than a full monospace space (0.3em instead of 0.6em). */
 .section__title::before {
-  content: "> ";
+  content: ">";
+  margin-right: 0.3em;
   color: var(--cyan);
   text-shadow: none;
 }
 
 @media (min-width: 62.5rem) {
-  .hero,
-  .section {
-    margin-inline: auto;
-  }
   .hero {
     padding-inline: 3rem;
   }

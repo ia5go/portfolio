@@ -14,15 +14,19 @@
 @media (min-width: 75rem) {
   .home-layout {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) clamp(26.5rem, 30vw, 34rem);
+    /* Three even tracks plus the sidebar. The top windows span the three tracks; at the
+       bottom, Consulting takes two of them and Formation the third plus the sidebar's
+       width, so Consulting reads comfortably (no less than 28rem) and the pair ends at
+       about the same height. */
+    grid-template-columns: repeat(3, minmax(0, 1fr)) clamp(26.5rem, 30vw, 34rem);
     grid-template-areas:
-      "hero       hero       projects"
-      "strip      strip      projects"
-      "about      about      projects"
-      "skills     skills     projects"
-      "experience experience experience"
-      "consulting formation  formation"
-      "contact    contact    contact";
+      "hero       hero       hero       projects"
+      "strip      strip      strip      projects"
+      "about      about      about      projects"
+      "skills     skills     skills     projects"
+      "experience experience experience experience"
+      "consulting consulting formation  formation"
+      "contact    contact    contact    contact";
     gap: 1.5rem;
     max-width: 200rem; /* 3200px: margins stay slim even on a 3440px ultra-wide */
     margin-inline: auto;
@@ -73,6 +77,33 @@
   }
   .home-layout > #consulting .consulting__list {
     grid-template-columns: minmax(0, 1fr);
+  }
+  /* Formation is the narrower of its pair: degree and both course lists read down a
+     single column. */
+  .home-layout > #formation .formation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* 1320px up to the 1800px layout: Formation has room for two columns again, packed so
+   neither runs empty: the degree and the short technical list on the left, the long
+   AI list down the wider right column. The second row takes whatever height the AI
+   list adds, so the technical list sits right under the degree. */
+@media (82.5rem <= width < 112.5rem) {
+  .home-layout > #formation .formation {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-rows: auto 1fr;
+    align-items: start;
+  }
+  .home-layout > #formation .formation__degree {
+    grid-column: 1;
+  }
+  .home-layout > #formation .formation > :nth-child(2) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+  }
+  .home-layout > #formation .formation > :nth-child(3) {
+    grid-column: 1;
   }
 }
 
