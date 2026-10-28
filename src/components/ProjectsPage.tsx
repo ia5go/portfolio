@@ -9,10 +9,15 @@ import { useLocale } from "./site/LocaleProvider";
 import { Nav } from "./site/Nav";
 import "./projects/projects-page.css";
 
-const backToHome: Localized = {
-  pt: "Voltar para o início",
-  en: "Back to Home",
-};
+/**
+ * The way home, written as a shell command in the window's title bar: `cd ~` plus a
+ * plain-language comment, so it reads to clients as well as to developers. The
+ * accessible name keeps the visible words and spells the action out.
+ */
+const homeCommand = {
+  comment: { pt: "# início", en: "# home" },
+  label: { pt: "cd ~, voltar para o início", en: "cd ~, back to home" },
+} satisfies Record<string, Localized>;
 
 /** Every online site that has a valid screenshot (the manifest), same card as the Home Page. */
 export function ProjectsPage({ locale: served }: { locale: Locale }) {
@@ -21,9 +26,16 @@ export function ProjectsPage({ locale: served }: { locale: Locale }) {
     <>
       <Nav locale={locale} page="projects" />
       <main className="home">
-        <section id="projects" className="section">
-          <a className="projects-page__back" href={pagePath("home", locale)}>
-            ← {t(backToHome, locale)}
+        <section id="projects" className="section projects-page">
+          <a
+            className="projects-page__home"
+            href={pagePath("home", locale)}
+            aria-label={t(homeCommand.label, locale)}
+          >
+            <span className="projects-page__chip">
+              <span className="projects-page__cmd">cd ~</span>
+              <span className="projects-page__comment">{t(homeCommand.comment, locale)}</span>
+            </span>
           </a>
           <h1 className="section__title">{t(projectsPageCopy.title, locale)}</h1>
           <p>{t(projectsPageCopy.intro, locale)}</p>

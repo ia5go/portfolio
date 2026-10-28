@@ -1,26 +1,98 @@
-.projects-page__back {
-  display: inline-flex;
-  align-items: center;
-  min-height: var(--tap-min);
-  color: var(--magenta);
-  font-family: var(--font-mono);
+/*
+ * Projects Page (#24). Mobile first: the window keeps the shared `.section` look from
+ * globals.css. The selectors below carry two classes so they win over `.section`
+ * whatever order the stylesheets load in.
+ */
+
+/* Title bar `● ● ●  ~/projects` stops short of the `cd ~` chip on its right, so a
+   narrow phone ellipsises the path instead of running it under the chip. */
+.section.projects-page::after {
+  padding-right: 9.5rem;
 }
 
+/* The way home: a `cd ~` command chip at the right of the title bar, quieter than the
+   title. The link is 44px tall from the window's top edge (the window clips anything
+   above), so the target reaches past the bar's foot while the chip sits inside it. */
+.projects-page__home {
+  position: absolute;
+  top: 0;
+  right: 0.375rem;
+  z-index: 1; /* above the title bar's tint */
+  display: flex;
+  align-items: flex-start;
+  height: var(--tap-min);
+  /* Centres the 1.375rem chip in the title bar (1rem padding + 0.75rem × 1.4 line). */
+  padding: calc((1rem + 0.75rem * 1.4 - 1.375rem) / 2) 0.25rem 0;
+  text-decoration: none;
+}
+
+.projects-page__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75ch;
+  height: 1.375rem;
+  padding: 0 0.5rem;
+  border: 1px solid rgba(0, 243, 255, 0.35);
+  border-radius: 2px;
+  background: rgba(26, 8, 38, 0.55);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  color: rgba(0, 243, 255, 0.85);
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.projects-page__comment {
+  color: var(--violet);
+}
+
+.projects-page__home:focus-visible {
+  outline: none;
+}
+.projects-page__home:focus-visible .projects-page__chip {
+  outline: 2px solid var(--cyan);
+  outline-offset: 2px;
+  color: var(--cyan);
+  border-color: var(--cyan);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .projects-page__home:hover .projects-page__chip {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    background: rgba(0, 243, 255, 0.1);
+    box-shadow: var(--glow-cyan);
+  }
+}
+
+/* Cards fill the window: as many columns as fit, each at least 18rem wide. On very
+   wide screens the minimum grows with the viewport (up to 24rem), so a 3440px window
+   gains columns while every card stays a sensible size. */
 .projects-page__grid {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, clamp(18rem, 12vw, 24rem)), 1fr));
   gap: 1.25rem;
   margin-top: 1.5rem;
 }
 
-@media (min-width: 48rem) {
-  .projects-page__grid {
-    grid-template-columns: repeat(2, 1fr);
+/* From 1080px the window takes about 95% of the viewport (the shared 60rem cap is
+   lifted here only). */
+@media (min-width: 67.5rem) {
+  .section.projects-page {
+    width: 95%;
+    max-width: none;
+    margin-inline: auto;
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 120rem) {
   .projects-page__grid {
-    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
   }
 }

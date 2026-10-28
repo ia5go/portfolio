@@ -40,14 +40,16 @@ describe("Home vs Projects Page", () => {
     }
   });
 
-  it("links back to Home in each language", () => {
+  it("links back to Home in each language with a `cd ~` command chip", () => {
     const pt = render(<ProjectsPage locale="pt" />);
-    expect(
-      screen.getByRole("link", { name: /Voltar para o início/ }).getAttribute("href"),
-    ).toBe("/");
+    const ptLink = screen.getByRole("link", { name: "cd ~, voltar para o início" });
+    expect(ptLink.getAttribute("href")).toBe("/");
+    expect(ptLink.textContent).toBe("cd ~# início");
     pt.unmount();
     render(<ProjectsPage locale="en" />);
-    expect(screen.getByRole("link", { name: /Back to Home/ }).getAttribute("href")).toBe("/en");
+    const enLink = screen.getByRole("link", { name: "cd ~, back to home" });
+    expect(enLink.getAttribute("href")).toBe("/en");
+    expect(enLink.textContent).toBe("cd ~# home");
     expect(screen.getAllByRole("link", { name: /^Visit site: / }).length).toBeGreaterThan(6);
   });
 });
