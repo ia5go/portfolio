@@ -203,8 +203,9 @@ button {
   text-decoration: none;
 }
 
+/* Small text: the crisp magenta, no glow. */
 .site-nav a[aria-current] {
-  color: var(--magenta);
+  color: var(--magenta-text);
 }
 
 .site-nav .site-nav__brand {

@@ -77,7 +77,7 @@
 }
 .contact__via::before {
   content: "› ";
-  color: var(--magenta);
+  color: var(--magenta-text);
 }
 #contact .contact-links {
   margin-top: 0;

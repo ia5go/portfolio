@@ -11,8 +11,10 @@
   text-decoration: none;
   text-align: center;
   background: var(--magenta);
+  /* Dark ink at weight 800, like the PT|EN toggle and "Ver projetos" (5.0:1). The
+     tracking stays at 0.04em: wider, "Chamar no WhatsApp" wraps at 320px. */
   color: var(--bg);
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
   transition: background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }

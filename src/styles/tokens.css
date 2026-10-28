@@ -5,6 +5,10 @@
   --bg2: #24093a; /* terminal panel, a step above the night */
   --cyan: #00f3ff; /* Vice Cyan: borders, active elements, code lines */
   --magenta: #ff007f; /* Laser Magenta: main titles, highlighted buttons */
+  /* Laser Magenta for small text: lifted a step toward --bright (about #fd2f99) and
+     worn without glow, so it stays sharp. 5.4:1 on --bg, 5.1:1 on --bg2, 4.8:1 on the
+     magenta-tinted panels. Big titles keep --magenta with the full neon glow. */
+  --magenta-text: color-mix(in srgb, var(--magenta) 80%, var(--bright));
   --purple: #9e00ff; /* Overdrive Purple: secondary gradients and shadows only */
   --violet: #c77dff; /* Overdrive Purple lifted to pass 4.5:1 as text */
   --bright: #f4ecff;

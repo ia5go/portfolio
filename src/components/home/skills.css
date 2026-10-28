@@ -76,6 +76,10 @@
   --tier-color: var(--magenta);
   box-shadow: var(--glow-magenta);
 }
+/* Its label is small text: the crisp magenta (the border stays Laser Magenta). */
+.skill-group--delivered .skill-group__label {
+  color: var(--magenta-text);
+}
 .skill-group--delivered .skill-chip {
   background: rgba(255, 0, 127, 0.14);
 }

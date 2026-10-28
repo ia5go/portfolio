@@ -97,7 +97,7 @@
     background-color 180ms ease;
 }
 .site-footer__link[aria-current="page"] {
-  color: var(--magenta);
+  color: var(--magenta-text); /* 4.9:1 on the statusline band */
 }
 .site-footer__link:focus-visible {
   outline: 2px solid var(--bright);

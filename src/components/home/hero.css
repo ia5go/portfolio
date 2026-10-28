@@ -1,7 +1,7 @@
 /* Shell prompt in front of the role line. */
 .hero .eyebrow::before {
   content: "> ";
-  color: var(--magenta);
+  color: var(--magenta-text);
 }
 
 .hero .subtitle {
@@ -45,12 +45,14 @@
     box-shadow 0.25s ease;
 }
 
-/* Highlighted button: Laser Magenta, flips to Vice Cyan. */
+/* Highlighted button: Laser Magenta, flips to Vice Cyan. Dark ink cut out of the
+   magenta (5.0:1; light ink would drop to 3.8:1), at the PT|EN toggle's weight 800,
+   which is what makes dark-on-magenta read. */
 .btn--primary {
   background: var(--magenta);
   border-color: var(--magenta);
   color: var(--bg);
-  font-weight: 700;
+  font-weight: 800;
 }
 .btn--primary:focus-visible {
   background: var(--cyan);
@@ -66,7 +68,7 @@
 .btn--secondary::before {
   content: "$ ";
   white-space: pre;
-  color: var(--magenta);
+  color: var(--magenta-text);
 }
 .btn--secondary:focus-visible {
   background: rgba(0, 243, 255, 0.1);

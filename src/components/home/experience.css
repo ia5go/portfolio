@@ -8,6 +8,7 @@
 
 .exp {
   --exp-color: var(--violet);
+  --exp-ink: var(--exp-color); /* the dates; the frame keeps --exp-color */
   padding: 1rem 1.1rem;
   border: 1px solid color-mix(in srgb, var(--exp-color) 45%, transparent);
   border-left: 4px solid var(--exp-color);
@@ -18,6 +19,7 @@
 /* Gradient hierarchy: strongest on the newest, fading down the top three. */
 .exp--rank-1 {
   --exp-color: var(--magenta);
+  --exp-ink: var(--magenta-text); /* 4.8:1 on the magenta-tinted panel; plain magenta is 4.4:1 */
   box-shadow: var(--glow-magenta);
 }
 .exp--rank-2 {
@@ -37,7 +39,7 @@
   margin: 0;
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: var(--exp-color);
+  color: var(--exp-ink);
 }
 .exp--compact .exp__dates {
   color: var(--text);

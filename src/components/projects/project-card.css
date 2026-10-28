@@ -34,14 +34,13 @@
   margin-top: auto;
 }
 
-/* Crisp, no glow: Laser Magenta lifted a step toward white so small type stays sharp
-   and clears 4.5:1 on --bg2 (about 5.1:1) while keeping the magenta identity. */
+/* Crisp, no glow: the small-text magenta (5.1:1 on --bg2). */
 .project-card__name {
   font-family: var(--font-display);
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.25;
-  color: color-mix(in srgb, var(--magenta) 80%, var(--bright));
+  color: var(--magenta-text);
 }
 
 /* The segment as a small label stuck onto the card: a smaller relative of the Skills
@@ -88,7 +87,7 @@
 .project-card__link::before {
   content: "$ ";
   white-space: pre;
-  color: var(--magenta);
+  color: var(--magenta-text);
 }
 /* Invisible hit area that grows the tap target to at least 44px each way. */
 .project-card__link::after {
