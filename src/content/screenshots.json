@@ -1,0 +1,194 @@
+[
+  {
+    "slug": "irma-dulce",
+    "name": "Irmã Dulce (OSID)",
+    "url": "https://www.irmadulce.org.br",
+    "image": "/projects/irma-dulce.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "dna-genetica",
+    "name": "DNA Genética",
+    "url": "https://www.dnagenetica.com.br",
+    "image": "/projects/dna-genetica.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "platinum",
+    "name": "Platinum",
+    "url": "https://www.platinumsalvador.com.br",
+    "image": "/projects/platinum.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "esquire-brasil",
+    "name": "Esquire Brasil",
+    "url": "https://www.esquirebrasil.com.br",
+    "image": "/projects/esquire-brasil.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "coesa",
+    "name": "Coesa Engenharia",
+    "url": "https://coesa.com.br",
+    "image": "/projects/coesa.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "interartis",
+    "name": "Interartis Brasil",
+    "url": "https://interartis.org.br",
+    "image": "/projects/interartis.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "biobloc",
+    "name": "BioBloc",
+    "url": "https://biobloc.com.br",
+    "image": "/projects/biobloc.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "ri-lauro-de-freitas",
+    "name": "RI Lauro de Freitas",
+    "url": "https://www.rilaurodefreitas.com.br",
+    "image": "/projects/ri-lauro-de-freitas.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "instituto-suel-abujamra",
+    "name": "Instituto Suel Abujamra",
+    "url": "https://www.institutosuel.org.br",
+    "image": "/projects/instituto-suel-abujamra.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "brasquimica",
+    "name": "Brasquímica",
+    "url": "https://brasquimica.com.br",
+    "image": "/projects/brasquimica.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "vs-portoes",
+    "name": "VS Portões Automáticos",
+    "url": "https://www.vsportoes.com.br",
+    "image": "/projects/vs-portoes.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "medicina-oral",
+    "name": "Medicina Oral",
+    "url": "https://clinicamedicinaoral.com.br",
+    "image": "/projects/medicina-oral.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "hispania-telecom",
+    "name": "HTE Hispania Telecom Energy",
+    "url": "https://hispaniatelecom.com.br",
+    "image": "/projects/hispania-telecom.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "santo-mercado",
+    "name": "Mercado Municipal de Santo Amaro",
+    "url": "https://santomercadosp.com.br",
+    "image": "/projects/santo-mercado.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "sport-one",
+    "name": "Sport One / CFMOTO",
+    "url": "https://sportone.com.br",
+    "image": "/projects/sport-one.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "grupo-alianca-bahia",
+    "name": "Grupo Aliança Bahia",
+    "url": "https://grupoaliancabahia.com.br",
+    "image": "/projects/grupo-alianca-bahia.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "clinica-osmilto-brandao",
+    "name": "Clínica Osmilto Brandão",
+    "url": "https://clinicaosmiltobrandao.com.br",
+    "image": "/projects/clinica-osmilto-brandao.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "gt-participacoes",
+    "name": "GT Participações e Serviços",
+    "url": "https://gtparticipacoes.com.br",
+    "image": "/projects/gt-participacoes.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "shopping-central-park",
+    "name": "Shopping Central Park",
+    "url": "https://www.shoppingcentralpark.net.br",
+    "image": "/projects/shopping-central-park.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "elite-engenharia",
+    "name": "Elite Engenharia",
+    "url": "https://www.eliteengenharia.com.br",
+    "image": "/projects/elite-engenharia.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "knox-kids",
+    "name": "Knox Kids",
+    "url": "https://knoxkids.com.br",
+    "image": "/projects/knox-kids.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "girassol-azul",
+    "name": "Girassol Azul",
+    "url": "https://girassolazularte.com.br",
+    "image": "/projects/girassol-azul.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "ms-solares",
+    "name": "MS Solares",
+    "url": "https://mssolares.com.br",
+    "image": "/projects/ms-solares.webp",
+    "width": 1280,
+    "height": 800
+  },
+  {
+    "slug": "engemon",
+    "name": "Engemon",
+    "url": "https://engemon.com.br",
+    "image": "/projects/engemon.webp",
+    "width": 1280,
+    "height": 800
+  }
+]

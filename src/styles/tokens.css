@@ -1,0 +1,21 @@
+/* Vaporwave tokens, taken from reference/portfolio-html/portfolio-iago.html */
+:root {
+  --pink: #ff71ce;
+  --cyan: #01cdfe;
+  --purple: #b967ff;
+  --yellow: #fffb96;
+  --bg: #0d0015;
+  --bg2: #120020;
+  --text: #e0d0ff;
+  --grid-color: rgba(185, 103, 255, 0.12);
+  --glow-pink: 0 0 20px rgba(255, 113, 206, 0.5), 0 0 40px rgba(255, 113, 206, 0.2);
+  --glow-cyan: 0 0 20px rgba(1, 205, 254, 0.5), 0 0 40px rgba(1, 205, 254, 0.2);
+  --glow-purple: 0 0 20px rgba(185, 103, 255, 0.5), 0 0 40px rgba(185, 103, 255, 0.2);
+
+  --font-body: var(--font-rajdhani), sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
+  --font-display: var(--font-vt323), monospace;
+
+  --gutter: 1.25rem;
+  --tap-min: 44px;
+}

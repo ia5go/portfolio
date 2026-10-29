@@ -1,0 +1,36 @@
+.consulting {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.consulting__intro,
+.consulting__case {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+.consulting__list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.consulting__item {
+  padding: 0.875rem 1rem;
+  background: var(--bg2);
+  border: 1px solid var(--grid-color);
+  border-radius: 4px;
+}
+.consulting__case {
+  padding-left: 1rem;
+  border-left: 2px solid var(--pink);
+}
+@media (min-width: 768px) {
+  .consulting__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .consulting .whatsapp-button {
+    justify-self: start;
+  }
+}

@@ -1,0 +1,26 @@
+.whatsapp-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap-min);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--pink);
+  color: var(--pink);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  background: transparent;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.whatsapp-button:hover,
+.whatsapp-button:focus-visible {
+  background: var(--pink);
+  color: var(--bg);
+  box-shadow: var(--glow-pink);
+}
+@media (max-width: 599px) {
+  .whatsapp-button {
+    width: 100%;
+  }
+}
