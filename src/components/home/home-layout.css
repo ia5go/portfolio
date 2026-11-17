@@ -1,6 +1,7 @@
 /*
- * Home layout on wide screens (#21). Phones and laptops below 75rem keep the single
- * centred column from globals.css, untouched. From 75rem up the terminal windows sit
+ * Home layout on wide screens (#21). Everything below 87.5rem (1400px) keeps the single
+ * column from globals.css, untouched: windows stacked, each about 95% of the viewport
+ * wide (2.5vw margins). From 87.5rem up the terminal windows sit
  * on a grid with named areas: the Hero leads, Featured Projects becomes a sidebar
  * beside it, the contact strip sits right under the Hero, and the other windows share
  * the width. Only the visual placement changes: the DOM, and so the screen-reader and
@@ -11,7 +12,7 @@
  * so windows sharing a row end close together (they stretch to the row, never gap).
  */
 
-@media (min-width: 75rem) {
+@media (min-width: 87.5rem) {
   .home-layout {
     display: grid;
     /* Three even tracks plus the sidebar. The top windows span the three tracks; at the
@@ -85,11 +86,11 @@
   }
 }
 
-/* 1320px up to the 1800px layout: Formation has room for two columns again, packed so
+/* 1400px up to the 1800px layout: Formation has room for two columns again, packed so
    neither runs empty: the degree and the short technical list on the left, the long
    AI list down the wider right column. The second row takes whatever height the AI
    list adds, so the technical list sits right under the degree. */
-@media (82.5rem <= width < 112.5rem) {
+@media (87.5rem <= width < 112.5rem) {
   .home-layout > #formation .formation {
     grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
     grid-template-rows: auto 1fr;
