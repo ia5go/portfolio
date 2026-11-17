@@ -1,0 +1,192 @@
+<!doctype html>
+<!--
+  Iago Benvindo's CV, English version.
+  Source of public/cv/iago-benvindo-cv-en.pdf (A4, selectable text).
+  To regenerate: render with Playwright's page.pdf() in Chrome (format A4,
+  printBackground true, margins 14mm top, 16mm right/bottom/left), or Print >
+  Save as PDF in Chrome with "Background graphics" on.
+  Facts follow src/content/* and reference/cv/perfil-profissional-20261015-publico.md.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Iago Benvindo · CV</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="cv.css" />
+  </head>
+  <body>
+    <header class="cv-header">
+      <h1 class="cv-name"><span class="prompt">~/</span>Iago Benvindo<span class="cursor" aria-hidden="true"></span></h1>
+      <p class="cv-title">Full-Stack Developer<span class="sep">·</span>Innovation Manager</p>
+      <ul class="cv-contact">
+        <li><span class="label">email</span><a href="mailto:benvindoiago@outlook.com">benvindoiago@outlook.com</a></li>
+        <li><span class="label">whatsapp</span><a href="https://wa.me/5524992463369">+55 (24) 99246-3369</a></li>
+        <li><span class="label">linkedin</span><a href="https://www.linkedin.com/in/iago-benvindo-6b3b031b4/">linkedin.com/in/iago-benvindo-6b3b031b4</a></li>
+        <li><span class="label">github</span><a href="https://github.com/ia5go">github.com/ia5go</a></li>
+      </ul>
+    </header>
+
+    <section class="summary">
+      <h2>Summary</h2>
+      <p>
+        Full-stack developer with more than 5 years of web development. I build custom websites, landing pages
+        and systems, from briefing to launch, and I like code the user never notices: it just works. I spent
+        almost 4 years at Hoom Interativa building interfaces, plugins and Design Systems for dozens of projects.
+        Today, as Innovation Manager at Hoom Interativa and OPER8, I build product, take part in architecture
+        decisions and run automation and process consulting. I have also taught programming, including to
+        international master's students.
+      </p>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <article class="job">
+        <div class="job-head">
+          <div><span class="job-role">Innovation Manager</span> <span class="job-company">Hoom Interativa · OPER8</span></div>
+          <span class="job-dates">06/2026 – present</span>
+        </div>
+        <h3>product and engineering</h3>
+        <ul class="bullets">
+          <li>
+            Ideation, consulting and development of OPER8's <span class="nw">To-Do</span> product, launching soon. Project management of
+            the <span class="nw">To-Do</span> and Marketing apps, including backlog prioritisation; appointed to cover the lead's
+            technical decisions during his holiday.
+          </li>
+          <li>
+            The product's AI layer, designed and programmed on the Anthropic API. Phase 1, delivered up to version
+            1.74.0, includes a read-only assistant, conversation memory and continuation, mentions, history
+            caching and a credit quota per plan.
+          </li>
+          <li>
+            Architecture: took part in the ecosystem's multi-tenant decisions and proposed a central multi-product
+            admin console and an integration that switches models without rewriting code.
+          </li>
+          <li>
+            Interactive MVP delivered in one week for a commercial proposal, with the technical proposal,
+            implementation plan and effort estimate.
+          </li>
+          <li>
+            Technical support and web infrastructure: WordPress and WooCommerce, server (aaPanel), Vercel deploys
+            and email DNS (MX and SPF).
+          </li>
+        </ul>
+        <h3>consulting and processes</h3>
+        <ul class="bullets">
+          <li>
+            Automation and process consulting for a financial-sector company: Monday administration and
+            integrations with Slack, Zendesk and Gmail; sales funnel redesigned from lead to go-live, with
+            automations between stages; KPI audit and revenue dashboards.
+          </li>
+          <li>Workflows, team organisation and AI-use training for the creative team, with supporting materials.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <div><span class="job-role">Independent developer and technical consultant</span> <span class="job-company">Self-employed</span></div>
+          <span class="job-dates">03/2025 – 05/2026</span>
+        </div>
+        <ul class="bullets">
+          <li>External developer and consultant for Esquire Brasil, together with Hoom Interativa.</li>
+          <li>WordPress maintenance and small adjustments for clients.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <div><span class="job-role">Full-Stack Developer</span> <span class="job-company">Hoom Interativa</span></div>
+          <span class="job-dates">06/2021 – 02/2025</span>
+        </div>
+        <ul class="bullets">
+          <li>Development of websites, landing pages and custom systems, from briefing to launch.</li>
+          <li>Interfaces, plugins and Design Systems for dozens of projects.</li>
+        </ul>
+      </article>
+
+      <article class="job">
+        <div class="job-head">
+          <div><span class="job-role">Educator in programming and IT</span> <span class="job-company">Teaching</span></div>
+          <span class="job-dates">2016 – 2021</span>
+        </div>
+        <ul class="bullets">
+          <li>Programming lessons, including to international master's students; more than 100 students taught.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="page-break">
+      <h2>Selected projects</h2>
+      <ul class="projects">
+        <li>
+          <span class="project-name">Girassol Azul</span> <span class="project-segment">· Arts and culture.</span>
+          Institutional site featuring the partners, the project incubator and news, in Portuguese and English.
+          <a class="project-url" href="https://girassolazularte.com.br">girassolazularte.com.br</a>
+        </li>
+        <li>
+          <span class="project-name">DNA Genética</span> <span class="project-segment">· Laboratory and healthcare.</span>
+          Laboratory site with units, exams, vaccines, health plans, scheduling and access to results.
+          <a class="project-url" href="https://www.dnagenetica.com.br">dnagenetica.com.br</a>
+        </li>
+        <li>
+          <span class="project-name">Irmã Dulce (OSID)</span> <span class="project-segment">· Social work.</span>
+          Institutional site of Obras Sociais Irmã Dulce: education, healthcare, Dulce Natura products and
+          donations.
+          <a class="project-url" href="https://www.irmadulce.org.br">irmadulce.org.br</a>
+        </li>
+        <li>
+          <span class="project-name">Esquire Brasil</span> <span class="project-segment">· Magazine and media.</span>
+          Editorial content portal with sections such as Men's Fashion.
+          <a class="project-url" href="https://www.esquirebrasil.com.br">esquirebrasil.com.br</a>
+        </li>
+        <li>
+          <span class="project-name">Engemon</span> <span class="project-segment">· Engineering group.</span>
+          Group institutional site, with companies, areas of work, ESG, news and job openings.
+          <a class="project-url" href="https://engemon.com.br">engemon.com.br</a>
+        </li>
+      </ul>
+      <p class="projects-more">
+        Other sites: Platinum, Coesa Engenharia, Interartis Brasil, RI Lauro de Freitas, Brasquímica, Shopping
+        Central Park, Sport One / CFMOTO, Elite Engenharia, among others.
+      </p>
+    </section>
+
+    <section class="keep">
+      <h2>Skills</h2>
+      <dl class="grid">
+        <dt>in production</dt>
+        <dd>
+          HTML5, CSS3, SCSS, JavaScript, jQuery, TypeScript, React, Vite, Next.js, PHP, Laravel, MySQL, SQLite,
+          REST APIs, WordPress, WooCommerce, Git, Docker, GSAP, SwiperJS, FullCalendar, Figma, Adobe XD
+        </dd>
+        <dt>lab</dt>
+        <dd>Node.js, React Native, Supabase <span class="muted">(personal projects)</span></dd>
+        <dt>integrations</dt>
+        <dd>Monday, Slack, Zendesk, Gmail, Anthropic API, Vercel</dd>
+      </dl>
+    </section>
+
+    <section class="keep">
+      <h2>Education</h2>
+      <dl class="grid">
+        <dt>2015 – 2020</dt>
+        <dd>Associate degree in Information and Communication Technology <span class="muted">· FAETERJ</span></dd>
+        <dt>technical courses</dt>
+        <dd>Git Complete; SOLID principles</dd>
+        <dt>AI courses</dt>
+        <dd>
+          AI Hero Skills Workflow; Anthropic Academy: Claude 101, AI Fluency, Claude Cowork, AI Capabilities and
+          Limitations, Claude Code 101, Introduction to subagents, Claude Code in Action
+        </dd>
+        <dt>languages</dt>
+        <dd>Portuguese (native) · English (advanced)</dd>
+      </dl>
+    </section>
+  </body>
+</html>
