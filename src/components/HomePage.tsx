@@ -24,7 +24,7 @@ export function HomePage({ locale: served }: { locale: Locale }) {
   return (
     <>
       <Nav locale={locale} page="home" />
-      <main className="home home-layout">
+      <main id="main" tabIndex={-1} className="home home-layout">
         <Hero locale={locale} />
         <FeaturedProjects locale={locale} />
         <ContactStrip locale={locale} />

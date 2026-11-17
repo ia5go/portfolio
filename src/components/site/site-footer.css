@@ -201,7 +201,11 @@
 .site-footer__top {
   grid-area: top;
 }
-/* `gg`: vim's "go to the first line", drawn as a small key. */
+/* `gg`: vim's "go to the first line", drawn as a small key. Generated, so it is not
+   part of the link's text (and its accessible name needs no "gg"). */
+.site-footer__key::before {
+  content: "gg" / "";
+}
 .site-footer__key {
   padding: 0 0.4ch;
   border: 1px solid var(--sf-line);

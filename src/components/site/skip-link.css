@@ -1,0 +1,21 @@
+/* Hidden until it takes keyboard focus, then drops in at the top left. */
+.skip-link {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 1000;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1rem;
+  background: var(--magenta);
+  color: var(--bright);
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 2px;
+  transform: translateY(-200%);
+}
+.skip-link:focus-visible {
+  transform: none;
+  outline: 2px solid var(--bright);
+  outline-offset: 2px;
+}

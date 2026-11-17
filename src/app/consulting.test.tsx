@@ -12,7 +12,7 @@ describe("Consulting and automation", () => {
     expect(titles.indexOf("Consultoria e automação")).toBe(
       titles.indexOf("Experiência") + 1,
     );
-    const link = screen.getByRole("link", { name: "Falar sobre automação" });
+    const link = screen.getByRole("link", { name: "Falar sobre automação (abre em nova aba)" });
     const url = new URL(link.getAttribute("href")!);
     expect(url.pathname).toBe("/5524992463369");
     expect(url.searchParams.get("text")).toMatch(/automação/);
@@ -20,7 +20,7 @@ describe("Consulting and automation", () => {
 
   it("renders in English with an English message", () => {
     render(<HomeEn />);
-    const link = screen.getByRole("link", { name: "Talk about automation" });
+    const link = screen.getByRole("link", { name: "Talk about automation (opens in a new tab)" });
     const url = new URL(link.getAttribute("href")!);
     expect(url.searchParams.get("text")).toMatch(/automation/);
     expect(screen.getByText(/fintech/)).toBeInTheDocument();

@@ -7,6 +7,7 @@ import { LocaleProvider } from "./LocaleProvider";
 import { PageTransition } from "./PageTransition";
 import { PixelStars } from "./PixelStars";
 import { SiteFooter } from "./SiteFooter";
+import { SkipLink } from "./SkipLink";
 import "../../app/globals.css";
 
 // One monospace family for the whole terminal look: titles, body and code alike.
@@ -38,6 +39,9 @@ export function RootShell({
       className={jetbrainsMono.variable}
     >
       <body suppressHydrationWarning>
+        <LocaleProvider>
+          <SkipLink locale={locale} />
+        </LocaleProvider>
         <PixelStars />
         <div className="grid-floor" aria-hidden="true" />
         <Effects />

@@ -1,5 +1,6 @@
 import { t, type Locale, type Localized } from "@/content/localized";
 import { courseGroups, degree, english } from "@/content/formation";
+import { NewTabHint } from "../site/NewTabHint";
 import "./formation.css";
 
 export const heading: Localized = {
@@ -32,6 +33,7 @@ export function FormationCourses({ locale }: { locale: Locale }) {
                   {c.url ? (
                     <a href={c.url} target="_blank" rel="noopener noreferrer">
                       {t(c.title, locale)}
+                      <NewTabHint locale={locale} />
                     </a>
                   ) : (
                     t(c.title, locale)

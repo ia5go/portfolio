@@ -1,5 +1,6 @@
 import { t, type Locale, type Localized } from "@/content/localized";
 import type { Project } from "@/content/projects";
+import { newTabHint } from "@/content/site";
 import "./project-card.css";
 
 const visitLabel: Localized = {
@@ -12,7 +13,17 @@ const visitLabel: Localized = {
  * a small tag, and a compact link to the live site on its own line. The role line and
  * description stay in the data but are not rendered on the card.
  */
-export function ProjectCard({ project, locale }: { project: Project; locale: Locale }) {
+export function ProjectCard({
+  project,
+  locale,
+  headingLevel = 3,
+}: {
+  project: Project;
+  locale: Locale;
+  /** The page's heading level above the cards plus one (h2 on the Projects page). */
+  headingLevel?: 2 | 3;
+}) {
+  const Heading = `h${headingLevel}` as const;
   return (
     <article className="project-card">
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -26,7 +37,7 @@ export function ProjectCard({ project, locale }: { project: Project; locale: Loc
         decoding="async"
       />
       <div className="project-card__body">
-        <h3 className="project-card__name">{project.name}</h3>
+        <Heading className="project-card__name">{project.name}</Heading>
         <div className="project-card__meta">
           <p className="project-card__tag">{t(project.segment, locale)}</p>
           <a
@@ -34,7 +45,7 @@ export function ProjectCard({ project, locale }: { project: Project; locale: Loc
             href={project.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`${t(visitLabel, locale)}: ${project.name}`}
+            aria-label={`${t(visitLabel, locale)}: ${project.name} (${t(newTabHint, locale)})`}
           >
             {t(visitLabel, locale)}
           </a>

@@ -68,9 +68,9 @@ export function BrandMark({ name, href }: { name: string; href: string }) {
     <a
       className="site-nav__brand brand-mark"
       href={href}
-      aria-label={name}
       data-expanded={ready && atTop}
     >
+      <span className="sr-only">{name}</span>
       {/* Invisible full name: reserves the open width so nothing else in the header moves. */}
       <span className="brand-mark__ghost" aria-hidden="true">
         {words.map((w) => (

@@ -64,10 +64,10 @@ describe("Contact (pt)", () => {
     const links = within(section).getAllByRole("link");
     expect(links.map((a) => a.textContent)).toEqual(["WhatsApp", "E-mail", "LinkedIn", "GitHub"]);
     expect(links.map((a) => a.getAttribute("aria-label"))).toEqual([
-      "WhatsApp: conversar comigo",
+      "WhatsApp: conversar comigo (abre em nova aba)",
       "E-mail: escrever para benvindoiago@outlook.com",
-      "LinkedIn: meu perfil profissional",
-      "GitHub: veja meu código",
+      "LinkedIn: meu perfil profissional (abre em nova aba)",
+      "GitHub: veja meu código (abre em nova aba)",
     ]);
     // each accessible name starts with the visible label (WCAG 2.5.3)
     for (const a of links) expect(a.getAttribute("aria-label")!.startsWith(a.textContent!)).toBe(true);
@@ -96,7 +96,7 @@ describe("Contact (en) labels", () => {
     const links = within(section).getAllByRole("link");
     expect(links.map((a) => a.textContent)).toEqual(["WhatsApp", "Email", "LinkedIn", "GitHub"]);
     expect(links[1]).toHaveAccessibleName("Email: write to benvindoiago@outlook.com");
-    expect(links[3]).toHaveAccessibleName("GitHub: see my code");
+    expect(links[3]).toHaveAccessibleName("GitHub: see my code (opens in a new tab)");
   });
 });
 

@@ -92,12 +92,10 @@ export function SiteFooter({ locale: served }: { locale: Locale }) {
         </p>
         <a
           href="#top"
-          aria-label={t(footerCopy.topName, locale)}
+          aria-label={`${t(footerCopy.top, locale)}: ${t(footerCopy.topName, locale)}`}
           className="site-footer__link site-footer__top"
         >
-          <span className="site-footer__key" aria-hidden="true">
-            gg
-          </span>
+          <span className="site-footer__key" aria-hidden="true" />
           {t(footerCopy.top, locale)}
           <span className="site-footer__arrow" aria-hidden="true">
             ↑

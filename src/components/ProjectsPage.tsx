@@ -16,7 +16,7 @@ import "./projects/projects-page.css";
  */
 const homeCommand = {
   comment: { pt: "# início", en: "# home" },
-  label: { pt: "cd ~, voltar para o início", en: "cd ~, back to home" },
+  label: { pt: "cd ~ # início: voltar para o início", en: "cd ~ # home: back to home" },
 } satisfies Record<string, Localized>;
 
 /** Every online site that has a valid screenshot (the manifest), same card as the Home Page. */
@@ -25,7 +25,7 @@ export function ProjectsPage({ locale: served }: { locale: Locale }) {
   return (
     <>
       <Nav locale={locale} page="projects" />
-      <main className="home">
+      <main id="main" tabIndex={-1} className="home">
         <section id="projects" className="section projects-page">
           <a
             className="projects-page__home"
@@ -41,7 +41,7 @@ export function ProjectsPage({ locale: served }: { locale: Locale }) {
           <p>{t(projectsPageCopy.intro, locale)}</p>
           <div className="projects-page__grid">
             {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} locale={locale} />
+              <ProjectCard key={project.slug} project={project} locale={locale} headingLevel={2} />
             ))}
           </div>
         </section>

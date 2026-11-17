@@ -1,8 +1,14 @@
-﻿import { localeMetadata } from "@/content/metadata";
+import { localeMetadata } from "@/content/metadata";
 import { ProjectsPage } from "@/components/ProjectsPage";
+import { JsonLd } from "@/components/site/JsonLd";
 
 export const metadata = localeMetadata("pt", "projects");
 
 export default function Page() {
-  return <ProjectsPage locale="pt" />;
+  return (
+    <>
+      <JsonLd page="projects" locale="pt" />
+      <ProjectsPage locale="pt" />
+    </>
+  );
 }

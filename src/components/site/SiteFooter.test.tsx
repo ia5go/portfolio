@@ -28,7 +28,7 @@ describe("SiteFooter", () => {
     expect(windows().getByRole("link", { name: "início" })).toHaveAttribute("href", "/");
     expect(windows().getByRole("link", { name: "projetos" })).toHaveAttribute("href", "/projects");
     expect(windows().getByRole("link", { name: "contato" })).toHaveAttribute("href", "#contact");
-    expect(screen.getByRole("link", { name: "Voltar ao topo" })).toHaveAttribute("href", "#top");
+    expect(screen.getByRole("link", { name: "topo: Voltar ao topo" })).toHaveAttribute("href", "#top");
   });
 
   it("shows the same in English, with English routes", () => {
@@ -39,7 +39,7 @@ describe("SiteFooter", () => {
     expect(windows().getByRole("link", { name: "home" })).toHaveAttribute("href", "/en");
     expect(windows().getByRole("link", { name: "projects" })).toHaveAttribute("href", "/en/projects");
     expect(windows().getByRole("link", { name: "contact" })).toHaveAttribute("href", "#contact");
-    expect(screen.getByRole("link", { name: "Back to top" })).toHaveAttribute("href", "#top");
+    expect(screen.getByRole("link", { name: "top: Back to top" })).toHaveAttribute("href", "#top");
   });
 
   it("marks the page on screen tmux-style and points Contact back to the Home Page", () => {

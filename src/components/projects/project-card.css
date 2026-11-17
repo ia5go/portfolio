@@ -85,7 +85,7 @@
     box-shadow 0.25s ease;
 }
 .project-card__link::before {
-  content: "$ ";
+  content: "$ " / "";
   white-space: pre;
   color: var(--magenta-text);
 }

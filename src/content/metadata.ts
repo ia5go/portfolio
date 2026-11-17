@@ -30,6 +30,19 @@ export function localeMetadata(locale: Locale, page: PageId = "home"): Metadata 
     metadataBase: new URL(siteUrl),
     title,
     description,
+    applicationName: t(siteName, locale),
+    authors: [{ name: t(siteName, locale), url: siteUrl }],
+    creator: t(siteName, locale),
+    keywords:
+      locale === "pt"
+        ? ["desenvolvedor full-stack", "criação de sites", "landing pages", "sistemas sob medida", "automação com IA", "portfólio"]
+        : ["full-stack developer", "website development", "landing pages", "custom systems", "AI automation", "portfolio"],
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+    },
+    formatDetection: { telephone: false, email: false, address: false },
     alternates: {
       canonical: url,
       languages: {
@@ -47,6 +60,6 @@ export function localeMetadata(locale: Locale, page: PageId = "home"): Metadata 
       locale: ogLocale[locale],
       alternateLocale: ogLocale[locale === "pt" ? "en" : "pt"],
     },
-    twitter: { card: "summary", title, description },
+    twitter: { card: "summary_large_image", title, description },
   };
 }

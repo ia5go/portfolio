@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { contact } from "@/content/contact";
 import { t, type Locale, type Localized } from "@/content/localized";
+import { NewTabHint } from "./site/NewTabHint";
 import "./whatsapp-button.css";
 
 /** wa.me link that opens a chat with a pre-filled message. */
@@ -31,6 +32,7 @@ export function WhatsAppButton({
       rel="noopener noreferrer"
     >
       {children}
+      <NewTabHint locale={locale} />
     </a>
   );
 }

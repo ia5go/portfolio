@@ -1,6 +1,7 @@
 import { whatsappHref } from "@/components/WhatsAppButton";
 import { contact, contactCopy } from "@/content/contact";
 import { properNoun, t, type Locale, type Localized } from "@/content/localized";
+import { newTabHint } from "@/content/site";
 import { ContactLinks, type ContactLink } from "./ContactLinks";
 import "./contact.css";
 
@@ -26,11 +27,12 @@ export const composeCopy = {
 export function Contact({ locale }: { locale: Locale }) {
   const named = (label: Localized, hint: Localized, extra = "") =>
     `${t(label, locale)}: ${t(hint, locale)}${extra}`;
+  const external = (name: string) => `${name} (${t(newTabHint, locale)})`;
   const links: ContactLink[] = [
     {
       id: "whatsapp",
       label: t(contactCopy.whatsappLabel, locale),
-      name: named(contactCopy.whatsappLabel, contactCopy.whatsappHint),
+      name: external(named(contactCopy.whatsappLabel, contactCopy.whatsappHint)),
       href: whatsappHref(t(contactCopy.whatsappMessage, locale)),
       external: true,
     },
@@ -43,14 +45,14 @@ export function Contact({ locale }: { locale: Locale }) {
     {
       id: "linkedin",
       label: t(contactCopy.linkedinLabel, locale),
-      name: named(contactCopy.linkedinLabel, contactCopy.linkedinHint),
+      name: external(named(contactCopy.linkedinLabel, contactCopy.linkedinHint)),
       href: contact.linkedin,
       external: true,
     },
     {
       id: "github",
       label: t(contactCopy.githubLabel, locale),
-      name: named(contactCopy.githubLabel, contactCopy.githubHint),
+      name: external(named(contactCopy.githubLabel, contactCopy.githubHint)),
       href: contact.github,
       external: true,
     },
