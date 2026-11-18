@@ -5,3 +5,7 @@ node_modules/
 .env.local
 next-env.d.ts
 *.tsbuildinfo
+
+# Local reference material and private agent memory (never published)
+reference/parceria/
+docs/memory/private/
